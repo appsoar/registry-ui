@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= yeoman.app %>/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       },
       gruntfile: {
@@ -75,6 +75,48 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+
+      //   proxies: [
+      //   {
+      //     context: '/v2',
+      //     //host: 'path-to-your-registry-v2',
+      //     //port: 5000,
+      //     host: '192.168.4.32',
+      //     port: 5050,
+      //     https: false,
+      //     xforward: false,
+      //     headers: {
+      //       'x-custom-added-header': 'custom-value'
+      //     }
+      //   }
+      // ],
+      // livereload: {
+      //   options: {
+      //     open: true,
+      //     middleware: function(connect) {
+      //       var middlewares = [];
+
+      //       // enable Angular's HTML5 mode
+      //       // http://stackoverflow.com/questions/17080494/using-grunt-server-how-can-i-redirect-all-requests-to-root-url
+      //       middlewares.push(modRewrite(['!^/v2/|\\.html|\\.js|\\.svg|\\.css|\\.png|\\.woff2|\\.woff|\\.ttf|\\.jpg$ /index.html [L]']));
+
+      //       // Setup the proxy
+      //       middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+
+      //       // Serve static files
+      //       middlewares.push(
+      //         connect.static('.tmp'),
+      //         connect().use(
+      //           '/bower_components',
+      //           connect.static('./bower_components')
+      //         ),
+      //         connect.static(appConfig.app)
+      //       );
+
+      //       return middlewares;
+      //     }
+      //   }
+      // },
       livereload: {
         options: {
           open: true,
