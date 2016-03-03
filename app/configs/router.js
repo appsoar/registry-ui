@@ -3,37 +3,39 @@
 angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('default', {
     url: '/',
-    templateUrl: 'home/main.html',
+    // templateUrl: 'home/main.html',
+    template: '<app-layout></app-layout>',
     controller: 'MainCtrl as main',
   });
 
   $stateProvider.state('home', {
     url: '',
-    templateUrl: 'home/main.html',
-    controller: 'MainCtrl as main',
+    // templateUrl: 'home/main.html',
+    template: '<app-layout></app-layout>',
+    controller: 'HomeController as main',
   });
 
   $stateProvider.state('home.dashboard', {
     url: '/dashboard',
-    template: '<div ui-view>dashboard</div>',
+    template: '<div ui-view></div>',
     abstract: false
   });
 
   $stateProvider.state('home.repositories', {
     url: '/repositories',
-    template: '<div ui-view>repositories</div>',
+    template: '<div ui-view></div>',
     abstract: false
   });
 
   $stateProvider.state('home.namespaces', {
     url: '/namespaces',
-    template: '<div ui-view>namespaces</div>',
+    template: '<div ui-view></div>',
     abstract: false
   });
 
   $stateProvider.state('home.settings', {
     url: '/settings',
-    template: '<div ui-view>settings</div>',
+    template: '<div ui-view></div>',
     abstract: false
   });
 
@@ -45,7 +47,7 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
 
   $stateProvider.state('home.logs', {
     url: '/logs',
-    template: '<div ui-view>logs</div>',
+    template: '<div ui-view></div>',
     abstract: false
   });
 
@@ -55,5 +57,5 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'LoginController as login',
   });
 
-  // $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/login');
 });

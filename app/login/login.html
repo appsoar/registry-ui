@@ -1,5 +1,12 @@
 <div class="container">
-  <input class="form-control" ng-model="login.username"></input>
-  <input type="password" class="form-control" ng-model="login.password"></input>
-  <button class="btn btn-info" ng-click="login.login()">ok</button>
+<form name="loginForm" ng-controller="LoginController"
+      ng-submit="login(credentials)" novalidate>
+  <label for="username">Username:</label>
+  <input type="text" id="username"
+         ng-model="login.username">
+  <label for="password">Password:</label>
+  <input type="password" id="password"
+         ng-model="login.password">
+  <button type="submit">Login</button>
+</form>
 </div>

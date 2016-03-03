@@ -1,3 +1,6 @@
+@charset "utf-8";
+@import "variables";
+// 这里放具有通用价值的样式
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -8,7 +11,6 @@
 body {
   padding: 0;
 }
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -21,13 +23,14 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
 }
 
 /* Custom page footer */
@@ -45,18 +48,20 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
 }
 
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+
+  p + h4 {
+    margin-top: 28px;
+  }
 }
 
 /* Responsive: Portrait tablets and up */

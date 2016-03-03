@@ -10,7 +10,6 @@ angular.module('registryUiApp').controller('LoginController', function($state){
       $state.go('home');
     }else{
       toastr.error('no.', 'login fail', {timeOut: 1000});
-      $state.go('home.about');
     }
   };
 });

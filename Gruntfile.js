@@ -1,4 +1,4 @@
-// Generated on 2016-03-01 using generator-angular 0.15.1
+// Generated on 2016-03-03 using generator-angular 0.15.1
 'use strict';
 
 // # Globbing
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/**/*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -48,9 +48,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
-      styles: {
-        files: ['<%= yeoman.app %>/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      compass: {
+        files: ['<%= yeoman.app %>/**/*.{scss,sass}'],
+        tasks: ['compass:server', 'postcss:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -60,9 +60,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/**/*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,**/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -75,48 +75,6 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-
-      //   proxies: [
-      //   {
-      //     context: '/v2',
-      //     //host: 'path-to-your-registry-v2',
-      //     //port: 5000,
-      //     host: '192.168.4.32',
-      //     port: 5050,
-      //     https: false,
-      //     xforward: false,
-      //     headers: {
-      //       'x-custom-added-header': 'custom-value'
-      //     }
-      //   }
-      // ],
-      // livereload: {
-      //   options: {
-      //     open: true,
-      //     middleware: function(connect) {
-      //       var middlewares = [];
-
-      //       // enable Angular's HTML5 mode
-      //       // http://stackoverflow.com/questions/17080494/using-grunt-server-how-can-i-redirect-all-requests-to-root-url
-      //       middlewares.push(modRewrite(['!^/v2/|\\.html|\\.js|\\.svg|\\.css|\\.png|\\.woff2|\\.woff|\\.ttf|\\.jpg$ /index.html [L]']));
-
-      //       // Setup the proxy
-      //       middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
-
-      //       // Serve static files
-      //       middlewares.push(
-      //         connect.static('.tmp'),
-      //         connect().use(
-      //           '/bower_components',
-      //           connect.static('./bower_components')
-      //         ),
-      //         connect.static(appConfig.app)
-      //       );
-
-      //       return middlewares;
-      //     }
-      //   }
-      // },
       livereload: {
         options: {
           open: true,
@@ -261,8 +219,41 @@ module.exports = function (grunt) {
               }
             }
           }
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     }, 
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= yeoman.app %>/images',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        importPath: './bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+        }
+      },
+      server: {
+        options: {
+          sourcemap: true
+        }
+      }
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -380,7 +371,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'registryUiApp',
+          module: 'ngTestApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -431,8 +422,8 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
+          cwd: '.',
+          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -447,13 +438,13 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'compass:server'
       ],
       test: [
-        'copy:styles'
+        'compass'
       ],
       dist: [
-        'copy:styles',
+        'compass:dist',
         'imagemin',
         'svgmin'
       ]

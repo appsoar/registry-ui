@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+// 这里定义仅用在当前应用中的样式，但页面特有的样式不要定义在这里
+
+// inject:page:scss 
+//here import other app  scss files, for example _layout
+@import "../components/layout/header.scss";
+@import "../components/layout/footer.scss";
+@import "../components/layout/_layout.scss";
+// endinject
