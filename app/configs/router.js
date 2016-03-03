@@ -2,13 +2,13 @@
 
 angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider.state('default', {
-    url: '',
+    url: '/',
     templateUrl: 'home/main.html',
     controller: 'MainCtrl as main',
   });
 
   $stateProvider.state('home', {
-    url: '/',
+    url: '',
     templateUrl: 'home/main.html',
     controller: 'MainCtrl as main',
   });
@@ -16,37 +16,37 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
   $stateProvider.state('home.dashboard', {
     url: '/dashboard',
     template: '<div ui-view>dashboard</div>',
-    abstract: true
+    abstract: false
   });
 
   $stateProvider.state('home.repositories', {
     url: '/repositories',
     template: '<div ui-view>repositories</div>',
-    abstract: true
+    abstract: false
   });
 
   $stateProvider.state('home.namespaces', {
     url: '/namespaces',
     template: '<div ui-view>namespaces</div>',
-    abstract: true
+    abstract: false
   });
 
   $stateProvider.state('home.settings', {
     url: '/settings',
     template: '<div ui-view>settings</div>',
-    abstract: true
+    abstract: false
   });
 
   $stateProvider.state('home.settings.accounts', {
     url: '/accounts',
     templateUrl: '/settings/accounts/account.html',
-    controller: '/settings/accounts/account.js as account'
+    controller: 'AccountController as account'
   });
 
   $stateProvider.state('home.logs', {
     url: '/logs',
     template: '<div ui-view>logs</div>',
-    abstract: true
+    abstract: false
   });
 
   $stateProvider.state('login', {

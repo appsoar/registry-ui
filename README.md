@@ -11,7 +11,7 @@ Repositories/images add,list,remove,detail,push,pull. User manage ,logs and so o
 #Usage
 
 Prerequisites:
-* [Bower](from http://bower.io/)
+* [Bower](http://bower.io/)
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) 5.7.0 (with NPM)
 * [Yo](http://www.yeoman.com/)

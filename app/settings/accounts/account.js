@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('AccountController', function(){
+angular.module('registryUiApp').controller('AccountController', function(){
   var account = this;
   account.name = 'test dx';
 });
