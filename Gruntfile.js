@@ -8,7 +8,10 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  
+  var modRewrite = require('connect-modrewrite');
 
+  grunt.loadNpmTasks('grunt-connect-proxy');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -66,34 +69,82 @@ module.exports = function (grunt) {
         ]
       }
     },
-
-    // The actual grunt server settings
+ // The actual grunt server settings
     connect: {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
+      proxies: [
+        {
+          context: '/v2',
+          host: 'localhost',
+          port: 9999,
+          // host: '192.168.4.32',
+          // port: 5050,
+          https: false,
+          xforward: false,
+          headers: {
+            'x-custom-added-header': 'custom-value'
+          }
+        }
+      ],
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
-            return [
+          middleware: function(connect) {
+            var middlewares = [];
+
+            // enable Angular's HTML5 mode
+            // http://stackoverflow.com/questions/17080494/using-grunt-server-how-can-i-redirect-all-requests-to-root-url
+            middlewares.push(modRewrite(['!^/v2/|\\.html|\\.js|\\.svg|\\.css|\\.png|\\.woff2|\\.woff|\\.ttf|\\.jpg$ /index.html [L]']));
+
+            // Setup the proxy
+            middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+
+            // Serve static files
+            middlewares.push(
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
               connect.static(appConfig.app)
-            ];
+            );
+
+            return middlewares;
           }
         }
       },
+    // The actual grunt server settings
+    // connect: {
+    //   options: {
+    //     port: 9000,
+    //     // Change this to '0.0.0.0' to access the server from outside.
+    //     hostname: 'localhost',
+    //     livereload: 35729
+    //   },
+    //   livereload: {
+    //     options: {
+    //       open: true,
+    //       middleware: function (connect) {
+    //         return [
+    //           connect.static('.tmp'),
+    //           connect().use(
+    //             '/bower_components',
+    //             connect.static('./bower_components')
+    //           ),
+    //           connect().use(
+    //             '/app/styles',
+    //             connect.static('./app/styles')
+    //           ),
+    //           connect.static(appConfig.app)
+    //         ];
+    //       }
+    //     }
+    //   },
       test: {
         options: {
           port: 9001,
@@ -473,6 +524,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'postcss:server',
+      'configureProxies:server',
       'connect:livereload',
       'watch'
     ]);

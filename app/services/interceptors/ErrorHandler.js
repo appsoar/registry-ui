@@ -15,6 +15,7 @@ angular.module('registryUiApp').factory('ErrorHandler', function ErrorHandlerFac
     return $q.when(config);
   };
   ErrorHandler.responseError = function (rejection) {
+    console.error(rejection);
     if (rejection.status === 401) {
       return $q.reject(rejection);
     }
@@ -30,7 +31,7 @@ angular.module('registryUiApp').factory('ErrorHandler', function ErrorHandlerFac
             data = angular.fromJson(data);
           }
           var message = data.message || data.code;
-          toastr.error('error code: 400', 'message');
+          toastr.error('error code: 400', message);
           break;
         case 403:
           toastr.error('error code: 403', '您没有权限访问此功能：' + rejection.config.method + ' ' + rejection.config.url);
@@ -39,11 +40,10 @@ angular.module('registryUiApp').factory('ErrorHandler', function ErrorHandlerFac
           toastr.error('error code: 404', '您请求的功能不存在：' + rejection.config.method + ' ' + rejection.config.url);
           break;
         case 406:
-          // TODO: 进行统一的错误处理
-          toastr.error('error code: 404', '内部错误：数据格式不正确！');
+          toastr.error('error code: 406', '内部错误：数据格式不正确！');
           break;
         case 500:
-          toastr.error('error code: 404', '内部错误：' + rejection.status + ' - ' + rejection.data);
+          toastr.error('error code: 500', '内部错误：' + rejection.status + ' - ' + rejection.data);
           break;
         default:
           toastr.error('error code: NAN','其他错误：' + rejection.status + ' - ' + rejection.data);

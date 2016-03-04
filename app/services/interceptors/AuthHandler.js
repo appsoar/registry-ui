@@ -4,6 +4,7 @@ angular.module('registryUiApp').factory('AuthHandler', function AuthHandlerFacto
   return {
     responseError: function (rejection) {
       if (rejection.status === 401) {
+          toastr('error code:401', 'Unauth');
           return $q.reject(rejection);
       } else {
         return $q.reject(rejection);

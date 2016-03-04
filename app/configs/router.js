@@ -1,6 +1,9 @@
 'use strict'
 
-angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvider) {
+angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  //remove # from url
+  $locationProvider.html5Mode(true);
+
   $stateProvider.state('default', {
     url: '/',
     // templateUrl: 'home/main.html',
@@ -21,10 +24,17 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     abstract: false
   });
 
-  $stateProvider.state('home.repositories', {
+  // $stateProvider.state('home.repositories', {
+  //   url: '/repositories',
+  //   template: '<div ui-view></div>',
+  //   abstract: false
+  // });
+
+  //temp code ,for test proxy
+ $stateProvider.state('home.repositories', {
     url: '/repositories',
-    template: '<div ui-view></div>',
-    abstract: false
+    templateUrl: '/repositories/repository-list.html',
+    controller: 'RepositoryListController as repositoryList'
   });
 
   $stateProvider.state('home.namespaces', {
