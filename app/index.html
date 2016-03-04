@@ -62,14 +62,23 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="app.js"></script>
+        <!-- config js files -->
         <script src="configs/router.js"></script>
-        <script src="login/login.js"></script>
+        <script src="configs/config.js"></script>
+        <!-- components js files -->
         <script src="components/layout/_layout.js" charset="utf-8"></script>
         <script src="components/layout/footer.js" charset="utf-8"></script>
         <script src="components/layout/header.js" charset="utf-8"></script>
-        <script src="components/layout/menu.js" charset="utf-8"></script>
+        <!-- service js files -->
+        <script src="services/interceptors/AuthHandler.js" charset="utf-8"></script>
+        <script src="services/interceptors/ErrorHandler.js" charset="utf-8"></script>
+        <script src="services/interceptors/LoadingHandler.js" charset="utf-8"></script>
+        <script src="services/services/LoginService.js" charset="utf-8"></script>
+        <!-- filter js files-->
+        <!-- controller js files -->
         <script src="home/home.js"></script>
         <script src="settings/accounts/account.js"></script>
+        <script src="login/login.js"></script>
         <!-- endbuild -->
 </body>
 </html>

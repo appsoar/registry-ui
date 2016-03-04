@@ -5,7 +5,7 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     url: '/',
     // templateUrl: 'home/main.html',
     template: '<app-layout></app-layout>',
-    controller: 'MainCtrl as main',
+    controller: 'HomeController as main',
   });
 
   $stateProvider.state('home', {
