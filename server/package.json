@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "private": true,
+  "devDependencies": {
+    "body-parser": "^1.15.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {}
+}

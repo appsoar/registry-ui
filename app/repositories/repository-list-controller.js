@@ -2,8 +2,9 @@
 angular.module('registryUiApp').controller('RepositoryListController',  function(Repository){
     var repostoryList = this;
     Repository.query({}).$promise.then(function(){
-                // toastr.success('error code: 200', 'ok');
+      // toastr.success('error code: 200', 'ok');
     },function(){
-                // toastr.error('error code: 404', 'message');
+      //tips: code in here exec after interceptors
+      // toastr.error('error code: 404', 'message');
     });
   });
