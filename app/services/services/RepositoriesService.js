@@ -1,7 +1,7 @@
 'use strict';
 angular.module('registryUiApp')
 .factory('Repository', ['$resource', function($resource){
-  return $resource('/v2/_catalodx', {}, {
+  return $resource('/test.json', {}, {
     'query': {
       method:'GET',
       isArray: false,

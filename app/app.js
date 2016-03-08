@@ -19,6 +19,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'ngWebSocket'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){

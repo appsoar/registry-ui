@@ -1,17 +1,13 @@
-'use strict'
-angular.module('registryUiApp').controller('LoginController', function($state, LoginService){
-  var login = this;
-  login.username='';
-  login.password='';
-  login.login  = function(){
-      LoginService.save({},{
-        username: login.username,
-        password: login.password
-      },function() {
-        toastr.success('yes.', 'login success', {timeOut: 3000});
-        $state.go('home');
+'use strict';
+angular.module('registryUiApp').controller('LoginController', function($state, LoginService,  wsService){
+  var vm = this;
+  vm.form={};
+  vm.submit  = function(form){
+      LoginService.save({}, form,function() {
+        // toastr.success('yes.', 'login success', {timeOut: 3000});
+        $state.go('home.dashboard');
       },function(){
-        // toastr.error('no.', 'login fail', {timeOut: 1000});
+        toastr.error('no.', 'username or password error', {timeOut: 3000});
       });   
    };
 });

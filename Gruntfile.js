@@ -37,7 +37,7 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
-        files: ['bower.json'],
+        files: ['bower.jsn'],
         tasks: ['wiredep']
       },
       js: {
@@ -73,6 +73,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
+        // protocol: 'https',
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
         livereload: 35729
@@ -80,8 +81,11 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/v2',
-          host: 'localhost',
-          port: 9005,
+          // host: '0.0.0.0',
+          // port: 9005,
+          host: '192.168.2.110',
+          port: 9090,
+          changeOrigin: true,
           // host: '192.168.4.32',
           // port: 5050,
           https: false,
@@ -275,7 +279,7 @@ module.exports = function (grunt) {
           }
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= yeoman.app %>/**/*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     }, 

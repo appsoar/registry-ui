@@ -1,11 +1,11 @@
 <div class="container">
-
-  <label for="username">Username:</label>
-  <input type="text" id="username"
-         ng-model="login.username">
-  <label for="password">Password:</label>
-  <input type="password" id="password"
-         ng-model="login.password">
-  <button ng-click="login.login()">Login</button>
-
+  <form ng-submit="vm.submit(vm.form)">
+    <label for="_username">Username:</label>
+    <input type="text" id="_username"
+           ng-model="vm.form.username">
+    <label for="_password">Password:</label>
+    <input type="password" id="_password"
+           ng-model="vm.form.password">
+    <button type="submit">Login</button>
+  </form>
 </div>

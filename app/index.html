@@ -8,13 +8,13 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
-    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
-    <link rel="stylesheet" href="bower_components/c3/c3.css" />
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" type="text/css" />
+    <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css" type="text/css" />
+    <link rel="stylesheet" href="/bower_components/c3/c3.css" type="text/css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <base href="/">
     <!-- endbuild -->
   </head>
@@ -57,6 +57,8 @@
     <script src="bower_components/c3/c3.js"></script>
     <script src="bower_components/angular-chart/angular-chart.js"></script>
     <script src="bower_components/angular.easy-pie-chart/dist/angular.easypiechart.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-websocket/angular-websocket.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -65,21 +67,29 @@
         <!-- config js files -->
         <script src="configs/router.js"></script>
         <script src="configs/config.js"></script>
+        <script src="constants/constant.js"></script>
         <!-- components js files -->
-        <script src="components/layout/_layout.js" charset="utf-8"></script>
-        <script src="components/layout/footer.js" charset="utf-8"></script>
-        <script src="components/layout/header.js" charset="utf-8"></script>
+        <script src="components/layout/_layout.js"></script>
+        <script src="components/layout/footer.js"></script>
+        <script src="components/layout/header.js"></script>
         <!-- service js files -->
-        <script src="services/interceptors/AuthHandler.js" charset="utf-8"></script>
-        <script src="services/interceptors/ErrorHandler.js" charset="utf-8"></script>
-        <script src="services/interceptors/LoadingHandler.js" charset="utf-8"></script>
-        <script src="services/services/LoginService.js" charset="utf-8"></script>
-        <script src="services/services/RepositoriesService.js" charset="utf-8"></script>
+        <script src="services/interceptors/AuthHandler.js"></script>
+        <script src="services/interceptors/ErrorHandler.js"></script>
+        <script src="services/interceptors/LoadingHandler.js"></script>
+        <script src="services/services/LoginService.js"></script>
+        <script src="services/services/RepositoriesService.js"></script>
+        <script src="services/services/wsService.js"></script>
+        <script src="services/services/UpgradeService.js"></script>
+        <script src="services/services/LogsService.js"></script>
         <!-- filter js files-->
         <!-- controller js files -->
         <script src="home/home.js"></script>
         <script src="settings/accounts/account.js"></script>
+        <script src="settings/upgrade/upgrade.js"></script>
+        <script src="settings/setting-header.js"></script>
         <script src="login/login.js"></script>
+        <script src="logs/logs.js"></script>
+        <script src="dashboard/dashboard.js"></script>
         <script src="repositories/repository-list-controller.js"></script>
         <!-- endbuild -->
 </body>

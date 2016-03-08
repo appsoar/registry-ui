@@ -6,5 +6,9 @@ angular.module('registryUiApp').factory('LoginService', function ($resource) {
         method:'POST',
         // isArray: false
        },
+       'query': {
+        url: '/v2/test',
+        method:'GET',
+       }
   });
 });
