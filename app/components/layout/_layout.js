@@ -2,6 +2,7 @@
 
 angular.module('registryUiApp').controller('AppLayoutController', function AppLayoutController() {
   var vm = this;
+
 });
 angular.module('registryUiApp').directive('appLayout', function appLayout() {
   return {

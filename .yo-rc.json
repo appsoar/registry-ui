@@ -3,7 +3,7 @@
     "base-path": "../",
     "frameworks": "jasmine",
     "browsers": "PhantomJS",
-    "app-files": "app/scripts/**/*.js",
+    "app-files": "app/**/*.js",
     "files-comments": "bower:js,endbower",
     "bower-components-path": "bower_components",
     "test-files": "test/mock/**/*.js,test/spec/**/*.js"

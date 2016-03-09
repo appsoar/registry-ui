@@ -30,17 +30,23 @@ angular.module('registryUiApp').factory('LoadingHandler', function LoadingHandle
   };
 
   LoadingHandler.request = function (config) {
-    incRef();
+    if(config.url.indexOf('/v2')> -1){
+      incRef();
+    }
     return $q.when(config);
   };
 
   LoadingHandler.response = function (resp) {
-    decRef();
+    if(resp.config.url.indexOf('/v2')> -1){
+      decRef();
+    }
     return $q.when(resp);
   };
 
   LoadingHandler.responseError = function (rejection) {
-    decRef();
+    if(rejection.config.url.indexOf('/v2')> -1){
+      decRef();
+    }
     return $q.reject(rejection);
   };
   return LoadingHandler;

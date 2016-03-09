@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('registryUiApp').factory('LogsService', function($resource){
-    return $resource('/data/logs.json', {}, {
+    // return $resource('/data/logs.json', {}, {
+    return $resource('/v2/logs', {}, {
         'query': {
             method: 'GET',
             isArray: true,

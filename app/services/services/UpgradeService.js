@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('registryUiApp').factory('UpgradeService', function($resource){
-  return $resource('/data/upgrade.json', {}, {
+  // return $resource('/data/upgrade.json', {}, {
+  return $resource('/v2/settings/upgrade', {}, {
       'query': {
         method: 'GET',
         isArray: false,
@@ -19,4 +20,4 @@ angular.module('registryUiApp').factory('UpgradeService', function($resource){
         }
       }
   })
-});
+}); 

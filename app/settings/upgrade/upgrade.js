@@ -5,8 +5,8 @@ angular.module('registryUiApp').controller('UpgradeController', function(Upgrade
   // UpgradeService.query({},function(value, responseHeaders){
   //   console.log(value);
   // }, function(httpResponse){});
-  // UpgradeService.query().$promise.then(function(value, responseHeaders){
-  //   console.log('test');
-  //   console.log(value);
-  // }, function(httpResponse){});
+  UpgradeService.query().$promise.then(function(value, responseHeaders){
+    console.log('test');
+    console.log(value);
+  }, function(httpResponse){});
 });
