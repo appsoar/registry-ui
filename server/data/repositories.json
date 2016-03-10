@@ -1,0 +1,58 @@
+{
+  "repositories": [
+   {
+    "id": 2,
+    "namespace": "brank",
+    "namespaceType": "user",
+    "name": "test",
+    "shortDescription": "",
+    "visibility": "public",
+    "status": "ok"
+   },
+   {
+    "id": 6,
+    "namespace": "cloudsoar",
+    "namespaceType": "user",
+    "name": "repos1",
+    "shortDescription": "just for test, repos1",
+    "visibility": "public",
+    "status": "ok"
+   },
+   {
+    "id": 7,
+    "namespace": "cloudsoar",
+    "namespaceType": "user",
+    "name": "ubuntu",
+    "shortDescription": "",
+    "visibility": "public",
+    "status": "ok"
+   },
+   {
+    "id": 8,
+    "namespace": "nm1",
+    "namespaceType": "organization",
+    "name": "registry",
+    "shortDescription": "",
+    "visibility": "public",
+    "status": "ok"
+   },
+   {
+    "id": 9,
+    "namespace": "cloudsoar",
+    "namespaceType": "user",
+    "name": "hjk",
+    "shortDescription": "",
+    "visibility": "public",
+    "status": "ok"
+   },
+   {
+    "id": 10,
+    "namespace": "nm1",
+    "namespaceType": "organization",
+    "name": "ll",
+    "shortDescription": "",
+    "visibility": "private",
+    "status": "ok"
+   }
+  ]
+ }

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('registryUiApp').controller('RepositoryListController',  function(Repository){
-    var repostoryList = this;
+    var vm = this;
     Repository.query({}).$promise.then(function(){
       // toastr.success('error code: 200', 'ok');
     },function(){

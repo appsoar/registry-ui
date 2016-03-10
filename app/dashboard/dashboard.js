@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('registryUiApp').controller('DashboardController', function(){
+angular.module('registryUiApp').controller('DashboardController', function(wsService){
     var vm = this;
-    console.log('dashboard');
+    vm.sysinfo = wsService;
+
 });

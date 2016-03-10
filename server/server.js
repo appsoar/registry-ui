@@ -66,6 +66,21 @@ app.get('/v2/settings/upgrade', function(req, res){
   });
 });
 
+//send repositories info
+app.get('/v2/repositories', function(req, res){
+  fs.readFile('data/repositories.json', 'utf-8', function (err, data) {
+     if (err) {
+         return console.error(err);
+     }
+      res.status(200);
+      var jsonObj = JSON.parse(data);
+      setTimeout(function() {
+        res.json(jsonObj);
+      }, 10);
+     console.log(jsonObj);
+  });
+});
+
 //https support listen 9006
 https.createServer(options, app).listen(9006, function() {
     console.log('https server started successfully.');

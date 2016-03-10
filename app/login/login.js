@@ -1,5 +1,5 @@
 'use strict';
-angular.module('registryUiApp').controller('LoginController', function($state, LoginService,  wsService){
+angular.module('registryUiApp').controller('LoginController', function($state, LoginService){
   var vm = this;
   vm.form={};
   vm.submit  = function(form){

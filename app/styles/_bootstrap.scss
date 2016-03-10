@@ -1,11 +1,7 @@
 @charset "utf-8";
-
+@import "variables";
 // 这里对bootstrap中的样式进行重定义
-$bgDefault      : #2ecd71;
-$bgHighlight    : #26aa5f;
-$colDefault     : #ecf0f1;
-$colHighlight   : #ffbbbc;
-$dropDown       : true;
+
 .navbar-default {
   border-radius: 0;
   background-color: $bgDefault;
@@ -17,14 +13,21 @@ $dropDown       : true;
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
+    /*> .dropdown:hover .dropdown-menu {display: block;}*/
     > li {
       > a {
         color: $colDefault;
         &:hover,  &:focus {
-          color: $colHighlight; }}
+          -moz-outline:none;
+          outline:none; 
+          color: $colHighlight;
+          background-color: $bgHighlight;  }}
+
       @if $dropDown {
         > .dropdown-menu {
           background-color: $bgDefault;
+          right: auto;
+          left: auto;
           > li {
             > a {
               color: $colDefault;
@@ -33,11 +36,15 @@ $dropDown       : true;
                 background-color: $bgHighlight; }}
             > .divider {
               background-color: $bgHighlight;}}}}}
+
     @if $dropDown {
-      .open .dropdown-menu > .active {
+      .open .dropdown-menu > .active {         
+          right: auto;
+          left: auto;
         > a, > a:hover, > a:focus {
           color: $colHighlight;
           background-color: $bgHighlight; }}}
+
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
@@ -46,6 +53,17 @@ $dropDown       : true;
       > a, > a:hover, > a:focus {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
+  input {
+    color:white;
+    /*background-color:transparent;*/
+    background:url("resource/***.png") no-repeat scroll left center transparent; 
+    border:0;
+    /*border-radius: 0;*/
+    height:30px;
+    line-height: 1.22857;
+    border-bottom:1px solid white;
+    padding-left:25px;
+  }
   .navbar-toggle {
     border-color: $bgHighlight;
     &:hover, &:focus {
@@ -59,6 +77,7 @@ $dropDown       : true;
     color: $colDefault;
     &:hover {
       color: $colHighlight; }}}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {

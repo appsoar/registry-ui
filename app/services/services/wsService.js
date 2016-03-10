@@ -4,9 +4,9 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
       // Open a WebSocket connection
       var ws = $websocket(wsUrl);
 
-      var collection = [];
+      var collection = [] ;
       ws.onError(function (event) {
-          console.log('connection Error', event);
+          console.error('connection Error', event);
       });
       ws.onClose(function (event) {
           console.log('connection closed', event);
@@ -14,22 +14,25 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
       ws.onOpen(function () {
           console.log('connection open');
       });
-
+// {"cpuUsage":12,"totalRam":1833,"availableRam":741,"totalDisk":38345,"availableDisk":1569}
       ws.onMessage(function(event) {
-        console.log('message: ', event.data);
+        // console.log('message: ', event.data);
         var response;
         try {
             response = angular.fromJson(event.data);
+            // console.log(response);
         } catch (e) {
             console.log('error: ', e);
             response = {'error': e};
         }
-       for (var i = 0; i < response.length; i++) {
-          collection.push({
-            //TODO here deal with real data
-          });
-       }
-        // collection.push(JSON.parse(message.data));
+        // collecton[0] = response;
+
+            collection[0]= response.cpuUsage;
+            collection[1]= response.availableRam;
+            collection[2]= response.totalRam;
+            collection[3]= response.availableDisk;
+            collection[4] = response.totalDisk;
+
       });
       return {
         collection: collection,

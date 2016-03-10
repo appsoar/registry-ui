@@ -11,31 +11,33 @@
     </div>
     <div class="collapse navbar-collapse" id="js-navbar-collapse" >
       <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref="home.dashboard">dashboard</a></li>
-        <li><a ui-sref="home.repositories">repositories</a></li>
-        <li><a ui-sref="home.namespaces">namespaces</a></li>
-        <li><a ui-sref="home.settings.accounts">settings</a></li>
-        <li><a ui-sref="home.logs">logs</a></li>
+        <li class="active" cs-nav-select=""><a ui-sref="home.dashboard">Dashboard</a></li>
+        <li cs-nav-select=""><a ui-sref="home.repositories">Repositories</a></li>
+        <li cs-nav-select=""><a ui-sref="home.namespaces">Namespaces</a></li>
+        <li cs-nav-select=""><a ui-sref="home.settings.accounts">Settings</a></li>
+        <li cs-nav-select=""><a ui-sref="home.logs">Logs</a></li>
       </ul>
-<!--         <form class="navbar-form navbar-right" role="search">
-           <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-left " role="search">
+           <div class="form-group  dropdown">
+              <input type="text"  placeholder="Search" ng-model="vm.keyword" ng-change="vm.search()">
+              <cs-search-dropbox repositories="vm.repositories"></cs-search-dropbox>
            </div>
-        </form>  -->
-         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown navbar-right">
-            <a  class="dropdown-toggle" data-toggle="dropdown">
-               cloudsoar 
-               <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-               <li><a href="#">Support</a></li>
-               <li><a href="#">API Docs</a></li>
-               <li><a href="#">Docs</a></li>
-               <li class="divider"></li>
-               <li><a ui-sref="login">Logout</a></li>
-            </ul>
-         </li>
+        </form> 
+        <li class="dropdown ">
+          <a  class="dropdown-toggle" data-toggle="dropdown">
+             <!-- <b class="caret"></b> -->
+             <b class="glyphicon glyphicon-user"></b>
+             Cloudsoar 
+          </a>
+          <ul class="dropdown-menu">
+             <li><a href="#">Support</a></li>
+             <li><a href="#">API Docs</a></li>
+             <li><a href="#">Docs</a></li>
+             <li class="divider"></li>
+             <li><a ui-sref="login">Logout</a></li>
+          </ul>
+       </li>
       </ul>
     </div>
   </div>
