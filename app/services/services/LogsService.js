@@ -9,7 +9,15 @@ angular.module('registryUiApp').factory('LogsService', function($resource){
             transformResponse: function(data){
                 var  logs = [];
                 try{
-                    angular.fromJson(data).lines.forEach((item) => {
+                    // row function(=>) will fail when grunt unit test, so all forEach use angular's way
+                    // angular.fromJson(data).lines.forEach((item) => {
+                    //     var log = '';
+                    //     angular.forEach(item, function(value, key) {
+                    //         log =log + ' ' + (key + '= ' + value);
+                    //     });
+                    //     logs.push(log);
+                    // });
+                    angular.forEach(angular.fromJson(data).lines, function(item){
                         var log = '';
                         angular.forEach(item, function(value, key) {
                             log =log + ' ' + (key + '= ' + value);

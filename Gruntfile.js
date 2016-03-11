@@ -12,6 +12,7 @@ module.exports = function (grunt) {
   var modRewrite = require('connect-modrewrite');
 
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-karma');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 

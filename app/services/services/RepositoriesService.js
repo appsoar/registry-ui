@@ -8,7 +8,10 @@ angular.module('registryUiApp')
       transformResponse: function(data, headers){
           var temp = angular.fromJson(data);
           var repositories = [];
-          temp.repositories.forEach((item) => {
+          // temp.repositories.forEach((item) => {
+          //     repositories.push(item.namespace + '/' + item.name);
+          // });
+          angular.forEach(temp.repositories, function(item){
               repositories.push(item.namespace + '/' + item.name);
           });
           return repositories;
