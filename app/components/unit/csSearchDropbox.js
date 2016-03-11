@@ -7,7 +7,8 @@ angular.module('registryUiApp').directive('csSearchDropbox', function(){
   return {
       restrict: 'E',
       scope:  {
-        repositories: '='
+        repositories: '=',
+        keyword: '='
       },
       templateUrl: 'components/unit/csSearchDropbox.html',
       controller: 'CsSearchDropboxController as vm',

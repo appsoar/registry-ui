@@ -11,7 +11,7 @@
     </div>
     <div class="collapse navbar-collapse" id="js-navbar-collapse" >
       <ul class="nav navbar-nav">
-        <li class="active" cs-nav-select=""><a ui-sref="home.dashboard">Dashboard</a></li>
+        <li class="active" cs-nav-select=""><a ui-sref="home.dashboard"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
         <li cs-nav-select=""><a ui-sref="home.repositories">Repositories</a></li>
         <li cs-nav-select=""><a ui-sref="home.namespaces">Namespaces</a></li>
         <li cs-nav-select=""><a ui-sref="home.settings.accounts">Settings</a></li>
@@ -20,15 +20,16 @@
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left " role="search">
            <div class="form-group  dropdown">
-              <input type="text"  placeholder="Search" ng-model="vm.keyword" ng-change="vm.search()">
-              <cs-search-dropbox repositories="vm.repositories"></cs-search-dropbox>
+              <span class="glyphicon glyphicon-search"></span>
+              <input type="text" placeholder="" ng-model="vm.keyword" ng-change="vm.search() " ng-blur="vm.blur()" ng-focus="vm.focus()">
+              <cs-search-dropbox repositories="vm.repositories" ng-if=" vm.keyword && vm.stay" keyword="vm.keyword"></cs-search-dropbox>
            </div>
         </form> 
         <li class="dropdown ">
           <a  class="dropdown-toggle" data-toggle="dropdown">
              <!-- <b class="caret"></b> -->
              <b class="glyphicon glyphicon-user"></b>
-             Cloudsoar 
+             <tt>Cloudsoar </tt>
           </a>
           <ul class="dropdown-menu">
              <li><a href="#">Support</a></li>
@@ -42,3 +43,4 @@
     </div>
   </div>
 </nav>
+

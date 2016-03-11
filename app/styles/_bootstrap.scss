@@ -4,8 +4,10 @@
 
 .navbar-default {
   border-radius: 0;
+  margin: 0;
+  border:0;
   background-color: $bgDefault;
-  border-color: $bgDefault;
+  /*border-color: $bgDefault;*/
   .navbar-brand {
     color: $colDefault;
     &:hover, &:focus {
@@ -15,6 +17,16 @@
   .navbar-nav {
     /*> .dropdown:hover .dropdown-menu {display: block;}*/
     > li {
+      /*The triangle symbol*/
+/*      &.active > a::after{
+          border-color: transparent transparent #fff;
+          border-style: solid;
+          border-width: 7px;
+          bottom: -2px;
+          content: "";
+          left: 45%;
+          position: absolute;
+      }*/
       > a {
         color: $colDefault;
         &:hover,  &:focus {
@@ -39,8 +51,6 @@
 
     @if $dropDown {
       .open .dropdown-menu > .active {         
-          right: auto;
-          left: auto;
         > a, > a:hover, > a:focus {
           color: $colHighlight;
           background-color: $bgHighlight; }}}
@@ -61,7 +71,7 @@
     /*border-radius: 0;*/
     height:30px;
     line-height: 1.22857;
-    border-bottom:1px solid white;
+    border-bottom:1px solid $colDefault;
     padding-left:25px;
   }
   .navbar-toggle {
@@ -72,7 +82,16 @@
       background-color: $colDefault; }}
   .navbar-collapse,
   .navbar-form {
-    border-color: $colDefault; }
+    border-color: $colDefault; 
+    > .form-group {
+        position: relative;
+        > span {
+            position: absolute;
+/*            top:0;
+            left:0;*/
+            padding: 8px 0 0 3px;
+            color: $colDefault;
+      }}}
   .navbar-link {
     color: $colDefault;
     &:hover {

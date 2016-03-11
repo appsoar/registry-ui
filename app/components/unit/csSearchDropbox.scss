@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+  .dropdown-search{
+      display: block;
+      background-clip: padding-box;
+      background-color: $bgDefault;
+      border-radius: 4px;
+      float: left;
+      font-size: 14px;
+      left: 0;
+      list-style: outside none none;
+      margin: 2px 0 0;
+      min-width: 160px;
+      padding: 5px 0;
+      position: absolute;
+      text-align: left;
+      top: 100%;
+      z-index: 1000;
+      transition: height 1s;
+      > label {
+          padding-left: 12px;
+          color:  $colDefault;
+      }
+      a {
+        text-decoration: none;
+        color:$colDefault;
+        padding: 0 25px;
+        line-height: 30px;
+/*        white-space: nowrap;*/
+        display: block;
+        &:hover{
+          background-color: $bgHighlight; 
+          color:$colHighlight;
+        }
+      }
+  }
