@@ -1,0 +1,179 @@
+@import "../styles/variables";
+
+@mixin form-style {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      color: white;
+      width: 250px;
+      padding: 10px 15px;
+      font-size: 18px;
+  }
+
+.login-container{
+  background: $loginBgCol;
+  background: linear-gradient(to bottom right, $loginBgCol 0%, $loginFormCol 100%);
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  > .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 12% 0;
+      height: 400px;
+      text-align: center;
+      > .logo {
+          font-size: 18px;
+          transition-duration: 1s;
+          transition-timing-function: ease-in-put;
+          > img {
+              width:150px;
+          }
+          > label {
+              color: #d9f1e9;
+              padding-top:15px; 
+              display: block;
+          }
+          > div {
+              /*display: none;*/
+              margin: 60px auto 0;
+              width: 150px;
+              text-align: center;
+              > div {
+                  width: 30px;
+                  height: 30px;
+                  background-color: white;
+                  border-radius: 100%;
+                  display: inline-block;
+                  animation: bouncedelay 1.4s infinite ease-in-out;
+                  animation-fill-mode: both;
+              }
+              > .bounce1 {animation-delay: -0.32s;}
+              > .bounce2 {animation-delay: -0.16s;}
+          }
+      }
+      > form {
+          padding: 50px 0;
+          position: relative;
+          z-index: 2;
+          > input {
+              @include form-style;
+              margin: 0 auto 10px auto;
+              display: block;
+              text-align: center;
+              transition-duration: 0.25s;
+              font-weight: 300;
+              &:hover {background-color: rgba(255, 255, 255, 0.4);}
+              &:focus {
+                  background-color: white;
+                  width: 300px;
+                  color: $loginFormCol;
+              }
+          }
+          > button {
+              @include form-style;
+              cursor: pointer;
+              transition-duration: 0.25s;
+              &:hover {background-color: rgba(255, 255, 255, 0.4);}
+          }
+      }
+  }
+}
+
+.bg-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  >img{
+    position: absolute;
+    list-style: none;
+    height: 50px;
+    &:nth-child(1){
+      left: 10%;
+      top:20%;
+      transform: rotate(10deg);
+      animation: twinkle 10s infinite ease-in-out;
+    }
+    &:nth-child(2){
+      left: 20%;
+      top:30%;
+      transform: rotate(-60deg);
+      animation-delay: 2s;
+      animation: twinkle 15s infinite ease-in-out;
+    }
+    &:nth-child(3){
+      left: 25%;
+      top:33%;
+      transform: rotate(30deg);
+      animation-delay: 4s;
+      animation: twinkle 34s infinite ease-in-out;
+    }
+    &:nth-child(4){
+      left: 32%;
+      top:18%;
+      transform: rotate(-45deg);
+      animation-delay: 6s;
+      animation: twinkle 60s infinite ease-in-out;
+    }
+    &:nth-child(5){
+      left: 55%;
+      top:75%;
+      transform: rotate(66deg);
+      animation-delay: 8s;
+      animation: twinkle 23s infinite ease-in-out;
+    }
+    &:nth-child(6){
+      left: 66%;
+      top:50%;
+      transform: rotate(100deg);
+      animation-delay: 10s;
+      animation: twinkle 42s infinite ease-in-out;
+    }
+    &:nth-child(7){
+      left: 75%;
+      top:40%;
+      transform: rotate(20deg);
+      animation-delay: 12s;
+      animation: twinkle 31s infinite ease-in-out;
+    }
+    &:nth-child(8){
+      left: 82%;
+      top:60%;
+      transform: rotate(-7deg);
+      animation-delay: 14s;
+      animation: twinkle 11s infinite ease-in-out;
+    }
+    &:nth-child(9){
+      left: 91%;
+      top:27%;
+      transform: rotate(12deg);
+      animation-delay: 16s;
+      animation: twinkle 39s infinite ease-in-out;
+    }
+  }
+}
+@keyframes twinkle {
+  0% ,35%, 65%, 100%{
+        opacity: 0;
+  }
+  50% {
+        opacity: 0.6;
+  }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}

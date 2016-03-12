@@ -1,11 +1,32 @@
-<div class="container">
-  <form ng-submit="vm.submit(vm.form)">
-    <label for="_username">Username:</label>
-    <input type="text" id="_username"
-           ng-model="vm.form.username">
-    <label for="_password">Password:</label>
-    <input type="password" id="_password"
-           ng-model="vm.form.password">
-    <button type="submit">Login</button>
-  </form>
+<div class="login-container">
+  <div class="container">
+    <div class="logo">
+        <img ng-src="/images/appsoar.svg">
+        <label>AppHouse 企业私有镜像仓库</label>
+          <div class="spinner" ng-show="vm.logining">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+          </div>
+    </div>  
+    <form ng-submit="vm.submit(vm.form)" ng-hide="vm.logining">
+      <!-- <label for="_username">Username:</label> -->
+      <input type="text" id="_username" ng-model="vm.form.username" placeholder="username" required="">
+      <!-- <label for="_password">Password:</label> -->
+      <input type="password" id="_password"  ng-model="vm.form.password" placeholder="password" required="">
+      <button type="submit" >Login</button>
+    </form>
+  </div>
+  <ul class="bg-bubbles">
+      <img ng-src="/images/docker.png">
+      <img ng-src="/images/hadoop.png">  
+      <img ng-src="/images/jenkins.png">  
+      <img ng-src="/images/mongodb.png">  
+      <img ng-src="/images/mysql.png">  
+      <img ng-src="/images/node.png">  
+      <img ng-src="/images/redis.png">  
+      <img ng-src="/images/spark.png">  
+      <img ng-src="/images/tomcat.png">  
+    </ul>
 </div>
+<layout-footer></layout-footer>

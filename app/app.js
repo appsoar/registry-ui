@@ -15,11 +15,12 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    // 'ngRoute',
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'ngWebSocket'
+    'ngWebSocket',
+    'easypiechart',
+    'chart.js',
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){

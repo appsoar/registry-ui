@@ -6,32 +6,39 @@
   border-radius: 0;
   margin: 0;
   border:0;
+  /*height: 50px;*/
   background-color: $bgDefault;
   /*border-color: $bgDefault;*/
   .navbar-brand {
     color: $colDefault;
+    padding: 7px 10px;
     &:hover, &:focus {
-      color: $colHighlight; }}
+      color: $colHighlight; }
+/*      > div {padding-top: 7px; display: inline-block;padding-left: 10px;border-left:1px solid $colDefault;}*/
+      > img {
+            float: left;
+            padding-right: 5px 10px;
+            height:40px;
+        }}
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
     /*> .dropdown:hover .dropdown-menu {display: block;}*/
     > li {
       /*The triangle symbol*/
-/*      &.active > a::after{
-          border-color: transparent transparent #fff;
+      &.active > a::after{
+          border-color: transparent transparent #e6edf4;
           border-style: solid;
-          border-width: 7px;
+          border-width: 8px;
           bottom: -2px;
           content: "";
           left: 45%;
           position: absolute;
-      }*/
+      }
       > a {
+        outline:none; 
         color: $colDefault;
-        &:hover,  &:focus {
-          -moz-outline:none;
-          outline:none; 
+        &:hover {
           color: $colHighlight;
           background-color: $bgHighlight;  }}
 
@@ -58,7 +65,7 @@
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}
+        background-color: $bgDefault; }}
     > .open {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
@@ -66,7 +73,7 @@
   input {
     color:white;
     /*background-color:transparent;*/
-    background:url("resource/***.png") no-repeat scroll left center transparent; 
+    background: no-repeat scroll left center transparent; 
     border:0;
     /*border-radius: 0;*/
     height:30px;
@@ -87,8 +94,6 @@
         position: relative;
         > span {
             position: absolute;
-/*            top:0;
-            left:0;*/
             padding: 8px 0 0 3px;
             color: $colDefault;
       }}}

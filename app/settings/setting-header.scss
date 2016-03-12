@@ -1,1 +1,36 @@
+@charset "utf-8";
+@import "variables";
 
+.navbar-level-2 {
+    border-radius: 0;
+    background-color: $bgDefault2;
+    .navbar-nav {
+      > li {
+            /*The triangle symbol*/
+            &.active > a::after{
+                  border-color: transparent transparent #fff;
+                  border-style: solid;
+                  border-width: 9px;
+                  bottom: -2px;
+                  content: "";
+                  left: 45%;
+                  position: absolute;
+            }
+            > a {
+                  color: $colDefault2;
+                  &:hover,  &:focus {
+                      -moz-outline:none;
+                      outline:none; 
+                      color: $colHighlight2;
+                      background-color: $bgHighlight2;  
+                  }
+              }
+        }
+      > .active {
+          > a, > a:hover, > a:focus {
+                  color: $colHighlight2;
+                  background-color: $bgHighlight2; 
+            }
+        }
+    }
+}

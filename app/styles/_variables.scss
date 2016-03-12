@@ -1,9 +1,20 @@
 @charset "utf-8";
 // 这里可以自定义变量，或定义bootstrap中的同名变量来覆盖它
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-$bgDefault      : #2ecd71;
-$bgHighlight    : #26aa5f;
+/*Level 1 menu*/
+$bgDefault      : #50a3a2;
+$bgHighlight    : #409796;
 $colDefault     : #ecf0f1;
-$colHighlight   : #ffbbbc;
+$colHighlight   : #ecf0f1;
+
+/*Level 2 menu*/
+$bgDefault2 : #e6edf4;
+$bgHighlight2 : #e6edf4;
+$colDefault2    : #7a8493;
+$colHighlight2   : #50a3a2;
+
 $dropDown       : true;
+$loginBgCol : #50a3a2;
+$loginFormCol : #53e3a6;
+
 

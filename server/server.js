@@ -27,7 +27,9 @@ app.post('/v2/login', function(req, res){
     res.status(401);
     response = 'username or password error';
   }
-  res.end(response);
+  setTimeout(function() {
+    res.end(response);
+  }, 3000);
   console.log(req.body);
 });
 
