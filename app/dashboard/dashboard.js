@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registryUiApp').controller('DashboardController', function($interval){
+angular.module('registryUiApp').controller('DashboardController', function($interval, _){
     var vm = this;
     // vm.sysinfo = wsService;
     vm.percent = 0;
@@ -35,25 +35,25 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
 
     vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
     vm.series = ['Series A', 'Series B'];
-    vm.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
-    ];
+    vm.data =  [[65, 59, 80, 81, 56, 55, 40]];
     vm.onClick = function (points, evt) {
       console.log(points, evt);
     };
-
-    // $interval(function(){
-    //   var temp = [];
-    //   for(var n=0; n<6; n++){
-    //       temp[0,n] = vm.data[0,n+1];
-    //       temp[1,n] = vm.data[1,n+1];
-    //   }
-    //   temp[0,6] =   Math.ceil(Math.random()*100);
-    //   temp[1,6] =   Math.ceil(Math.random()*100);
-    //   vm.data = temp;
-    // },3000);
+    vm.lineOptions = {
+        animation: false,
+        bezierCurve : true,
+    }
+    $interval(function(){
+      // var temp =vm.data.concat();
+      var temp = _.drop(vm.data[0]);
+       temp[6] =   Math.ceil(Math.random()*100);
+      // vm.data = temp.concat();
+      vm.data[0] = temp;
+      // console.log(temp);
+      // console.log(vm.data[0]);
+    },2000);
     $interval(function(){
       vm.percent  =   Math.ceil(Math.random()*100);
     },1000);
+
 });
