@@ -17,17 +17,18 @@ angular.module('registryUiApp').factory('LogsService', function($resource){
                     //     });
                     //     logs.push(log);
                     // });
-                    angular.forEach(angular.fromJson(data).lines, function(item){
-                        var log = '';
-                        angular.forEach(item, function(value, key) {
-                            log =log + ' ' + (key + '= ' + value);
-                        });
-                        logs.push(log);
-                    });
+                    // angular.forEach(angular.fromJson(data).lines, function(item){
+                    //     var log = '';
+                    //     angular.forEach(item, function(value, key) {
+                    //         log =log + ' ' + (key + '= ' + value);
+                    //     });
+                    //     logs.push(log);
+                    // });
                 }catch(e){
                   console.error(e);
                 }
-                return logs;
+                // return logs;
+                return angular.fromJson(data).lines;
             }
         }
     });

@@ -1,3 +1,67 @@
+<div class="container">
+    <table class="logs-filter table table-hover ">
+        <thead>
+            <th width="24%">
+                Filter by user
+            </th>
+            <th width="24%">
+                Filter by level
+            </th>
+            <th width="25%">
+                Filter by time
+            </th>           
+             <th width="2%">
+
+            </th>
+            <th width="25%">
+
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><select class="form-control">
+                    <option>all</option>
+                    <option>admin</option>
+                    <option>dx</option>
+                    <option>cloudsoar</option>
+                </select></td>
+                <td><select class="form-control">
+                    <option>all</option>
+                    <option>info</option>
+                    <option>warning</option>
+                    <option>error</option>
+                </select></td>
+                <td>
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendar1"
+                             is-open="vm.opened1" min-date="vm.minDate" uib-max-date="vm.maxDate" datepicker-options="vm.dateOptions"
+                             date-disabled="vm.disabled(date, mode)" ng-required="true" close-text="close"/>
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="vm.open1($event)"><i
+                              class="glyphicon glyphicon-calendar"></i>
+                          </button>
+                        </span>
+                    </p>
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-minus"></span>
+                </td>
+                <td>
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendar2"
+                             is-open="vm.opened2" min-date="vm.minDate" max-date="vm.maxDate" datepicker-options="vm.dateOptions"
+                             date-disabled="vm.disabled(date, mode)" ng-required="true" close-text="close"/>
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="vm.open2($event)"><i
+                              class="glyphicon glyphicon-calendar"></i>
+                          </button>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <ul>
   <li ng-repeat="log in vm.logs">{{log}}</li>
 </ul>

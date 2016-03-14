@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+ // import datepicker from 'angular-ui-bootstrap/src/datepicker';
 angular
   .module('registryUiApp', [
     'ngAnimate',
@@ -21,6 +22,7 @@ angular
     'ngWebSocket',
     'easypiechart',
     'chart.js',
+    'ui.bootstrap'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){

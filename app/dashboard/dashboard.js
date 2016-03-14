@@ -1,10 +1,9 @@
 'use strict';
 
-angular.module('registryUiApp').controller('DashboardController', function($interval, _){
+angular.module('registryUiApp').controller('DashboardController', function($interval, _, LogsService, wsService){
     var vm = this;
-    // vm.sysinfo = wsService;
+    vm.sysinfo = wsService;
     vm.percent = 0;
-
     //常规配置
     vm.options = [
         {
@@ -56,4 +55,7 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
       vm.percent  =   Math.ceil(Math.random()*100);
     },1000);
 
+    LogsService.query().$promise.then(function(value, responseHeaders){
+      vm.logs = value;
+    },function(httpResponse){});
 });
