@@ -20,8 +20,8 @@ angular
     'ui.router',
     'ngWebSocket',
     'easypiechart',
-    'chart.js',
-    'highcharts-ng'
+    'highcharts-ng',
+    'ui.bootstrap'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){
