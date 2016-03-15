@@ -179,7 +179,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                     events: {
                         load: function() {
                             var series = this.series[0];
-                            setInterval(function() {
+                            $interval(function() {
                                 var x = (new Date()).getTime(), // current time
                                     y = Math.random();
                                 series.addPoint([x, y], true, true);
@@ -251,7 +251,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
 
                             // set up the updating of the chart each second
                             var series = this.series[0];
-                            setInterval(function() {
+                            $interval(function() {
                                 var x = (new Date()).getTime(), // current time
                                     y = Math.random();
                                 series.addPoint([x, y], true, true);
