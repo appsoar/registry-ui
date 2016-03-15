@@ -19,25 +19,25 @@
         </thead>
         <tbody>
             <tr>
-                <td><select class="form-control">
-                    <option>all</option>
+                <td><select class="form-control" ng-model="vm.user">
+                    <option></option>
                     <option>admin</option>
                     <option>dx</option>
                     <option>cloudsoar</option>
                 </select></td>
-                <td><select class="form-control">
-                    <option>all</option>
+                <td><select class="form-control" ng-model="vm.level">
+                    <option></option>
                     <option>info</option>
                     <option>warning</option>
                     <option>error</option>
                 </select></td>
                 <td>
                     <p class="input-group">
-                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendar1"
-                             is-open="vm.opened1" min-date="vm.minDate" uib-max-date="vm.maxDate" datepicker-options="vm.dateOptions"
+                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendarStart"
+                             is-open="vm.openedStart" min-date="vm.minDate" uib-max-date="vm.maxDate" datepicker-options="vm.dateOptions"
                              date-disabled="vm.disabled(date, mode)" ng-required="true" close-text="close"/>
                         <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" ng-click="vm.open1($event)"><i
+                          <button type="button" class="btn btn-default" ng-click="vm.openStart($event)"><i
                               class="glyphicon glyphicon-calendar"></i>
                           </button>
                         </span>
@@ -48,11 +48,11 @@
                 </td>
                 <td>
                     <p class="input-group">
-                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendar2"
-                             is-open="vm.opened2" min-date="vm.minDate" max-date="vm.maxDate" datepicker-options="vm.dateOptions"
+                      <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.calendarEnd"
+                             is-open="vm.openedEnd" min-date="vm.minDate" max-date="vm.maxDate" datepicker-options="vm.dateOptions"
                              date-disabled="vm.disabled(date, mode)" ng-required="true" close-text="close"/>
                         <span class="input-group-btn">
-                          <button type="button" class="btn btn-default" ng-click="vm.open2($event)"><i
+                          <button type="button" class="btn btn-default" ng-click="vm.openEnd($event)"><i
                               class="glyphicon glyphicon-calendar"></i>
                           </button>
                         </span>
@@ -63,7 +63,7 @@
     </table>
 </div>
 <ul>
-      <li ng-repeat="log in vm.logs ">
+      <li ng-repeat="log in vm.logs  | filter: {user: vm.user , level: vm.level} | logsSort:vm.calendarStart:vm.calendarEnd">
         <div class="head">
             <span class="glyphicon glyphicon-time"></span>{{log.time}}
             <span class="glyphicon glyphicon-user"></span> {{log.user}} 

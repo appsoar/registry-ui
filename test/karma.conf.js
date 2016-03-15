@@ -36,10 +36,7 @@ module.exports = function(config) {
       'bower_components/angular.easy-pie-chart/dist/angular.easypiechart.js',
       'bower_components/lodash/lodash.js',
       'bower_components/angular-websocket/angular-websocket.min.js',
-      'bower_components/Chart.js/Chart.js',
-      'bower_components/angular-chart.js/dist/angular-chart.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      'bower_components/highcharts-ng/dist/highcharts-ng.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*.js',

@@ -8,15 +8,15 @@ angular.module('registryUiApp').controller('LogsController', function( LogsServi
 
     //初始化日期
   vm.today = function() {
-    vm.calendar1 = new Date();
-    vm.calendar2 = new Date();
+    vm.calendarStart = new Date();
+    vm.calendarEnd = new Date();
   };
-  vm.today();
+  // vm.today();
 
   //清除当前日期
   vm.clear = function() {
-    vm.calendar1 = null;
-    vm.calendar2 = null;
+    vm.calendarStart = null;
+    vm.calendarStart = null;
   };
 
 
@@ -36,29 +36,29 @@ angular.module('registryUiApp').controller('LogsController', function( LogsServi
   }
   vm.toggleMax();
   //弹出式日历触发函数
-  vm.open1 = function($event) {
+  vm.openStart = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
 
-    vm.opened1 = true;
+    vm.openedStart = true;
   };
 
     //弹出式日历触发函数
-  vm.open2 = function($event) {
+  vm.openEnd = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
 
-    vm.opened2 = true;
+    vm.openedEnd = true;
   };
 
   //自定义选项
   vm.dateOptions = {
     formatYear: 'yy',
     startingDay: 1,
-    formatDayTitle: 'yyyy MMMM'
+    formatDayTitle: 'yyyy MMMM',
   };
 
   //输出格式控制,来源:官方date filter
-  vm.formats = ['yyyy-MMMM-dd', 'yyyy/MM/dd', 'yyyy.MM.dd', 'shortDate'];
-  vm.format = vm.formats[1];
+  vm.formats = ['yyyy-MM-dd', 'yyyy/MM/dd', 'yyyy.MM.dd', 'shortDate'];
+  vm.format = vm.formats[0];
 });

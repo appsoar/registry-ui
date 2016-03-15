@@ -57,6 +57,12 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'UpgradeController as vm'
   });
 
+$stateProvider.state('home.settings.license', {
+    url: '/license',
+    templateUrl: '/settings/license/license.html',
+    controller: 'LicenseController as vm'
+  });
+
   $stateProvider.state('home.settings.accounts', {
     url: '/accounts',
     templateUrl: '/settings/accounts/account.html',

@@ -63,7 +63,7 @@ app.get('/v2/settings/upgrade', function(req, res){
       var jsonObj = JSON.parse(data);
       setTimeout(function() {
         res.json(jsonObj);
-      }, 5000);
+      }, 100);
      console.log(jsonObj);
   });
 });

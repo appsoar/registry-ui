@@ -1,1 +1,24 @@
-<div>ddddddd</div>
+<div class="container">
+      <!-- update true -->
+      <div class="row" ng-if="vm.version.upgradeAvailable">
+            <div class="col-md-6 dashwell">
+                <h1>Upgrades available</h1>
+                <p>You'd better update to the latest version of Docker Trusted Registry.</p>
+            </div>
+            <div class="col-md-6 dashwell">
+                <div>Current version: {{vm.version.currentVersion}}</div>
+                <div>Latest version: {{vm.version.newVersion}}</div>
+                <div><a type="button" class="btn btn-danger">Update</a></div>
+            </div>
+      </div>
+      <!-- update false -->
+      <div class="row" ng-if="!vm.version.upgradeAvailable">
+            <div class="col-md-6 dashwell">
+                <h1>No upgrades available</h1>
+                <p>You're running the latest version of Docker Trusted Registry.</p>
+            </div>
+            <div class="col-md-6 dashwell">
+                <label>Current version: {{vm.version.currentVersion}}</label>
+            </div>
+      </div>
+</div>

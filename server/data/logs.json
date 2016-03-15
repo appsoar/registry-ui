@@ -8,13 +8,13 @@
     },
     {
       "time": "2011-11-11 08:11:10",
-      "user": "cloudsoar",
+      "user": "dx",
       "level":"info",
       "detail": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
     },
     {
       "time": "2016-03-04 08:58:13",
-      "user": "cloudsoar",
+      "user": "dx",
       "level":"error",
       "detail": "INFO  [1.4.2] user in team team=read-write user=test"
     },
@@ -26,7 +26,7 @@
     },
     {
       "time": "2016-03-04 08:58:13",
-      "user": "cloudsoar",
+      "user": "abc",
       "level":"warning",
       "detail": "INFO  [1.4.2] Retrieving registry auth token user="
     },
@@ -38,7 +38,7 @@
     },
     {
       "time": "2016-03-04 09:00:00",
-      "user": "cloudsoar",
+      "user": "lb",
       "level":"info",
       "detail": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[HTTPS_PROXY: NO_PROXY: HTTP_PROXY:] DisableUpgrades:false ReleaseChannel:}"
     },
