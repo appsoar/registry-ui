@@ -2,6 +2,9 @@
 
 angular.module('registryUiApp').controller('LayoutHeaderController', function LayoutHeaderController(_, Repository) {
   var vm = this;
+  // vm.currentUser = currentUser.username;
+  vm.currentUser = sessionStorage.currentUser;
+  console.log(vm.currentUser);
   vm.keyword = '';
   vm.repositories = Repository.query({});
   vm.stay = false;

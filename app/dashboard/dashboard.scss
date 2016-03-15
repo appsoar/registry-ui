@@ -66,12 +66,13 @@
                     > .head {
                         background-color: #e0f0f0;
                         padding-bottom: 1px;
+                        text-align: left;
                         > .info {color:#5bc0de; border:1px solid  #5bc0de}
                         > .warning {color:#f0ad4e;border:1px solid  #f0ad4e}
                         > .error {color:#d9534f;border:1px solid  #d9534f}
-                        > span:nth-child(1){padding:0 5px;}
-                        > span:nth-child(2){padding:0 2px 0 20px;}
-                        > span:nth-child(3){padding:0 5px;}
+                        > span:nth-child(1){padding:0 5px; color:$bgDefault;  }
+                        > span:nth-child(2){padding:0 2px 0 20px; color:$bgDefault;}
+                        > span:nth-child(3){padding:0 5px; }
                     }
                    > .detail {padding-left: 24px;}
                 }

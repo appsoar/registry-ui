@@ -63,5 +63,12 @@
     </table>
 </div>
 <ul>
-  <li ng-repeat="log in vm.logs">{{log}}</li>
-</ul>
+      <li ng-repeat="log in vm.logs ">
+        <div class="head">
+            <span class="glyphicon glyphicon-time"></span>{{log.time}}
+            <span class="glyphicon glyphicon-user"></span> {{log.user}} 
+            <span ng-class="log.level" class="pull-right">{{log.level}}</span>
+        </div>
+        <div class="detail"> {{log.detail}}</div>
+    </li>
+</ul>       

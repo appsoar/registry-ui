@@ -21,7 +21,6 @@ angular
     'ui.router',
     'ngWebSocket',
     'easypiechart',
-    'chart.js',
     'ui.bootstrap'
   ]);
   // .config(['$routeProvider', '$locationProvider',

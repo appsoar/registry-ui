@@ -1,13 +1,13 @@
 {
   "lines": [
     {
-      "time": "2016-03-04 08:58:13",
+      "time": "2016-03-04 08:00:13",
       "user": "cloudsoar",
       "level":"info",
       "detail": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[NO_PROXY: HTTP_PROXY: HTTPS_PROXY:] DisableUpgrades:false ReleaseChannel:}"
     },
     {
-      "time": "2016-03-04 08:58:13",
+      "time": "2011-11-11 08:11:10",
       "user": "cloudsoar",
       "level":"info",
       "detail": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
