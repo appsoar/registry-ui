@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registryUiApp').controller('DashboardController', function($interval, _){
+angular.module('registryUiApp').controller('DashboardController', function($interval, _,LogsService,wsService){
     var vm = this;
     // vm.sysinfo = wsService;
     vm.percent = 0;
