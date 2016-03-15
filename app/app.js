@@ -21,6 +21,7 @@ angular
     'ngWebSocket',
     'easypiechart',
     'chart.js',
+    'highcharts-ng'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){
@@ -36,7 +37,7 @@ angular
   //       templateUrl: 'views/about.html',
   //       controller: 'AboutCtrl',
   //       controllerAs: 'about'
-  //     })     
+  //     })
   //    .when('/login', {
   //       templateUrl: 'login/login.html',
   //       controller: 'LoginController',

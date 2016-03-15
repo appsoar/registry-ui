@@ -1,10 +1,12 @@
 <div class="container">
     <div class="row">
         <!-- basic overview -->
-        <div class="col-md-6 well">
-            <div>Images:20</div>
+        <div class="col-md-6 well" ng-controller="DashboardStatisticController">
+                <highchart id="statisticChart" class="high-chart" config="chartConfig"></highchart>
+            <!--<div>Images:20</div>
             <div>Users:20</div>
-            <div>Namespaces:10</div>
+            <div>Namespaces:10</div>-->
+
         </div>
         <!-- sysinfo overview -->
         <div class="col-md-6 well">
@@ -24,17 +26,44 @@
                 <div>Storage</div>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="row ">
         <!-- network overview -->
         <div class="col-md-6 well">
-            <canvas id="line" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-click="vm.onClick" chart-options="vm.lineOptions">    </canvas> 
+                <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
+                        <div class="row">
+                                <div class="col-xs-6">
+                                        <ul id="myTab" class="nav nav-tabs">
+                                                <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
+                                                <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
+                                        </ul>
+                                </div>
+                                <div class="col-xs-2"></div>
+                                <div class="col-xs-4">
+                                        <div class="btn-group">
+                                        <button type="button" class="btn btn-info">eth0</button>
+                                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                                <li><a href="#">eth0</a></li>
+                                                <li><a href="#">eth1</a></li>
+                                        </ul>
+                                </div></div>
+                        </div>
+
+                        <div id="throughputiopscontainer" ></div>
+                </div>
+            <!--<canvas id="line" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-click="vm.onClick" chart-options="vm.lineOptions">    </canvas>-->
         </div>
         <!-- logs overview -->
         <div class="col-md-6 well">
 d
         </div>
-    </div> 
-</div> 
+    </div>
+</div>
+
 <!-- <li ng-repeat="item in vm.sysinfo.collection">{{item}}</li> -->
+
 
