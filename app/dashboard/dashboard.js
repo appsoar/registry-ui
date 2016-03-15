@@ -55,7 +55,9 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
     $interval(function(){
         vm.percent  =   Math.ceil(Math.random()*100);
     },1000);
-
+    LogsService.query().$promise.then(function(value, responseHeaders){
+        vm.logs = value;
+    },function(httpResponse){});
 });
 
 angular.module('registryUiApp').controller('DashboardStatisticController',function($scope,$interval, _){
