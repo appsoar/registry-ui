@@ -1,36 +1,52 @@
 {
   "lines": [
     {
-      "time": "2016-03-04T08:58:13.456131299Z",
-      "text": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[NO_PROXY: HTTP_PROXY: HTTPS_PROXY:] DisableUpgrades:false ReleaseChannel:}"
+      "time": "2016-03-04 08:00:13",
+      "user": "cloudsoar",
+      "level":"info",
+      "detail": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[NO_PROXY: HTTP_PROXY: HTTPS_PROXY:] DisableUpgrades:false ReleaseChannel:}"
     },
     {
-      "time": "2016-03-04T08:58:13.461753894Z",
-      "text": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
+      "time": "2011-11-11 08:11:10",
+      "user": "cloudsoar",
+      "level":"info",
+      "detail": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
     },
     {
-      "time": "2016-03-04T08:58:13.461793813Z",
-      "text": "INFO  [1.4.2] user in team team=read-write user=test"
+      "time": "2016-03-04 08:58:13",
+      "user": "cloudsoar",
+      "level":"error",
+      "detail": "INFO  [1.4.2] user in team team=read-write user=test"
     },
     {
-      "time": "2016-03-04T08:58:13.535717326Z",
-      "text": "INFO  [1.4.2] user in team team=read-write user=brank"
+      "time": "2016-03-04 08:58:13",
+      "user": "cloudsoar",
+      "level":"info",
+      "detail": "INFO  [1.4.2] user in team team=read-write user=brank"
     },
     {
-      "time": "2016-03-04T08:58:13.811148002Z",
-      "text": "INFO  [1.4.2] Retrieving registry auth token user="
+      "time": "2016-03-04 08:58:13",
+      "user": "cloudsoar",
+      "level":"warning",
+      "detail": "INFO  [1.4.2] Retrieving registry auth token user="
     },
     {
-      "time": "2016-03-04T08:58:15.811934587Z",
-      "text": "INFO  [1.4.2] Found available manager versions versions=[1.1.0 1.2.0 1.3.0 1.3.1 1.3.3 1.4.0 1.4.1 1.4.2 1.4.3]"
+      "time": "2016-03-04 08:58:15",
+      "user": "cloudsoar",
+      "level":"error",
+      "detail": "INFO  [1.4.2] Found available manager versions versions=[1.1.0 1.2.0 1.3.0 1.3.1 1.3.3 1.4.0 1.4.1 1.4.2 1.4.3]"
     },
     {
-      "time": "2016-03-04T09:00:00.624862253Z",
-      "text": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[HTTPS_PROXY: NO_PROXY: HTTP_PROXY:] DisableUpgrades:false ReleaseChannel:}"
+      "time": "2016-03-04 09:00:00",
+      "user": "cloudsoar",
+      "level":"info",
+      "detail": "INFO  [1.4.2] got hub config config=\u0026{LoadBalancerHTTPPort:80 LoadBalancerHTTPSPort:443 DomainName:www.3c60.com.cn NotaryServer: NotaryCert: NotaryVerifyCert:false ExtraEnv:map[HTTPS_PROXY: NO_PROXY: HTTP_PROXY:] DisableUpgrades:false ReleaseChannel:}"
     },
     {
-      "time": "2016-03-04T09:00:00.628421653Z",
-      "text": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
+      "time": "2016-03-04 09:00:00",
+      "user": "cloudsoar",
+      "level":"warning",
+      "detail": "INFO  [1.4.2] user in team team=admin user=cloudsoar"
     }
   ]
 }

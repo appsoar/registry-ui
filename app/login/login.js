@@ -8,6 +8,9 @@ angular.module('registryUiApp').controller('LoginController', function($state, L
       LoginService.save({}, form,function() {
         // toastr.success('yes.', 'login success', {timeOut: 3000});
         vm.logining = false;
+        // currentUser.username = form.username;
+        sessionStorage.currentUser = form.username;
+        // console.log(currentUser);
         $state.go('home.dashboard');
       },function(){
         vm.logining = false;

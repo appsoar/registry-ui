@@ -20,18 +20,18 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
         var response;
         try {
             response = angular.fromJson(event.data);
-            // console.log(response);
+            console.log(response);
         } catch (e) {
             console.log('error: ', e);
             response = {'error': e};
         }
         // collecton[0] = response;
 
-            collection[0]= response.cpuUsage;
-            collection[1]= response.availableRam;
-            collection[2]= response.totalRam;
-            collection[3]= response.availableDisk;
-            collection[4] = response.totalDisk;
+            // collection[0]= response.cpuUsage;
+            // collection[1]= response.availableRam;
+            // collection[2]= response.totalRam;
+            // collection[3]= response.availableDisk;
+            // collection[4] = response.totalDisk;
 
       });
       return {

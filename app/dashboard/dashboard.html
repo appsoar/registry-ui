@@ -1,29 +1,37 @@
 <div class="container">
+    <div class="gap"></div>
     <div class="row">
         <!-- basic overview -->
         <div class="col-md-6 well" ng-controller="DashboardStatisticController">
                 <highchart id="statisticChart" class="high-chart" config="chartConfig"></highchart>
             <!--<div>Images:20</div>
+        <div class="col-md-6 dashwell">
+            <div class="title"><h4>User Status</h4></div>
+            <div>Images:20</div>
             <div>Users:20</div>
             <div>Namespaces:10</div>-->
 
         </div>
         <!-- sysinfo overview -->
-        <div class="col-md-6 well">
+        <div class="col-md-6 dashwell">
+            <div class="title"><h4>Host Status</h4></div>
             <!-- cpu pie chart -->
             <div class="pie-chart" easypiechart options="vm.options[0]" percent="vm.percent">
                 <span  ng-bind="vm.percent"></span>
                 <div>CPU</div>
+                <div>{{vm.percent}}/100</div>
             </div>
             <!-- memory pie chart -->
             <div class="pie-chart" easypiechart options="vm.options[1]" percent="vm.percent">
                 <span  ng-bind="vm.percent"></span>
                 <div>Memory</div>
+                <div>{{vm.percent}}/100</div>
             </div>
             <!-- storage pie chart -->
             <div class="pie-chart" easypiechart options="vm.options[2]" percent="vm.percent">
                 <span ng-bind="vm.percent"></span>
                 <div>Storage</div>
+                <div>{{vm.percent}}/100</div>
             </div>
         </div>
     </div>
@@ -56,10 +64,26 @@
                         <div id="throughputiopscontainer" ></div>
                 </div>
             <!--<canvas id="line" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-click="vm.onClick" chart-options="vm.lineOptions">    </canvas>-->
+        <div class="col-md-6 dashwell ">
+            <div class="gap-top"></div>
+            <div class="title"><h4>Network Status</h4></div>
+            <!-- <canvas id="line" class="chart chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-click="vm.onClick" chart-options="vm.lineOptions">    </canvas>  -->
+            <!-- <highchart id="chart1" series="vm.chart.series" title="vm.chart.title" options="vm.chart.options"></highchart> -->
         </div>
         <!-- logs overview -->
-        <div class="col-md-6 well">
-d
+        <div class="col-md-6 dashwell ">
+            <div class="gap-top"></div>
+            <div class="title"><h4>最新日志</h4><a ui-sref="home.logs" type="button">更多</a></div>
+            <ul>
+                <li ng-repeat="log in vm.logs | limitTo:5">
+                    <div class="head">
+                        <span class="glyphicon glyphicon-time"></span>{{log.time}}
+                        <span class="glyphicon glyphicon-user"></span> {{log.user}}
+                        <span ng-class="log.level" class="pull-right">{{log.level}}</span>
+                    </div>
+                    <div class="detail"> {{log.detail}}</div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
