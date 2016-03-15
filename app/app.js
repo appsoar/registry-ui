@@ -8,7 +8,6 @@
  *
  * Main module of the application.
  */
- // import datepicker from 'angular-ui-bootstrap/src/datepicker';
 angular
   .module('registryUiApp', [
     'ngAnimate',
@@ -21,7 +20,8 @@ angular
     'ui.router',
     'ngWebSocket',
     'easypiechart',
-    'ui.bootstrap'
+    'chart.js',
+    'highcharts-ng'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){
@@ -37,7 +37,7 @@ angular
   //       templateUrl: 'views/about.html',
   //       controller: 'AboutCtrl',
   //       controllerAs: 'about'
-  //     })     
+  //     })
   //    .when('/login', {
   //       templateUrl: 'login/login.html',
   //       controller: 'LoginController',
