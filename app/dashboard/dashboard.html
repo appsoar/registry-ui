@@ -42,17 +42,13 @@
                         <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
                                 <div class="row">
 
-                                                <ul id="myTab" class="nav nav-tabs">
-                                                        <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
-                                                        <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
-                                                </ul>
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
+                                        <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
+                                    </ul>
+                                    <select id="selecteth" ng-model="vm.selected" ng-options="s.name as s.value for s in vm.modle" ng-change="vm.selectedChange()" class="selected">
 
-                                                <select id="selecteth" name="selecteth" style=" z-index: 999; position: absolute; top:140px;right:20px;">
-                                                        <option value="eth0">eth0</option>
-                                                        <option value="eth1">eth1</option>
-                                                </select>
-
-
+                                    </select>
                                 </div>
 
                                 <div id="throughputiopscontainer" ></div>

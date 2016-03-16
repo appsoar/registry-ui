@@ -71,5 +71,12 @@
     .dropdown-menu {
         background-color: $bgDefault;
     }
+
+    .selected{
+            z-index: 999;
+            position: absolute;
+            top:140px;
+            right:20px;
+        }
 }
 
