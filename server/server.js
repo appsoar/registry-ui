@@ -29,7 +29,7 @@ app.post('/v2/login', function(req, res){
   }
   setTimeout(function() {
     res.end(response);
-  }, 3000);
+  }, 2000);
   console.log(req.body);
 });
 

@@ -1,0 +1,10 @@
+@import "variables";
+.lic-left {
+    padding-bottom: 40px;
+     > label {
+          color: $bgDefault;
+          display: block;
+          font-size: 18px;
+          padding: 10px 0;
+     }
+}
