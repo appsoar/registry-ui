@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  
+
   var modRewrite = require('connect-modrewrite');
 
   grunt.loadNpmTasks('grunt-connect-proxy');
@@ -281,7 +281,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/**/*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {

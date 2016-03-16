@@ -68,5 +68,18 @@
         width:460px;
         background-color: #f5f5f5;
     }
+<<<<<<< HEAD
+=======
+    .dropdown-menu {
+        background-color: $bgDefault;
+    }
+
+    .selected{
+            z-index: 999;
+            position: absolute;
+            top:140px;
+            right:20px;
+        }
+>>>>>>> 6e90ec7d03ce93e564828dc63faf92448fa0c641
 }
 

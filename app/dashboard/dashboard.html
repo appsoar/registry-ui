@@ -41,25 +41,14 @@
                         <div class="title"><h4>Network Status</h4></div>
                         <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
                                 <div class="row">
-                                        <div class="col-xs-6">
-                                                <ul id="myTab" class="nav nav-tabs">
-                                                        <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
-                                                        <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
-                                                </ul>
-                                        </div>
-                                        <div class="col-xs-2"></div>
-                                        <div class="col-xs-4">
-                                                <div class="btn-group">
-                                                        <button type="button" class="btn btn-info">eth0</button>
-                                                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <span class="caret"></span>
-                                                                <span class="sr-only">Toggle Dropdown</span>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                                <li><a href="#">eth0</a></li>
-                                                                <li><a href="#">eth1</a></li>
-                                                        </ul>
-                                                </div></div>
+
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
+                                        <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
+                                    </ul>
+                                    <select id="selecteth" ng-model="vm.selected" ng-options="s.name as s.value for s in vm.modle" ng-change="vm.selectedChange()" class="selected">
+
+                                    </select>
                                 </div>
 
                                 <div id="throughputiopscontainer" ></div>
