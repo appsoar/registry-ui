@@ -19,11 +19,8 @@
     "angular-websocket": "^1.0.14",
     "angular-bootstrap": "^1.2.4",
     "highcharts-ng": "^0.0.11",
-<<<<<<< HEAD
-    "angular-file-upload": "^2.2.0"
-=======
+    "angular-file-upload": "^2.2.0",
       "highcharts":"^4.2.3"
->>>>>>> 6e90ec7d03ce93e564828dc63faf92448fa0c641
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
