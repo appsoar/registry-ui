@@ -10,8 +10,8 @@ registryApp.controller('DashboardStatisticController',function($scope,$interval,
     $scope.chartConfig = {
         options: {
             chart: {
-                type: 'bar',
-                backgroundColor:'#f5f5f5',
+                type: 'bar'//,
+                //backgroundColor:'#f5f5f5',
             }
         },
         title: {
