@@ -181,7 +181,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                             var series = this.series[0];
                             $interval(function() {
                                 var x = (new Date()).getTime(), // current time
-                                    y = Math.random();
+                                    y = Math.ceil(Math.random()*100);
                                 series.addPoint([x, y], true, true);
                             }, 1000);
                         }
@@ -201,11 +201,16 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                     title: {
                         text: '使用量'
                     },
+                    ceiling: 100,
                     plotLines: [{
                         value: 0,
                         width: 1,
                         color: '#808080'
-                    }]
+                    }],
+                    minorGridLineWidth: 0,
+                    minorTickInterval: 'auto',
+                    minorTickLength: 5,
+                    minorTickWidth: 1
                 },
                 tooltip: {
                     formatter: function() {
@@ -232,7 +237,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                         for (i = -19; i <= 0; i++) {
                             data.push({
                                 x: time + i * 1000,
-                                y: Math.random()
+                                y: 0
                             });
                         }
                         return data;
@@ -253,7 +258,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                             var series = this.series[0];
                             $interval(function() {
                                 var x = (new Date()).getTime(), // current time
-                                    y = Math.random();
+                                    y = Math.ceil(Math.random()*100);
                                 series.addPoint([x, y], true, true);
                             }, 1000);
                         }
@@ -273,11 +278,16 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                     title: {
                         text: '使用量'
                     },
+                    ceiling: 100,
                     plotLines: [{
                         value: 0,
                         width: 1,
                         color: '#808080'
-                    }]
+                    }],
+                    minorGridLineWidth: 0,
+                    minorTickInterval: 'auto',
+                    minorTickLength: 5,
+                    minorTickWidth: 1
                 },
                 tooltip: {
                     formatter: function() {
@@ -304,7 +314,7 @@ angular.module('registryUiApp').controller('throughputiopscontroller', function(
                         for (i = -19; i <= 0; i++) {
                             data.push({
                                 x: time + i * 1000,
-                                y: Math.random()
+                                y: 0
                             });
                         }
                         return data;
