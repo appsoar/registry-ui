@@ -1,22 +1,22 @@
 'use strict';
 
-angular.module('registryUiApp').controller('LicenseController', function($scope, $fileUploader){
+angular.module('registryUiApp').controller('LicenseController', function(Upload, $timeout){
     var vm = this;
     vm.licenseId = 'M20EMC1kofvtxsdH03KnqxDm9chQrnpAyRgcOlv7u63w';
 
-    vm.uploader = $fileUploader.create({
-    scope: $scope,
-    url: '/api/upload',
-    autoUpload: true,   // 自动开始上传
-    formData: [          // 和文件内容同时上传的form参数
-      { key: 'value' }
-    ],
-    filters: [           // 过滤器，可以对每个文件进行处理
-      function (item) {
-        console.info('filter1', item);
-        return true;
-      }
-    ]
-  });
+        // upload on file select or drop
+    vm.upload = function (file) {
+        Upload.upload({
+            url: 'v2/settings/license',
+            data: {file: file}
+        }).then(function (resp) {
+            console.log('Success ');
+        }, function (resp) {
+            console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
 
 });

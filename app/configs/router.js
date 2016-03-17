@@ -26,21 +26,21 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'DashboardController as vm'
   });
 
-  // $stateProvider.state('home.repositories', {
-  //   url: '/repositories',
+  // $stateProvider.state('home.images', {
+  //   url: '/images',
   //   template: '<div ui-view></div>',
   //   abstract: false
   // });
 
   //temp code ,for test proxy
- $stateProvider.state('home.repositories', {
-    url: '/repositories',
-    templateUrl: '/repositories/repository-list.html',
-    controller: 'RepositoryListController as vm'
+ $stateProvider.state('home.images', {
+    url: '/images',
+    templateUrl: '/images/images.html',
+    controller: 'ImagesController as vm'
   });
 
-  $stateProvider.state('home.namespaces', {
-    url: '/namespaces',
+  $stateProvider.state('home.users', {
+    url: '/users',
     template: '<div ui-view></div>',
     abstract: true
   });
@@ -69,9 +69,9 @@ $stateProvider.state('home.settings.license', {
     controller: 'AccountController as vm'
   });
 
-  $stateProvider.state('home.logs', {
+  $stateProvider.state('home.settings.logs', {
     url: '/logs',
-    templateUrl: 'logs/logs.html',
+    templateUrl: '/settings/logs/logs.html',
     controller: 'LogsController as vm'
   });
 

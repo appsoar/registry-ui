@@ -9,7 +9,7 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
     vm.options = [
         {
             trackColor:'#888',
-            barColor:'#50a3a2',
+            barColor:'#0075a8',
             scaleColor:false,
             lineWidth:10 ,
             lineCap:'round' ,
@@ -17,7 +17,7 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
         },
         {
             trackColor:'#888',
-            barColor:'#50a3a2',
+            barColor:'#0075a8',
             scaleColor:false,
             lineWidth:10 ,
             lineCap:'round' ,
@@ -25,7 +25,7 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
         },
         {
             trackColor:'#888',
-            barColor:'#50a3a2',
+            barColor:'#0075a8',
             scaleColor:false,
             lineWidth:10 ,
             lineCap:'round' ,

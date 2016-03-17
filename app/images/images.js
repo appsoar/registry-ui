@@ -1,5 +1,5 @@
 'use strict';
-angular.module('registryUiApp').controller('RepositoryListController',  function(Repository){
+angular.module('registryUiApp').controller('ImagesController',  function(Repository){
     var vm = this;
     Repository.query({}).$promise.then(function(){
       // toastr.success('error code: 200', 'ok');

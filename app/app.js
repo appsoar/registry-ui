@@ -22,7 +22,7 @@ angular
     'easypiechart',
     'highcharts-ng',
     'ui.bootstrap',
-    'angularFileUpload'
+    'ngFileUpload'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){
