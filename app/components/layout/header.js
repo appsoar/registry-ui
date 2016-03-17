@@ -1,9 +1,19 @@
 'use strict';
 
-angular.module('registryUiApp').controller('LayoutHeaderController', function LayoutHeaderController(_, Repository) {
+angular.module('registryUiApp').controller('LayoutHeaderController', function LayoutHeaderController($scope, $location, $state, _, Repository) {
   var vm = this;
   // vm.currentUser = currentUser.username;
-  vm.currentUser = sessionStorage.currentUser;
+  $scope.$on('$stateChangeSuccess', function() {
+        $scope.path = $location.path().split('/')[1];
+  });
+  $scope.path = $location.path().split('/')[1];
+  var detectLogin = function(){
+      vm.currentUser = sessionStorage.currentUser;
+      if(!vm.currentUser){
+          $state.go('login');
+      }  
+  }
+  detectLogin();
   console.log(vm.currentUser);
   vm.keyword = '';
   vm.repositories = Repository.query({});

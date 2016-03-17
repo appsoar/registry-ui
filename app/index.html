@@ -5,6 +5,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/icons/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -27,7 +28,7 @@
     <div ui-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
+<!--      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
@@ -35,7 +36,7 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-    </script>
+    </script> -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -68,6 +69,7 @@
         <!-- config js files -->
         <script src="configs/router.js"></script>
         <script src="configs/config.js"></script>
+        <script src="configs/run.js"></script>
         <script src="constants/constant.js"></script>
         <!-- components js files -->
         <script src="components/layout/_layout.js"></script>
@@ -90,10 +92,10 @@
         <script src="filters//logsSort.js"></script>
         <!-- controller js files -->
         <script src="home/home.js"></script>
-        <script src="settings/accounts/account.js"></script>
+        <script src="settings/general/general.js"></script>
+        <script src="settings/storage/storage.js"></script>
         <script src="settings/license/license.js"></script>
         <script src="settings/upgrade/upgrade.js"></script>
-        <script src="settings/setting-header.js"></script>
         <script src="settings/logs/logs.js"></script>
         <script src="login/login.js"></script>
         <script src="dashboard/dashboard.js"></script>

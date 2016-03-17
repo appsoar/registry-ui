@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container">
+  <!-- <div class="container"> -->
     <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -11,11 +11,14 @@
     </div>
     <div class="collapse navbar-collapse" id="js-navbar-collapse" >
       <ul class="nav navbar-nav">
-        <li class="" cs-nav-select=""><a ui-sref="home.dashboard"> Dashboard</a></li>
-        <li cs-nav-select="" ><a ui-sref="home.images">Images</a></li>
-        <li cs-nav-select=""><a ui-sref="home.users">Users</a></li>
-        <li cs-nav-select=""><a ui-sref="home.settings.accounts">Settings</a></li>
+        <li ng-class="{active:path=='dashboard'}"><a ui-sref="home.dashboard"> DASHBOARD</a></li>
+        <li ng-class="{active:path=='images'}" ><a ui-sref="home.images">IMAGES</a></li>
+        <li ng-class="{active:path=='users'}"><a ui-sref="home.users">USERS</a></li>
+        <li ng-class="{active:path=='settings'}"><a ui-sref="home.settings.general">SETTINGS</a></li>
         <!-- <li cs-nav-select=""><a ui-sref="home.logs">Logs</a></li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a ui-sref="home.settings.logs"><i class="glyphicon glyphicon-bell navbar-left"></i></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left " role="search">
@@ -32,15 +35,35 @@
              <tt ng-bind="vm.currentUser"></tt>
           </a>
           <ul class="dropdown-menu">
-             <li><a href="#">Support</a></li>
+             <li><a href="#">Change Password</a></li>
              <li><a href="#">API Docs</a></li>
-             <li><a href="#">Docs</a></li>
+             <li><a href="#">Help Docs</a></li>
              <li class="divider"></li>
              <li><a ui-sref="login">Logout</a></li>
           </ul>
        </li>
       </ul>
     </div>
-  </div>
+  <!-- </div> -->
 </nav>
-
+<nav class="navbar  navbar-level-2" role="navigation" ng-hide="path=='dashboard'">
+  <!-- <div class="container"> -->
+      <div class="collapse navbar-collapse" >
+      <ul class="nav navbar-nav"  ng-if="path=='settings'">
+        <li ui-sref-active="active"><a ui-sref="home.settings.general">General</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.storage">Storage</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.logs">Logs</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.license">License</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.upgrade">Upgrade</a></li>
+      </ul>
+      <ul class="nav navbar-nav" ng-if="path=='images'">
+        <li ui-sref-active="active"><a ui-sref="home.images.image">Image</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.images.namespace">Namespace</a></li>
+      </ul>
+      <ul class="nav navbar-nav" ng-if="path=='users'">
+        <li ui-sref-active="active"><a ui-sref="home.users.usergroup">User Group</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.users.user">User</a></li>
+      </ul>
+      </div>
+  <!-- </div> -->
+</nav>

@@ -47,8 +47,15 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
 
   $stateProvider.state('home.settings', {
     url: '/settings',
-    template: '<layout-setting-header></layout-setting-header>',
+    // template: '<layout-setting-header></layout-setting-header>',
+    template: '<div ui-view></div>',
     abstract: true
+  });
+
+  $stateProvider.state('home.settings.general', {
+    url: '/general',
+    templateUrl: '/settings/general/general.html',
+    controller: 'GeneralController as vm'
   });
 
   $stateProvider.state('home.settings.upgrade', {
@@ -63,10 +70,10 @@ $stateProvider.state('home.settings.license', {
     controller: 'LicenseController as vm'
   });
 
-  $stateProvider.state('home.settings.accounts', {
-    url: '/accounts',
-    templateUrl: '/settings/accounts/account.html',
-    controller: 'AccountController as vm'
+  $stateProvider.state('home.settings.storage', {
+    url: '/storage',
+    templateUrl: '/settings/storage/storage.html',
+    controller: 'StorageController as vm'
   });
 
   $stateProvider.state('home.settings.logs', {
