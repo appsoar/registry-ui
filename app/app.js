@@ -21,8 +21,7 @@ angular
     'ngWebSocket',
     'easypiechart',
     'highcharts-ng',
-    'ui.bootstrap',
-    'ngFileUpload'
+    'ui.bootstrap'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){

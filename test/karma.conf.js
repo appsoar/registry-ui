@@ -41,11 +41,6 @@ module.exports = function(config) {
       'bower_components/highcharts/highcharts.js',
       'bower_components/highcharts/highcharts-more.js',
       'bower_components/highcharts/modules/exporting.js',
-      'bower_components/ng-file-upload/ng-file-upload.js',
-      'bower_components/angular-file-upload/dist/angular-file-upload.min.js',
-      'bower_components/highcharts/highcharts.js',
-      'bower_components/highcharts/highcharts-more.js',
-      'bower_components/highcharts/modules/exporting.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*.js',
