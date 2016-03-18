@@ -26,18 +26,24 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'DashboardController as vm'
   });
 
-  // $stateProvider.state('home.images', {
-  //   url: '/images',
-  //   template: '<div ui-view></div>',
-  //   abstract: false
-  // });
+   $stateProvider.state('home.images', {
+     url: '/images',
+     template: '<div ui-view></div>',
+     abstract: false
+   });
 
   //temp code ,for test proxy
- $stateProvider.state('home.images', {
+ $stateProvider.state('home.images.image', {
     url: '/images',
     templateUrl: '/images/images.html',
     controller: 'ImagesController as vm'
   });
+
+ $stateProvider.state('home.images.namespace', {
+     url: '/namespace',
+     templateUrl: '/images/namespace/namespace.html',
+     controller: 'namespaceCtrl'
+ });
 
   $stateProvider.state('home.users', {
     url: '/users',

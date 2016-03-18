@@ -2,7 +2,7 @@
 
 // 这里定义仅用在当前应用中的样式，但页面特有的样式不要定义在这里
 
-// inject:page:scss 
+// inject:page:scss
 //here import other app  scss files, for example _layout
 @import "../components/layout/header.scss";
 @import "../components/layout/footer.scss";
@@ -15,4 +15,5 @@
 @import "../settings/general/general.scss";
 @import "../settings/license/license.scss";
 @import "../dashboard/dashboard.scss";
+
 // endinject

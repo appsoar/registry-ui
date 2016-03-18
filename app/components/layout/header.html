@@ -27,7 +27,7 @@
               <input type="text" placeholder="" ng-model="vm.keyword" ng-change="vm.search() " ng-blur="vm.blur()" ng-focus="vm.focus()">
               <cs-search-dropbox repositories="vm.repositories" ng-if=" vm.keyword && vm.stay" keyword="vm.keyword"></cs-search-dropbox>
            </div>
-        </form> 
+        </form>
         <li class="dropdown ">
           <a  class="dropdown-toggle" data-toggle="dropdown">
              <!-- <b class="caret"></b> -->
@@ -58,7 +58,7 @@
       </ul>
       <ul class="nav navbar-nav" ng-if="path=='images'">
         <li ui-sref-active="active"><a ui-sref="home.images.image">Image</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.images.namespace">Namespace</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.images.namespace">命名空间</a></li>
       </ul>
       <ul class="nav navbar-nav" ng-if="path=='users'">
         <li ui-sref-active="active"><a ui-sref="home.users.usergroup">User Group</a></li>
