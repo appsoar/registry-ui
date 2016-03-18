@@ -10,7 +10,7 @@ angular.module('registryUiApp').directive('csSearchDropbox', function(){
         repositories: '=',
         keyword: '='
       },
-      templateUrl: 'components/unit/csSearchDropbox.html',
+      templateUrl: 'components/unit/csSearchDropbox/csSearchDropbox.html',
       controller: 'CsSearchDropboxController as vm',
   }
 });

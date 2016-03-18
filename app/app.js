@@ -21,7 +21,8 @@ angular
     'ngWebSocket',
     'easypiechart',
     'highcharts-ng',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-md5'
   ]);
   // .config(['$routeProvider', '$locationProvider',
   //     function($routeProvider, $locationProvider){

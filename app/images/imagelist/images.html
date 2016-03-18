@@ -1,0 +1,58 @@
+<section class="well">
+    <div class="form-inline r-p30">
+      <div class="form-group">
+        <input class="form-control input-sm"  placeholder="Image" ng-model="vm.search.searchByImage"/>
+        <div class="input-group ">
+          <span >
+            <!-- <input class="form-control input-sm pull-right"  placeholder="Push Date" /> -->
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" >{{vm.permissionType}} <i class="icon icon-chevron-down"></i></button>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation" class="dropdown-header">
+                Permission Type: 
+              </li>
+              <li ng-repeat="item in vm.items" ng-click="vm.searchByPermission(item)">
+                <a href="#" >{{item}}</a>
+              </li>
+            </ul>
+          </span>
+        </div>
+        <div class="input-group ">
+            <span >
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">{{vm.namespace}} <i class="icon icon-chevron-down"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li role="presentation" class="dropdown-header">
+                  Select an Namespace:
+                </li>
+                  <li ng-repeat="item in vm.items" ng-click="vm.searchByNamespace(item)">
+                    <a href="#" >{{item}}</a>
+                  </li>
+              </ul>
+            </span>
+        </div>
+        <button type="button" class="btn btn-sm btn-danger " ng-click="vm.doClear()"> Clear All</button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.doSearch()"> Search</button>
+      </div>
+    </div>
+  <table class="table table-hover" >
+    <thead>
+          <th  width="15%"><cs-sortable-th label='vm.title.image' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.permission' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.version' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.pushDate' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.pullNum' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.namespace' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="10%">&nbsp;</th>
+    </thead>
+    <tbody>
+          <tr ng-repeat="repository in vm.repositories">
+              <td>{{repository.name}}</td>
+              <td>{{repository.visibility}}</td>
+              <td>{{repository.status}}</td>
+              <td>{{repository.shortDescription}}</td>
+              <td>{{repository.namespaceType}}</td>
+              <td>{{repository.namespace}}</td>
+              <td><div class="image-menu"><span class="btn btn-default btn-xs " ng-click="vm.showMenu($index)"><i class="icon icon-vertical-ellipsis"></i></span><cs-image-menu image="ubuntu" version="v1.0" ng-show="$index == vm.index"></cs-image-menu></div></td>
+              </tr>
+    </tbody>
+  </table>
+</section>

@@ -2,7 +2,7 @@
 
 angular.module('registryUiApp').factory('LogsService', function($resource){
     // return $resource('/data/logs.json', {}, {
-    return $resource('/v2/logs', {}, {
+    return $resource('/api/v0/logs', {}, {
         'query': {
             method: 'GET',
             isArray: true,

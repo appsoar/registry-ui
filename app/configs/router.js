@@ -35,8 +35,14 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
   //temp code ,for test proxy
  $stateProvider.state('home.images', {
     url: '/images',
-    templateUrl: '/images/images.html',
-    controller: 'ImagesController as vm'
+    template: '<div ui-view></div>',
+    abstract: true
+  });
+
+  $stateProvider.state('home.images.imagelist', {
+    url: '/list',
+    templateUrl: '/images/imagelist/images.html',
+    controller: 'ImagelistController as vm'
   });
 
   $stateProvider.state('home.users', {

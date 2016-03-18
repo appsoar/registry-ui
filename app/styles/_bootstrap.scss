@@ -27,7 +27,7 @@
     > li {
       /*The triangle symbol*/
       &.active > a::after{
-          border-color: transparent transparent #e6edf4;
+          border-color: transparent transparent #fff;
           border-style: solid;
           border-width: 8px;
           bottom: -2px;
@@ -121,7 +121,7 @@
       > li {
             /*The triangle symbol*/
             &.active > a::after{
-                  border-color: transparent transparent #fff;
+                  border-color: transparent transparent  $bodyCol;
                   border-style: solid;
                   border-width: 9px;
                   bottom: -2px;
@@ -146,4 +146,30 @@
             }
         }
     }
+}
+
+.well {
+    border: medium none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    border-radius: 1px;
+    padding:30px 20px 1px 20px;
+    margin-bottom: 10px;
+    min-height: 20px;
+}
+
+section.well {
+  margin: 20px;
+}
+.btn-link {
+    outline:none;
+    padding: 0;
+    &:focus , &:hover{
+        text-decoration:none;
+        outline:none;
+    }
+}
+
+span > .dropdown-menu > li > a:hover{
+    background-color: $bgDefault;
 }
