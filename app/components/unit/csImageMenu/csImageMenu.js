@@ -1,7 +1,7 @@
 'use strict';
 angular.module('registryUiApp').controller('CsImageMenuController' ,function(){
     var vm = this;
-    vm.cmd = 'longbing is a great man';
+    vm.cmd = 'copy file';
     vm.removeImage = function(){
         swal({
           title: "Are you sure?",

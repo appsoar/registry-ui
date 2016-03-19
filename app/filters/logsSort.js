@@ -9,7 +9,6 @@ angular.module('registryUiApp').filter('logsSort', function(){
               if(date>=dateStart && date<=dateEnd){
                   out.push(log);
               }
-              console.log('dx');
           });
           return out;
       }else{

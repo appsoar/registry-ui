@@ -45,6 +45,18 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'ImagelistController as vm'
   });
 
+  // $stateProvider.state('home.images.imagelist', {
+  //   url: '/list',
+  //   template: '<div ui-view></div>',
+  //   abstract: true
+  // });
+
+  $stateProvider.state('home.images.detail', {
+    url: '/detail',
+    templateUrl: '/images/imagelist/detail/detail.html',
+    controller: "ImageDetailController as vm"
+  });
+
   $stateProvider.state('home.users', {
     url: '/users',
     template: '<div ui-view></div>',

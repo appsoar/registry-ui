@@ -88,9 +88,10 @@ html {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 1068px) {
+@media screen and (min-width: 1300px) {
   .container {
-    max-width: 1030px;
+    max-width: 1280px;
+    width: 1250px;
   }
 
   /* Remove the padding we set earlier */
@@ -223,29 +224,25 @@ html {
 }
 
 cs-image-menu{
+    width: 80px;
     position: absolute;
-    right: 0;
-    top:0;
     background-color: gray;
     z-index: -1;
     display: none;
-
+    > ul {
+      padding:0;
+    }
       
      .copy-namespace-list{
           position: relative;
           > ul {
               display: none;
               position: absolute;
-              left: 0 ;
-              top:0;
-              &:hover, &:focus{
-                  display:block;
-              }         
+              background-color: gray;
+              left: -100% ;
+              top:-2px;
           }
           &:hover ul{display: block;}
       }
 
-}
-.image-menu{
-    position: relative;
 }

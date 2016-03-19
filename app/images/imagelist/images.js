@@ -66,6 +66,6 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
         $('.popup-menu').removeClass('popup-menu');
         $(e.target).addClass('popup-menu');
         e.stopPropagation();
-        $('cs-image-menu').css({'top':$('.popup-menu').offset().top, 'left':$('.popup-menu').offset().left , 'display':'block' , 'z-index': 2});
+        $('cs-image-menu').css({'top':$('.popup-menu').offset().top, 'left':$('.popup-menu').offset().left - 80 , 'display':'block' , 'z-index': 2});
     };
   });

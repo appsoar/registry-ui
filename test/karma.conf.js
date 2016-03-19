@@ -33,7 +33,6 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/toastr/toastr.js',
       'bower_components/sweetalert/dist/sweetalert.min.js',
-      'bower_components/angular.easy-pie-chart/dist/angular.easypiechart.js',
       'bower_components/lodash/lodash.js',
       'bower_components/angular-websocket/angular-websocket.min.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',

@@ -1,0 +1,24 @@
+<!-- <ul>
+        <li ng-repeat="log in logs | limitTo:5">
+                <div class="head">
+                        <span class="glyphicon glyphicon-time"></span>{{log.time}}
+                        <span class="glyphicon glyphicon-user"></span> {{log.user}}
+                        <span ng-class="log.level" class="pull-right">{{log.level}}</span>
+                </div>
+                <div class="detail"> {{log.detail}}</div>
+        </li>
+</ul>  -->
+  <table class="table table-hover" >
+    <thead>
+          <th  width="25%">time</th>
+          <th  width="15%">level</th>
+          <th  width="60%">detail</th>
+    </thead>
+    <tbody>
+          <tr ng-repeat="log in logs | limitTo:7">
+              <td ng-bind="log.time"></td>
+              <td ng-bind="log.level"></td>
+              <td ng-bind="log.detail"></td>
+         </tr>
+    </tbody>
+  </table>

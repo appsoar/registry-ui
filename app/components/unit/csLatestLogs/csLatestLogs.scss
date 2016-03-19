@@ -1,0 +1,12 @@
+cs-latest-logs {
+    table {
+        table-layout: fixed;
+        td {
+              height: 60px;
+              vertical-align: middle !important;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+    }
+}
