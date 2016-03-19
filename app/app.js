@@ -22,6 +22,9 @@ angular
     'easypiechart',
     'highcharts-ng',
     'ui.bootstrap',
+    'angular-md5',
+    'ngclipboard'
+    'ui.bootstrap',
       'ngTable'
   ]);
   // .config(['$routeProvider', '$locationProvider',

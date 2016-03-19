@@ -16,7 +16,7 @@ angular.module('registryUiApp').controller('LayoutHeaderController', function La
   detectLogin();
   console.log(vm.currentUser);
   vm.keyword = '';
-  vm.repositories = Repository.query({});
+  // vm.repositories = Repository.query({});
   vm.stay = false;
   var search = function(){
     if(vm.keyword){

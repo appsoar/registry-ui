@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="js-navbar-collapse" >
       <ul class="nav navbar-nav">
         <li ng-class="{active:path=='dashboard'}"><a ui-sref="home.dashboard"> DASHBOARD</a></li>
-        <li ng-class="{active:path=='images'}" ><a ui-sref="home.images">IMAGES</a></li>
+        <li ng-class="{active:path=='images'}" ><a ui-sref="home.images.imagelist">IMAGES</a></li>
         <li ng-class="{active:path=='users'}"><a ui-sref="home.users">USERS</a></li>
         <li ng-class="{active:path=='settings'}"><a ui-sref="home.settings.general">SETTINGS</a></li>
         <!-- <li cs-nav-select=""><a ui-sref="home.logs">Logs</a></li> -->
@@ -57,7 +57,7 @@
         <li ui-sref-active="active"><a ui-sref="home.settings.upgrade">Upgrade</a></li>
       </ul>
       <ul class="nav navbar-nav" ng-if="path=='images'">
-        <li ui-sref-active="active"><a ui-sref="home.images.image">Image</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.images.imagelist">IMAGE LIST</a></li>
         <li ui-sref-active="active"><a ui-sref="home.images.namespace">命名空间</a></li>
       </ul>
       <ul class="nav navbar-nav" ng-if="path=='users'">

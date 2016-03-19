@@ -17,13 +17,13 @@ var options = {
 }
 
 //login post deal way
-app.post('/v2/login', function(req, res){
+app.post('/api/v0/login', function(req, res){
   var username = req.body.username;
   var password = req.body.password;
   var response = '';
   console.log('username:'+ username);
   console.log('password:'+ password);
-  if(username === 'dx' && password === '123'){
+  if(username === 'dx' && password === '698b8f49d428a121a4bd6df908ca94d7'){
     res.status(200);
     response = 'auth success';
   }else{
@@ -37,14 +37,14 @@ app.post('/v2/login', function(req, res){
 });
 
 //just test get way
-app.get('/v2/test', function(req, res){
+app.get('/api/v0/test', function(req, res){
   res.status(200);
   res.send('<h1>dx is a great man!</h1>')
   console.log('get test success');
 });
 
 //send logs
-app.get('/v2/logs', function(req, res){
+app.get('/api/v0/logs', function(req, res){
   fs.readFile('data/logs.json', 'utf-8', function (err, data) {
      if (err) {
          return console.error(err);
@@ -57,7 +57,7 @@ app.get('/v2/logs', function(req, res){
 });
 
 //send update info
-app.get('/v2/settings/upgrade', function(req, res){
+app.get('/api/v0/settings/upgrade', function(req, res){
   fs.readFile('data/upgrade.json', 'utf-8', function (err, data) {
      if (err) {
          return console.error(err);
@@ -72,7 +72,7 @@ app.get('/v2/settings/upgrade', function(req, res){
 });
 
 //send repositories info
-app.get('/v2/repositories', function(req, res){
+app.get('/api/v0/repositories', function(req, res){
   fs.readFile('data/repositories.json', 'utf-8', function (err, data) {
      if (err) {
          return console.error(err);
@@ -87,7 +87,7 @@ app.get('/v2/repositories', function(req, res){
 });
 
 //upload license
-app.post('/v2/settings/license', function(req, res){
+app.post('/api/v0/settings/license', function(req, res){
   var form = new multiparty.Form({uploadDir: './upload'});
   form.parse(req, function(err, fields, files) {
     var filesTmp = JSON.stringify(files,null,2);
