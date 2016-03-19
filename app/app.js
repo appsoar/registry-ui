@@ -23,7 +23,7 @@ angular
     'highcharts-ng',
     'ui.bootstrap',
     'angular-md5',
-    'ngclipboard'
+    'ngclipboard',
     'ui.bootstrap',
       'ngTable'
   ]);
