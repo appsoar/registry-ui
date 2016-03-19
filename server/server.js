@@ -111,6 +111,18 @@ app.post('/api/v0/settings/license', function(req, res){
     res.end('received file');
  });
 });
+
+app.get('/v2/tabledata', function(req, res){
+    fs.readFile('data/table-data.json', 'utf-8', function (err, data) {
+        if (err) {
+            return console.error(err);
+        }
+        res.status(200);
+        var jsonObj = JSON.parse(data);
+        res.json(jsonObj);
+        console.log(jsonObj);
+    });
+});
 //https support listen 9006
 https.createServer(options, app).listen(9006, function() {
     console.log('https server started successfully.');

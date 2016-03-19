@@ -26,14 +26,14 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'DashboardController as vm'
   });
 
-  // $stateProvider.state('home.images', {
-  //   url: '/images',
-  //   template: '<div ui-view></div>',
-  //   abstract: false
-  // });
+   $stateProvider.state('home.images', {
+     url: '/images',
+     template: '<div ui-view></div>',
+     abstract: false
+   });
 
   //temp code ,for test proxy
- $stateProvider.state('home.images', {
+ $stateProvider.state('home.images.image', {
     url: '/images',
     template: '<div ui-view></div>',
     abstract: true
@@ -45,17 +45,35 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'ImagelistController as vm'
   });
 
-  // $stateProvider.state('home.images.imagelist', {
-  //   url: '/list',
-  //   template: '<div ui-view></div>',
-  //   abstract: true
-  // });
-
   $stateProvider.state('home.images.detail', {
     url: '/detail',
     templateUrl: '/images/imagelist/detail/detail.html',
     controller: "ImageDetailController as vm"
   });
+
+ $stateProvider.state('home.images.namespace', {
+        url: '/namespace',
+         template: '<div ui-view></div>',
+         abstract: true
+    })
+     .state('home.images.namespace.list', {
+         url: '/list',
+         templateUrl: '/images/namespace/namespace.html',
+         controller: 'namespaceCtrl'
+     })
+     .state('home.images.namespace.view', {
+         url: '/view',
+         templateUrl: '/images/namespace/namespaceview.html',
+         controller: 'namespaceViewCtrl'
+     })
+     .state('home.images.namespace.add', {
+
+     })
+     .state('home.images.namespace.edit', {
+
+     });
+
+
 
   $stateProvider.state('home.users', {
     url: '/users',

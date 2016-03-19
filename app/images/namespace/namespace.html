@@ -1,0 +1,32 @@
+<div class="container-fluid" ng-controller="namespaceCtrl as table">
+        <div class="row">
+                <a ui-sref="home.images.namespace.view">命名空间</a>
+                <div class="panel panel-default">
+                        <table ng-table="table.tableParams5" class="table table-bordered table-striped">
+                                <tbody>
+                                <tr ng-repeat="user in $data">
+                                        <td data-title="'命名空间'" sortable="'Namespace'">{{user.Namespace}}</td>
+                                        <td data-title="'公有/私有'" sortable="'name'">{{user.Type}}</td>
+                                        <td data-title="'镜像数'" sortable="'name'">{{user.ImageNum}}</td>
+                                        <td data-title="'最近提交日期'" sortable="'name'">{{user.Date}}</td>
+                                        <td data-title="'拉取次数'" sortable="'name'">{{user.PullNum}}</td>
+                                        <td data-title="'操作'">
+                                                <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                        ...
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                        <li><a href="#">更多信息</a></li>
+                                                        <li role="separator" class="divider"></li>
+                                                        <li><a href="#">修改</a></li>
+                                                        <li><a href="#">删除</a></li>
+                                                </ul>
+                                        </div></td>
+                                </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+</div>
+
+<div  ui-view></div>
