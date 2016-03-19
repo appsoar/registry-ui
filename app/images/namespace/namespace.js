@@ -5,12 +5,13 @@
 
 var namespaceApp = angular.module('registryUiApp');
 
-namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', 'ngTableDataService', function($scope, $filter, ngTableParams, $resource, $timeout, ngTableDataService) {
+namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', 'ngTableDataService','namespaceService',
+    function($scope, $filter, ngTableParams, $resource, $timeout, ngTableDataService, namespaceService) {
     var vm = this;
 
+    //var test=namespaceService.query();
+    //console.log(test)
 
-
-    // AJAX
 
     var Api = $resource('images/namespace/table-data.json');
 
@@ -28,6 +29,15 @@ namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', 
 
         }
     });
+}]);
+
+namespaceApp.controller('namespaceEditCtrl',['$scope', function($scope){
+    var vm = this;
+
+}])
+
+namespaceApp.controller('namespaceViewCtrl', ['$scpoe', function($scope){
+
 }]);
 
 

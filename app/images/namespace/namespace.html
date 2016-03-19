@@ -1,7 +1,6 @@
-<div class="container" ng-controller="namespaceCtrl as table">
-
-
-        <div clas="row">
+<div class="container-fluid" ng-controller="namespaceCtrl as table">
+        <div class="row">
+                <a ui-sref="home.images.namespace.view">命名空间</a>
                 <div class="panel panel-default">
                         <table ng-table="table.tableParams5" class="table table-bordered table-striped">
                                 <tbody>
@@ -30,3 +29,4 @@
         </div>
 </div>
 
+<div  ui-view></div>

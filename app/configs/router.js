@@ -46,10 +46,27 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
   });
 
  $stateProvider.state('home.images.namespace', {
-     url: '/namespace',
-     templateUrl: '/images/namespace/namespace.html',
-     controller: 'namespaceCtrl'
- });
+        url: '/namespace',
+         template: '<div ui-view></div>',
+         abstract: true
+    })
+     .state('home.images.namespace.list', {
+         url: '/list',
+         templateUrl: '/images/namespace/namespace.html',
+         controller: 'namespaceCtrl'
+     })
+     .state('home.images.namespace.view', {
+         url: '/view',
+         templateUrl: '/images/namespace/namespaceview.html',
+         controller: 'namespaceViewCtrl'
+     })
+     .state('home.images.namespace.add', {
+
+     })
+     .state('home.images.namespace.edit', {
+
+     });
+
 
   $stateProvider.state('home.users', {
     url: '/users',
