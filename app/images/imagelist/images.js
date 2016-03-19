@@ -1,5 +1,5 @@
 'use strict';
-angular.module('registryUiApp').controller('ImagelistController',  function(Repository){
+angular.module('registryUiApp').controller('ImagelistController',  function( Repository){
     var vm = this;
     //the image table title, no operation option 
     vm.title = {
@@ -27,7 +27,7 @@ angular.module('registryUiApp').controller('ImagelistController',  function(Repo
     };
 
     //just for test
-    vm.items = ['asef','asdf','sdfad','sdfa'];
+    vm.items = ['asef','asdf','sdfad','sdfa','sdfsa', '23r34r','wr3w4'];
     //search set
     searchInit();
 
@@ -60,10 +60,12 @@ angular.module('registryUiApp').controller('ImagelistController',  function(Repo
         searchInit();
     };
     vm.doSearch = function(){
-
+        
     };
-    vm.index = null;
-    vm.showMenu = function(index){
-        vm.index = index;
+    vm.showMenu = function(e){
+        $('.popup-menu').removeClass('popup-menu');
+        $(e.target).addClass('popup-menu');
+        e.stopPropagation();
+        $('cs-image-menu').css({'top':$('.popup-menu').offset().top, 'left':$('.popup-menu').offset().left , 'display':'block' , 'z-index': 2});
     };
   });

@@ -24,8 +24,15 @@
 }
 
 body {
+/*  position: relative;*/
+  min-height: 100%;
+  height:100%;
   padding: 0;
+  margin:0;
   background-color: $bodyCol;
+}
+html {
+   height:100%;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -215,13 +222,29 @@ body {
     padding-bottom: 30px;
 }
 
-.image-dropmenu{
+cs-image-menu{
     position: absolute;
     right: 0;
     top:0;
     background-color: gray;
-    z-index: 2;
-    /*display: none;*/
+    z-index: -1;
+    display: none;
+
+      
+     .copy-namespace-list{
+          position: relative;
+          > ul {
+              display: none;
+              position: absolute;
+              left: 0 ;
+              top:0;
+              &:hover, &:focus{
+                  display:block;
+              }         
+          }
+          &:hover ul{display: block;}
+      }
+
 }
 .image-menu{
     position: relative;
