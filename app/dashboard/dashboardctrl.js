@@ -7,94 +7,17 @@ var registryApp = angular.module('registryUiApp');
 
 registryApp.controller('DashboardStatisticController',function($scope,$interval, _){
 
-    $scope.chartConfig = {
-        options: {
-            chart: {
-                type: 'bar'//,
-                //backgroundColor:'#f5f5f5',
-            }
-        },
-        title: {
-            text:''
-        },
-        exporting:{enabled:false},
-        xAxis:{
-            //categories:[],
-            title:{
-                text:null
-            }
-        },
-        yAxis: {
-            min: 0,
-            title: null,//{
-            //text: 'Population (millions)',
-            //align: 'high'
-            //},
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' millions'
-        },
-        plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 100,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: '#FFFFFF',
-            shadow: true
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: '命名空间',
-            data: [15]
-        },
-            {
-                name: '用户',
-                data: [30]
-            },
-            {
-                name: '镜像',
-                data: [60]
-            }],
-
-
-
-        // loading: false
-    }
-
+    var vm = this;
+    this.imageNum = 100;
+    this.namespaceNum = 12;
+    this.userNum = 20;
 
     $interval(function(){
 
-        var namespacesNum=Math.ceil(Math.random()*50)
-        var usersNum=Math.ceil(Math.random()*100)
-        var imagesNum = Math.ceil(Math.random()*1000);
+        vm.imageNum=Math.ceil(Math.random()*50)
+        vm.namespaceNum=Math.ceil(Math.random()*100)
+        vm.userNum = Math.ceil(Math.random()*1000);
 
-        $scope.chartConfig.series  =   [{
-            name: '命名空间('+namespacesNum+')',
-            data: [namespacesNum]
-        },
-            {
-                name: '用户('+usersNum+')',
-                data: [usersNum]
-            },
-            {
-                name: '镜像('+imagesNum+')',
-                data: [imagesNum]
-            }];
     },2000);
 });
 

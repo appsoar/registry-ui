@@ -67,10 +67,14 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
          controller: 'namespaceViewCtrl'
      })
      .state('home.images.namespace.add', {
-
+         url: '/add',
+         templateUrl: '/images/namespace/namespaceedit.html',
+         controller: 'namespaceEditCtrl as vm'
      })
      .state('home.images.namespace.edit', {
-
+         url: '/edit?id',
+         templateUrl: '/images/namespace/namespaceedit.html',
+         controller: 'namespaceEditCtrl as vm'
      });
 
 

@@ -1,13 +1,59 @@
+<style type="text/css">
+        .textStyle{
+                font-family: "微软雅黑 Bold", "微软雅黑";
+                font-style: normal;
+                font-size: 18px;
+                color: #666666;
+                width: 49%;
+                float: right;
+                padding: 15px 0px 10px 10px;
+        }
+        .imgStyle{
+                width: 49%; text-align:right;
+                padding: 10px 0px 10px 0px;
+                float: left;
+        }
+</style>
 <div class="container">
         <div class="gap"></div>
         <div class="row">
-                <div class="col-md-8" ng-controller="DashboardStatisticController">
+                <div class="col-md-8" ng-controller="DashboardStatisticController as vm">
                         <div class="row well">
                                  <!-- basic overview -->
                                  <!-- <highchart id="statisticChart" class="high-chart" config="chartConfig"></highchart> -->
-                                <div class="col-md-4">jimage</div>
-                                <div class="col-md-4">namespace</div>
-                                <div class="col-md-4">user</div>
+                                <div class="col-md-4" style="">
+                                        <div class="col-md-12" style="border: 1px solid #ddd;">
+                                                <div class="imgStyle">
+                                                        <img src="/styles/img/u75.png">
+                                                </div>
+                                                <div class="textStyle">
+                                                        <p><span style="color: #3498db">镜像</span></p>
+                                                        <p><span>{{vm.imageNum}}</span></p>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="col-md-12" style="border: 1px solid #ddd;">
+                                        <div class="imgStyle">
+                                                <img src="/styles/img/u75.png">
+                                        </div>
+                                        <div class="textStyle">
+                                                <p><span style="color: #3498db">命名空间</span></p>
+                                                <p><span>{{vm.namespaceNum}}</span></p>
+                                        </div>
+                                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="col-md-12" style="border: 1px solid #ddd;">
+                                        <div class="imgStyle">
+                                                <img src="/styles/img/u75.png">
+                                        </div>
+                                        <div class="textStyle">
+                                                <p><span style="color: #3498db">用户</span></p>
+                                                <p><span>{{vm.userNum}}</span></p>
+                                        </div>
+                                                </div>
+                                </div>
                         </div>
                         <div class="row well">
                                 <!-- logs overview -->
@@ -21,12 +67,12 @@
                                 <div class="title"><h4>资源使用</h4></div>
                                 <cs-sysinfo-chart  label="vm.label[0]" data="vm.data[0]"></cs-sysinfo-chart>
                                 <cs-sysinfo-chart  label="vm.label[1]" data="vm.data[1]"></cs-sysinfo-chart>
-                                <cs-sysinfo-chart  label="vm.label[2]" data="vm.data[2]"></cs-sysinfo-chart>                   
+                                <cs-sysinfo-chart  label="vm.label[2]" data="vm.data[2]"></cs-sysinfo-chart>
                         </div>
                         <div class="row well">
                                 <!-- network overview -->
                                 <div class="title"><h4>网络状态</h4></div>
-        <!--                         <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
+                                 <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
                                         <div class="row">
                                             <ul id="myTab" class="nav nav-tabs">
                                                 <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
@@ -35,7 +81,7 @@
                                             <select id="selecteth" ng-model="vm.selected" ng-options="s.name as s.value for s in vm.modle" ng-change="vm.selectedChange()" class="selected"> </select>
                                         </div>
                                         <div id="throughputiopscontainer" ></div>
-                                </div> -->
+                                </div>
                         </div>
                 </div>
         </div>
