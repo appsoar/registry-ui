@@ -178,3 +178,38 @@ span > .dropdown-menu > li > a:hover{
 .col-md-4, .col-md-8 {
     padding:0 7px;
 }
+
+.nav-tabs {
+    position: relative;
+    margin-bottom: 20px;
+    >li{
+        width: 120px;
+        text-align: center;
+        outline: none;
+        > a {
+            padding-bottom: 25px;
+            cursor: pointer;
+            color: black;
+            border:0;
+            border-radius: 0;
+            &:hover, &:focus{
+                background-color:transparent;
+                color: $bgDefault;
+            }
+        }
+    }
+   >li.active >a, >li.active >a:hover, >li.active >a:focus{
+        border:0;
+        background-color: transparent;
+        color:$bgDefault;
+    }
+    .nav-tags-bar {
+      height: 3px;
+      width: 120px;
+      background-color: $bgDefault;
+      transition: left 0.6s linear;
+      position: absolute;
+      bottom:-2px;
+      left: 0;
+    }
+}

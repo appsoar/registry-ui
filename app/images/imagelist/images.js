@@ -30,11 +30,10 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
     vm.items = ['asef','asdf','sdfad','sdfa','sdfsa', '23r34r','wr3w4'];
     //search set
     searchInit();
-
+    vm.showTag = [];
     Repository.query({}).$promise.then(function(value, responseHeaders){
         vm.repositories = value.repositories;
-      console.log(value.repositories);
-      // toastr.success('error code: 200', 'ok');
+        vm.showTag = value.tag;
     },function(){
       //tips: code in here exec after interceptors
       // toastr.error('error code: 404', 'message');
@@ -66,6 +65,10 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
         $('.popup-menu').removeClass('popup-menu');
         $(e.target).addClass('popup-menu');
         e.stopPropagation();
-        $('cs-image-menu').css({'top':$('.popup-menu').offset().top, 'left':$('.popup-menu').offset().left - 80 , 'display':'block' , 'z-index': 2});
+        $('cs-image-menu').css({'top':$('.popup-menu').offset().top+15, 'left':$('.popup-menu').offset().left - 70 , 'display':'block' , 'z-index': 2});
     };
+    vm.selectValue = function(){
+
+    };
+
   });

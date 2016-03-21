@@ -1,5 +1,118 @@
-<ul class="nav nav-tabs">
-    <li class="active"><a> description</a></li>
-    <li><a>version</a></li>
-    <li><a>dockerfile</a></li>
-</ul>
+<div class="row">
+        <div class="col-md-8" ng-controller="DashboardStatisticController">
+                <div class="row well">
+                    <ul class="nav nav-tabs">
+                        <li ng-click="changeTag('0')" cs-navtag-sw class="active"><a> 描述</a></li>
+                        <li ng-click="changeTag('1')" cs-navtag-sw><a>Dockerfile</a></li>
+                        <li ng-click="changeTag('2')" cs-navtag-sw><a>构建历史</a></li>
+                        <div class="nav-tags-bar"> </div>
+                    </ul>
+                     <div class="" ng-if="currentTag == 0">
+                            
+
+<div class="ueditor" config="editorConfig" ng-model="content">
+  <p><span style="font-size: 36px;">大字</span><span style="color: rgb(255, 0, 0);">颜色</span></p>
+  <p>来点动画试试<img src="http://img.baidu.com/hi/jx2/j_0013.gif"/></p>
+</div>
+<h4>双向绑定内容（纯代码）</h4>
+<textarea class="form-control" id="" cols="80" rows="10" ng-model="content">
+</textarea>
+<h4>预览</h4>
+<div ng-bind-html="html"></div>
+                    </div>
+                    <div class="" ng-if="currentTag == 1">
+                          <pre>
+FROM java:8-jre
+
+MAINTAINER Code Hz
+
+ENV SCREEN_NAME MinecraftForgeServer
+ENV MCSERVER_PATH /srv/minecraft
+ENV MINECRAFT_VERSION 1.7.10
+ENV MCFORGE_VERSION 10.13.4.1614-1.7.10
+ENV MCFORGE_INSTALLER_JAR forge-installer.jar
+ENV JAVA_XMX 1G
+ENV JAVA_XMS 1G
+ENV JAVA_PERMSIZE 455m
+ENV MINECRAFT_EULA false
+ENV DEFAULT_OP CodeHz
+ENV GENERATOR_SETTINGS ""
+ENV OP_PERMISSION_LEVEL 4
+
+ENV ALLOW_NETHER true
+ENV LEVEL_NAME world
+ENV ENABLE_QUERY true
+ENV ALLOW_FLIGHT true
+ENV ANNOUNCE_PLAYER_ACHIEVEMENTS true
+ENV SERVER_PORT 25565
+                          </pre>
+                    </div>
+                    <div class="" ng-if="currentTag == 2">
+                        <table class="table-hover cs-table-small " >
+                          <thead>
+                                <th  width="20%">构建ID</th>
+                                <th  width="20%">构建版本</th>
+                                <th  width="20%">提交人</th>
+                                <th  width="30%">提交时间</th>
+                                <th  width="10%"></th>
+                          </thead>
+                          <tbody>
+                                <tr ng-repeat="n in [0,1,2,3,4]">
+                                    <td>73d92623</td>
+                                    <td>v3.0</td>
+                                    <td>user1</td>
+                                    <td>2016-01-27 18:30:04</td>
+                                    <td><div><span class="icon-menu" ng-click="vm.showMenu($event)"><i class="glyphicon glyphicon-cog"></i></span></div></td>
+                                </tr>
+                          </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="row well">
+                        <div class="title"><h4>编辑记录</h4></div>
+                          <table class="table-hover cs-table-small " >
+                              <thead>
+                                    <th  width="30%">编辑时间</th>
+                                    <th  width="15%">编辑人</th>
+                                    <th  width="55%">编辑内容</th>
+                              </thead>
+                              <tbody>
+                                    <tr ng-repeat="n in [0,1,2,3,4]">
+                                        <td>2016-01-27 18:30:04</td>
+                                        <td>dx</td>
+                                        <td>添加了环境变量PATH</td>
+                                    </tr>
+                              </tbody>
+                            </table>
+                </div>
+        </div>
+        <div class="col-md-4">
+                <div class="row well">
+                        <div class="title"><h4>docker-centos</h4></div>
+                            <div class="version-detail">
+                                <span>版本:</span>
+                                <span><select><option>1.0</option></select></span>
+                            </div>
+                            <div class="version-detail">
+                                <span>属性:</span>
+                                <span>public</span>
+                            </div>
+                            <div class="version-detail">
+                                <span>大小:</span>
+                                <span>400M</span>
+                            </div>
+                            <div class="version-detail">
+                                <span>下载:</span>
+                                <span>100</span>
+                            </div>
+                             <div class="version-detail">
+                                    <span>拉取镜像:</span>
+                            </div>
+                            <div class="pull-image-input">
+                                  <input class="form-control" value="docker pull cloudsoar/appsoar"></input>
+                            </div>
+                </div>
+        </div>
+</div>
+<cs-image-menu image="vm.repositories[0]" version="vm.repositories[0]" namespaces="vm.items"></cs-image-menu>

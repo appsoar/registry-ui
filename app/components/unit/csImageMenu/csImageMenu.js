@@ -28,8 +28,9 @@ angular.module('registryUiApp').directive('csImageMenu', function(){
   return {
       restrict: 'E',
       scope:  {
-        image: '@',
-        version: '@'
+        image: '=',
+        version: '=',
+        namespaces: '='
       },
       templateUrl: 'components/unit/csImageMenu/csImageMenu.html',
       controller: 'CsImageMenuController as vm',

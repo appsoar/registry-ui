@@ -1,18 +1,11 @@
-
-    <ul class="image-dropmenu" >
-       <li ><a ui-sref="home.images.detail" >More info</a></li>
-       <li class="divider"></li>
-       <li ngclipboard data-clipboard-text="{{vm.cmd}}"><a href="#" >Pull image</a></li>
-       <li class="copy-namespace-list"><a href="#" >Copy image</a>
-                  <ul class="dropdown-menu"> 
-                     <li ><a href="#">More info</a></li>
-                     <li class="divider"></li>
-                     <li ><a href="#" >Pull image</a></li>
-                     <li ><a href="#" >Copy image</a></li>
-                     <li ><a href="#" >Delete this version</a></li>
-                     <li ng-click="vm.removeImage()"><a href="#" >Delete image</a></li>
-                  </ul>
-       </li>
-       <li ><a href="#" >Delete this version</a></li>
-       <li ng-click="vm.removeImage()"><a href="#" >Delete image</a></li>
-    </ul>
+<ul class="dropdown-menu" >
+   <li ><a ui-sref="home.images.detail" >More info</a></li>
+   <li ngclipboard data-clipboard-text="{{vm.cmd}}"><a href="#" >Pull image</a></li>
+   <li class="copy-namespace-list"><a href="#" >Copy image to</a>
+              <ul class="dropdown-menu"> 
+                    <li ng-repeat="namespace in namespaces"><a href="#" >{{namespace}}</a></li>
+              </ul>
+   </li>
+   <li ><a href="#" >Delete this version</a></li>
+   <li ng-click="vm.removeImage()"><a href="#" >Delete image</a></li>
+</ul>

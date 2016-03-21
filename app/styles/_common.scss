@@ -224,25 +224,45 @@ html {
 }
 
 cs-image-menu{
-    width: 80px;
     position: absolute;
-    background-color: gray;
+    background-color: white;
     z-index: -1;
     display: none;
     > ul {
-      padding:0;
+      display: block !important;
+       a:hover {
+          background-color: $bgHighlight !important;  
+        }
     }
-      
      .copy-namespace-list{
           position: relative;
           > ul {
               display: none;
               position: absolute;
-              background-color: gray;
               left: -100% ;
               top:-2px;
           }
           &:hover ul{display: block;}
       }
+}
 
+table.cs-table-small {
+    width: 100%;
+    line-height: 42px;
+    > thead {
+        line-height: 35px;
+        background-color: $bodyCol;
+        border: 1px solid $bodyCol;
+        color: gray;
+        th {
+            padding-left: 10px;
+        }
+    }
+    > tbody {
+        border: 1px solid $bodyCol;
+         td {
+            border-top: 1px solid $bodyCol;
+            padding-left: 10px;
+        }
+    }
 }

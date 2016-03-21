@@ -1,0 +1,16 @@
+@import "variables";
+.version-detail {
+    margin-bottom: 20px;
+    > span:nth-child(1) {
+        color: gray;
+    }
+    > span:nth-child(2) {
+        margin-left: 20px;
+    }
+}
+
+.pull-image-input  input{
+    border: 1px solid $bgDefault;
+    border-radius: 0;
+    color: $bgDefault;
+}

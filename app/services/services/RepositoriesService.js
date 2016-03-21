@@ -6,16 +6,17 @@ angular.module('registryUiApp')
       method:'GET',
       isArray: false,
       transformResponse: function(data, headers){
-          var temp = angular.fromJson(data);
-          // var repositories = [];
-          // temp.repositories.forEach((item) => {
-          //     repositories.push(item.namespace + '/' + item.name);
-          // });
-          // angular.forEach(temp.repositories, function(item){
-          //     repositories.push(item.namespace + '/' + item.name);
-          // });
+          var temp = angular.fromJson(data).content;
+          var collection = {
+              repositories: [],
+              tag: []
+          };
+          angular.forEach(temp, function(item){
+              collection.repositories.push(item);
+              collection.tag.push(item.tags[0]);
+          });
           // return repositories;
-          return temp;
+          return collection;
       }
     },
   });

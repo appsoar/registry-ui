@@ -1,58 +1,88 @@
 {
-  "repositories": [
-   {
-    "id": 2,
-    "namespace": "brank",
-    "namespaceType": "user",
-    "name": "test",
-    "shortDescription": "",
-    "visibility": "public",
-    "status": "ok"
-   },
-   {
-    "id": 6,
-    "namespace": "cloudsoar",
-    "namespaceType": "user",
-    "name": "repos1",
-    "shortDescription": "just for test, repos1",
-    "visibility": "public",
-    "status": "ok"
-   },
-   {
-    "id": 7,
-    "namespace": "cloudsoar",
-    "namespaceType": "user",
-    "name": "ubuntu",
-    "shortDescription": "",
-    "visibility": "public",
-    "status": "ok"
-   },
-   {
-    "id": 8,
-    "namespace": "nm1",
-    "namespaceType": "organization",
-    "name": "registry",
-    "shortDescription": "",
-    "visibility": "public",
-    "status": "ok"
-   },
-   {
-    "id": 9,
-    "namespace": "cloudsoar",
-    "namespaceType": "user",
-    "name": "hjk",
-    "shortDescription": "",
-    "visibility": "public",
-    "status": "ok"
-   },
-   {
-    "id": 10,
-    "namespace": "nm1",
-    "namespaceType": "organization",
-    "name": "ll",
-    "shortDescription": "",
-    "visibility": "private",
-    "status": "ok"
-   }
-  ]
- }
+    "content": [
+        {
+            "push_time": 1458301228019.0, 
+            "delete": 0, 
+            "user_id": "admin", 
+            "permission": "public", 
+            "tags": [
+                    {
+                            "size": 65760667.0, 
+                            "user_id": "admin", 
+                            "repository": "appsoar/ubuntu", 
+                            "pull_num": 7, 
+                            "alias": "", 
+                            "tag_name": "1.0", 
+                            "create_time": 1458301675260.0, 
+                            "_id": 0, 
+                            "digest": "sha256:9409f5e54fdc68ef3f0aae3c5ffac22bfe2aabd0b363a4bdbe5292c93b75a661", 
+                            "delete": 0
+                    },
+                    {
+                            "size": 65760667.0, 
+                            "user_id": "admin", 
+                            "repository": "appsoar/ubuntu", 
+                            "pull_num": 97, 
+                            "alias": "", 
+                            "tag_name": "2.0", 
+                            "create_time": 1458301675260.0, 
+                            "_id": 0, 
+                            "digest": "sha256:9409f5e54fdc68ef3f0aae3c5ffac22bfe2aabd0b363a4bdbe5292c93b75a661", 
+                            "delete": 0
+                    }
+            ], 
+            "namespace": "appsoar", 
+            "_id": "appsoar/ubuntu", 
+            "desc": ""
+        },
+        {
+            "push_time": 1455301428019.0, 
+            "delete": 0, 
+            "user_id": "admin", 
+            "permission": "private", 
+            "tags": [
+                    {
+                            "size": 65760667.0, 
+                            "user_id": "admin", 
+                            "repository": "dx/ubuntu", 
+                            "pull_num": 17, 
+                            "alias": "", 
+                            "tag_name": "1.0", 
+                            "create_time": 1458301675260.0, 
+                            "_id": 0, 
+                            "digest": "sha256:9409f5e54fdc68ef3f0aae3c5ffac22bfe2aabd0b363a4bdbe5292c93b75a661", 
+                            "delete": 0
+                    },
+                    {
+                            "size": 65760667.0, 
+                            "user_id": "admin", 
+                            "repository": "dx/ubuntu", 
+                            "pull_num": 37, 
+                            "alias": "", 
+                            "tag_name": "5.0", 
+                            "create_time": 1458301675260.0, 
+                            "_id": 0, 
+                            "digest": "sha256:9409f5e54fdc68ef3f0aae3c5ffac22bfe2aabd0b363a4bdbe5292c93b75a661", 
+                            "delete": 0
+                    },
+                                        {
+                            "size": 65760667.0, 
+                            "user_id": "admin", 
+                            "repository": "dx/ubuntu", 
+                            "pull_num": 37, 
+                            "alias": "", 
+                            "tag_name": "9.0", 
+                            "create_time": 1458301675260.0, 
+                            "_id": 0, 
+                            "digest": "sha256:9409f5e54fdc68ef3f0aae3c5ffac22bfe2aabd0b363a4bdbe5292c93b75a661", 
+                            "delete": 0
+                    }
+            ], 
+            "namespace": "dx", 
+            "_id": "dx/ubuntu", 
+            "desc": ""
+        }
+    ], 
+    "message": "done", 
+    "result": 0
+}

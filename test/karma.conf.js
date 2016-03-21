@@ -45,6 +45,7 @@ module.exports = function(config) {
       'bower_components/clipboard/dist/clipboard.js',
       'bower_components/ngclipboard/dist/ngclipboard.js',
       'bower_components/ng-table/dist/ng-table.min.js',
+      'bower_components/angular-ueditor/dist/angular-ueditor.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/**/*.js',

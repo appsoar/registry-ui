@@ -7,22 +7,18 @@ angular.module('registryUiApp').controller('DashboardController', function($inte
     //常规配置
     vm.data = [{
             percent:0,
-            total:100
+            total:'100'
     },{
             percent:0,
-            total:100
+            total:'4G'
     },{
             percent:0,
-            total:100
+            total:'2T'
     }];
     vm.label = ['CPU', '内存', '磁盘'];
     $interval(function(){
         vm.data[0].percent  =   Math.ceil(Math.random()*100);
-    },1000);
-    $interval(function(){
         vm.data[1].percent  =   Math.ceil(Math.random()*100);
-    },1000);
-    $interval(function(){
         vm.data[2].percent  =   Math.ceil(Math.random()*100);
     },1000);
     LogsService.query().$promise.then(function(value, responseHeaders){

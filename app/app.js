@@ -24,6 +24,7 @@ angular
     'angular-md5',
     'ngclipboard',
     'ui.bootstrap',
-      'ngTable'
+    'ngTable',
+    'ng.ueditor'
   ]);
 

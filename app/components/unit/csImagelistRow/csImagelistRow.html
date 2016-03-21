@@ -1,0 +1,8 @@
+          <div  class="col-md-4">
+              <select>
+                  <option  ng-repeat="tag in tags" value="tag.tag_name" ng-bind="tag.tag_name" >
+                  </option>
+              </select>
+          </div>
+          <div class="col-md-4">{{currentTag.create_time | date:'yyyy-MM-dd'}}</div>
+          <div class="col-md-4">{{currentTag.pull_num}}</div>
