@@ -31,12 +31,30 @@ namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', 
     });
 }]);
 
-namespaceApp.controller('namespaceEditCtrl',['$scope', function($scope){
+namespaceApp.controller('namespaceEditCtrl',['$scope', '$location','$stateParams', function($scope,   $location, $stateParams){
     var vm = this;
+  // console.log($stateParams.id);
+    var namespace= {
+        id: $stateParams.id,
+        Namespace:"",
+        Type:"",
+        ImageNum:"",
+        Date:"",
+        PullNum:""
+    };
+    vm.namespace=namespace;
 
-}])
+    //判断参数是否存在ID
+    if($stateParams.id){
+        console.log($stateParams.id)
+        namespace.Namespace = "测试";
+    }
+    else{
+        console.log('add')
+    }
+}]);
 
-namespaceApp.controller('namespaceViewCtrl', ['$scpoe', function($scope){
+namespaceApp.controller('namespaceViewCtrl', ['$scope', function($scope){
 
 }]);
 

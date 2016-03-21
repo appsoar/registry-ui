@@ -1,3 +1,55 @@
-<div class="container-fluid">
-view111
+<div class="container">
+        <div class="gap"></div>
+        <div class="row well">
+                <div class="row rowProperty">
+                        <div class="col-md-2">
+                                <label>命名空间：</label>
+                        </div>
+                        <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="命名空间">
+                        </div>
+                        <div class="col-md-4">
+                                <button type="button" class="btn btn-primary">修改</button>
+                        </div>
+                </div>
+                <div class="row rowProperty">
+                        <div class="col-md-2">
+                                <label>属性：</label>
+                        </div>
+                        <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="属性">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                </div>
+                <div class="row rowProperty">
+                        <div class="col-md-2">
+                                <label>描述：</label>
+                        </div>
+                        <div class="col-md-6">
+                                <textarea class="form-control" rows="3" placeholder="描述"></textarea>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                </div>
+                <div class="row" style="padding-top: 10px;">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                                <button type="button" class="btn btn-primary">确定</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a class="btn btn-default" role="button" ui-sref="home.images.namespace.list">取消</a>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                </div>
+
+        </div>
 </div>
+<style>
+        .rowProperty{
+                padding-bottom: 5px;
+                padding-top: 10px;
+                border-bottom: 1px solid #ddd;
+        }
+</style>
