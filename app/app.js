@@ -25,6 +25,6 @@ angular
     'ngclipboard',
     'ui.bootstrap',
     'ngTable',
-    'ng.ueditor'
+    'textAngular'
   ]);
 

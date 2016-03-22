@@ -11,15 +11,15 @@
     </div>
     <div class="collapse navbar-collapse" id="js-navbar-collapse" >
       <ul class="nav navbar-nav">
-        <li ng-class="{active:path=='dashboard'}"><a ui-sref="home.dashboard"> DASHBOARD</a></li>
-        <li ng-class="{active:path=='images'}" ><a ui-sref="home.images.imagelist">IMAGES</a></li>
-        <li ng-class="{active:path=='users'}"><a ui-sref="home.users">USERS</a></li>
-        <li ng-class="{active:path=='settings'}"><a ui-sref="home.settings.general">SETTINGS</a></li>
+        <li ng-class="{active:path[1]=='dashboard'}"><a ui-sref="home.dashboard"> DASHBOARD</a></li>
+        <li ng-class="{active:path[1]=='images'}" ><a ui-sref="home.images.imagelist">IMAGES</a></li>
+        <li ng-class="{active:path[1]=='users'}"><a ui-sref="home.users">USERS</a></li>
+        <li ng-class="{active:path[1]=='settings'}"><a ui-sref="home.settings.general">SETTINGS</a></li>
         <!-- <li cs-nav-select=""><a ui-sref="home.logs">Logs</a></li> -->
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ><a ui-sref="home.settings.logs"><i class="glyphicon glyphicon-bell navbar-left"></i></a></li>
-      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right"> -->
+        
+      <!-- </ul> -->
       <ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-left " role="search">
            <div class="form-group  dropdown">
@@ -28,6 +28,7 @@
               <cs-search-dropbox repositories="vm.repositories" ng-if=" vm.keyword && vm.stay" keyword="vm.keyword"></cs-search-dropbox>
            </div>
         </form>
+        <li ><a ui-sref="home.settings.logs"> <b class="glyphicon glyphicon-bell navbar-left"></b>&nbsp message</a></li>
         <li class="dropdown ">
           <a  class="dropdown-toggle" data-toggle="dropdown">
              <!-- <b class="caret"></b> -->
@@ -39,28 +40,28 @@
              <li><a href="#">API Docs</a></li>
              <li><a href="#">Help Docs</a></li>
              <li class="divider"></li>
-             <li><a ui-sref="login">Logout</a></li>
+             <li ng-click="vm.logout()"><a>Logout</a></li>
           </ul>
        </li>
       </ul>
     </div>
   </div>
 </nav>
-<nav class="navbar  navbar-level-2" role="navigation" ng-hide="path=='dashboard'">
+<nav class="navbar  navbar-level-2" role="navigation" ng-hide="path[1]=='dashboard'">
   <div class="container">
       <div class="collapse navbar-collapse" >
-      <ul class="nav navbar-nav"  ng-if="path=='settings'">
+      <ul class="nav navbar-nav"  ng-if="path[1]=='settings'">
         <li ui-sref-active="active"><a ui-sref="home.settings.general">General</a></li>
         <li ui-sref-active="active"><a ui-sref="home.settings.storage">Storage</a></li>
         <li ui-sref-active="active"><a ui-sref="home.settings.logs">Logs</a></li>
         <li ui-sref-active="active"><a ui-sref="home.settings.license">License</a></li>
         <li ui-sref-active="active"><a ui-sref="home.settings.upgrade">Upgrade</a></li>
       </ul>
-      <ul class="nav navbar-nav" ng-if="path=='images'">
-        <li ui-sref-active="active"><a ui-sref="home.images.imagelist">IMAGE LIST</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.images.namespace.list">命名空间</a></li>
+      <ul class="nav navbar-nav" ng-if="path[1]=='images'">
+        <li ng-class="{active:path[2]=='list'}"><a ui-sref="home.images.imagelist">IMAGE LIST</a></li>
+        <li ng-class="{active:path[2]=='namespace'}"><a ui-sref="home.images.namespace.list">命名空间</a></li>
       </ul>
-      <ul class="nav navbar-nav" ng-if="path=='users'">
+      <ul class="nav navbar-nav" ng-if="path[1]=='users'">
         <li ui-sref-active="active"><a ui-sref="home.users.usergroup">User Group</a></li>
         <li ui-sref-active="active"><a ui-sref="home.users.user">User</a></li>
       </ul>

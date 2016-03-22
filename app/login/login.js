@@ -9,8 +9,8 @@ angular.module('registryUiApp').controller('LoginController', function($state, L
           username: form.username,
           password:   md5.createHash(form.username + ':' + md5.createHash(form.password))
       };
-      LoginService.save({}, md5Form,function() {
-      // LoginService.save({}, form,function() {
+      // LoginService.save({}, md5Form,function() {
+      LoginService.login({}, form,function() {
         // toastr.success('yes.', 'login success', {timeOut: 3000});
         vm.logining = false;
         // currentUser.username = form.username;

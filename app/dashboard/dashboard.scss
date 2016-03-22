@@ -20,9 +20,20 @@
     .selected{
             z-index: 999;
             position: absolute;
-            //top:240px;
+            /*//top:240px;*/
             bottom: 440px;
             right:20px;
         }
+
+    .avg-1{
+        margin: 10px 0 10px 10px;
+    }
+    .avg-2{
+        margin: 10px 5px 10px 5px ;
+    }
+
+    .avg-3{
+        margin: 10px 10px 10px 0;
+    }
 }
 

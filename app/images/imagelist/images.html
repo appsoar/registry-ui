@@ -4,13 +4,12 @@
         <input class="form-control input-sm"  placeholder="Image" ng-model="vm.search.searchByImage"/>
         <div class="input-group ">
           <span >
-            <!-- <input class="form-control input-sm pull-right"  placeholder="Push Date" /> -->
             <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" >{{vm.permissionType}} <i class="icon icon-chevron-down"></i></button>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation" class="dropdown-header">
                 Permission Type: 
               </li>
-              <li ng-repeat="item in vm.items" ng-click="vm.searchByPermission(item)">
+              <li ng-repeat="item in vm.permission" ng-click="vm.searchByPermission(item)">
                 <a href="#" >{{item}}</a>
               </li>
             </ul>
@@ -23,14 +22,14 @@
                 <li role="presentation" class="dropdown-header">
                   Select an Namespace:
                 </li>
-                  <li ng-repeat="item in vm.items" ng-click="vm.searchByNamespace(item)">
+                  <li ng-repeat="item in vm.namespaces" ng-click="vm.searchByNamespace(item)">
                     <a href="#" >{{item}}</a>
                   </li>
               </ul>
             </span>
         </div>
         <button type="button" class="btn btn-sm btn-danger " ng-click="vm.doClear()"> Clear All</button>
-        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.doSearch()"> Search</button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.resort()"> Search</button>
       </div>
     </div>
   <table class="table table-hover cs-table " >
@@ -48,14 +47,16 @@
               <td>{{repository._id}}</td>
               <td>{{repository.permission}}</td>
               <td>
-                  <select ng-model="vm.showTag[$index].tag_name" ng-options="tag.tag_name as tag.tag_name for tag in repository.tags"></select>
+                  <!-- sorry,because of nest circle . I dont have a good way to deal with tags well yet  except use $index-->
+                  <select ng-model="vm.showTag[$index]" ng-options="tag as tag.tag_name for tag in repository.tags"></select>
               </td>
-              <td>{{repository.tags[0].create_time | date:'yyyy-MM-dd hh:mm:ss'}}</td>
-              <td>{{repository.tags[0].pull_num}}</td>
+              <td>{{vm.showTag[$index].create_time | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+              <td>{{vm.showTag[$index].pull_num}}</td>
               <td>{{repository.namespace}}</td>
-              <td><div><span class="icon-menu" ng-click="vm.showMenu($event)"><i class="glyphicon glyphicon-cog"></i></span></div></td>
+              <td><div class="operation"><span class="glyphicon glyphicon-cog" ng-click="vm.showMenu($event, $index)"></span></div></td>
               </tr>
     </tbody>
   </table>
-  <cs-image-menu image="vm.repositories[0]" version="vm.repositories[0]" namespaces="vm.items"></cs-image-menu>
+  <!-- transmit current operation image and version to cs-image-menu -->
+  <cs-image-menu image="vm.selectImage" version="vm.selectTag" namespaces="vm.namespaces"></cs-image-menu>
 </section>

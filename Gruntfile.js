@@ -82,10 +82,8 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api/v0',
-          //host: '0.0.0.0',
-          //context: '/v2',
-          host: 'localhost',
-          port: 9005,
+          host: '192.168.12.22',
+          port: 9090,
           // host: '0.0.0.0',
           // port: 9006,
           changeOrigin: true,

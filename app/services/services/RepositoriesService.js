@@ -1,6 +1,6 @@
 'use strict';
 angular.module('registryUiApp')
-.factory('Repository', ['$resource', function($resource){
+.factory('Repository', function($resource){
   return $resource('/api/v0/repositories', {}, {
     'query': {
       method:'GET',
@@ -9,7 +9,8 @@ angular.module('registryUiApp')
           var temp = angular.fromJson(data).content;
           var collection = {
               repositories: [],
-              tag: []
+              tag: [],
+              namespaces:[]
           };
           angular.forEach(temp, function(item){
               collection.repositories.push(item);
@@ -20,5 +21,26 @@ angular.module('registryUiApp')
       }
     },
   });
-}]);
+}).factory('Namespace', function($resource, _){
+  return $resource('/api/v0/namespaces', {}, {
+    'query': {
+      method:'GET',
+      isArray: false,
+      transformResponse: function(data, headers){
+          var temp = angular.fromJson(data).content;
+          var collection = {
+              namespaces: [],
+              permission: []
+          };
+          var permission = []
+          angular.forEach(temp, function(item){
+              collection.namespaces.push(item._id);
+              permission.push(item.permission);
+          });
+          collection.permission = _.uniq(permission);
+          return collection;
+      }
+    },
+  });
+});
 

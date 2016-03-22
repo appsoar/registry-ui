@@ -4,5 +4,6 @@
         <div class="used-resource" ng-style="style"></div>
         <div class="total-resource"></div>   
     </div>
-    <div class="chart-detail"><tt ng-bind="data.percent"></tt>/<tt ng-bind="data.total"></tt></div>
+    <div class="chart-detail" ng-if="label == 'CPU'"><tt ng-bind="usage"></tt>/<tt ng-bind="total"></tt></div>
+    <div class="chart-detail" ng-if="label != 'CPU'"><tt ng-bind="usage | sysInfo"></tt>/<tt ng-bind="total | sysInfo"></tt></div>
 </div>

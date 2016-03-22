@@ -7,20 +7,10 @@
                         <li ng-click="changeTag('2')" cs-navtag-sw><a>构建历史</a></li>
                         <div class="nav-tags-bar"> </div>
                     </ul>
-                     <div class="" ng-if="currentTag == 0">
-                            
-
-<div class="ueditor" config="editorConfig" ng-model="content">
-  <p><span style="font-size: 36px;">大字</span><span style="color: rgb(255, 0, 0);">颜色</span></p>
-  <p>来点动画试试<img src="http://img.baidu.com/hi/jx2/j_0013.gif"/></p>
-</div>
-<h4>双向绑定内容（纯代码）</h4>
-<textarea class="form-control" id="" cols="80" rows="10" ng-model="content">
-</textarea>
-<h4>预览</h4>
-<div ng-bind-html="html"></div>
+                     <div class="" ng-show="currentTag == 0">
+                            <text-angular ng-model="htmlContent" ></text-angular>                            
                     </div>
-                    <div class="" ng-if="currentTag == 1">
+                    <div class="" ng-show="currentTag == 1">
                           <pre>
 FROM java:8-jre
 
@@ -47,7 +37,7 @@ ENV ANNOUNCE_PLAYER_ACHIEVEMENTS true
 ENV SERVER_PORT 25565
                           </pre>
                     </div>
-                    <div class="" ng-if="currentTag == 2">
+                    <div class="" ng-show="currentTag == 2">
                         <table class="table-hover cs-table-small " >
                           <thead>
                                 <th  width="20%">构建ID</th>
@@ -62,7 +52,7 @@ ENV SERVER_PORT 25565
                                     <td>v3.0</td>
                                     <td>user1</td>
                                     <td>2016-01-27 18:30:04</td>
-                                    <td><div><span class="icon-menu" ng-click="vm.showMenu($event)"><i class="glyphicon glyphicon-cog"></i></span></div></td>
+                                    <td><div class="operation"><span class="glyphicon glyphicon-cog" ng-click="vm.showMenu($event)"></span></div></td>
                                 </tr>
                           </tbody>
                         </table>

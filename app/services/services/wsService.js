@@ -14,25 +14,15 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
       ws.onOpen(function () {
           console.log('connection open');
       });
-// {"cpuUsage":12,"totalRam":1833,"availableRam":741,"totalDisk":38345,"availableDisk":1569}
       ws.onMessage(function(event) {
-        // console.log('message: ', event.data);
-        var response;
+        // var response;
         try {
-            response = angular.fromJson(event.data);
-            console.log(response);
+            collection[0] = angular.fromJson(event.data);
+            // console.log(collection);
         } catch (e) {
             console.log('error: ', e);
-            response = {'error': e};
+            // response = {'error': e};
         }
-        // collecton[0] = response;
-
-            // collection[0]= response.cpuUsage;
-            // collection[1]= response.availableRam;
-            // collection[2]= response.totalRam;
-            // collection[3]= response.availableDisk;
-            // collection[4] = response.totalDisk;
-
       });
       return {
         collection: collection,

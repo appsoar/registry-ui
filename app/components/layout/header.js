@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('registryUiApp').controller('LayoutHeaderController', function LayoutHeaderController($scope, $location, $state, _, Repository) {
+angular.module('registryUiApp').controller('LayoutHeaderController', function LayoutHeaderController($scope, $location, $state, _, Repository, LogoutService) {
   var vm = this;
   // vm.currentUser = currentUser.username;
   $scope.$on('$stateChangeSuccess', function() {
-        $scope.path = $location.path().split('/')[1];
+        $scope.path = $location.path().split('/');
   });
-  $scope.path = $location.path().split('/')[1];
+  $scope.path = $location.path().split('/');
   var detectLogin = function(){
       vm.currentUser = sessionStorage.currentUser;
       if(!vm.currentUser){
@@ -31,6 +31,15 @@ angular.module('registryUiApp').controller('LayoutHeaderController', function La
   };
   vm.focus = function(){
     vm.stay = true;
+  }
+
+  vm.logout = function(){
+      LogoutService.logout({}, {} ,function() {
+            sessionStorage.currentUser = '';
+            $state.go('login');
+          },function(){
+            // toastr.error('no.', 'username or password error');
+      });   
   }
 });
 

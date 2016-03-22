@@ -263,6 +263,9 @@ table.cs-table-small {
          td {
             border-top: 1px solid $bodyCol;
             padding-left: 10px;
+            > .operation > span {
+                  color: gray;
+              }
         }
     }
 }
