@@ -1,0 +1,16 @@
+table td {
+    height: 60px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    color: #999999;
+    background-color: #F7F7F7;
+}
+
+.rowProperty {
+    padding-bottom: 5px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ddd;
+}

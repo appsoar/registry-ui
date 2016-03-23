@@ -1,42 +1,36 @@
 <div class="container-fluid" ng-controller="namespaceCtrl as table">
-
-        <div class="row well">
-                <div class="row" style="margin-bottom: 15px;">
-                        <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add">添加命名空间</a>
-                </div>
-                <div class="row">
-                <div class="panel panel-default">
-                        <table ng-table="table.tableParams5" class="table table-bordered table-striped">
-                                <tbody>
-                                <tr ng-repeat="user in $data">
-                                        <td data-title="'命名空间'" sortable="'Namespace'"><a ui-sref="home.images.namespace.view">{{user.Namespace}}</a></td>
-                                        <td data-title="'属性'" sortable="'name'">{{user.Type}}</td>
-                                        <td data-title="'镜像数'" sortable="'name'"><a ui-sref="home.images.imagelist">{{user.ImageNum}}</a></td>
-                                        <td data-title="'最近提交日期'" sortable="'name'">{{user.Date}}</td>
-                                        <td data-title="'拉取次数'" sortable="'name'">{{user.PullNum}}</td>
-                                        <td class="text-center" data-title="'操作'">
-                                                <div class="dropdown">
-                                                       <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                               <a href dropdown-toggle><i class="fa fa-cog"></i></a>
-
-                                                       </span>
-                                                <!--<button class="btn btn-default dropdown-toggle dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                        <i class="fa fa-cog"></i>
-                                                </button>-->
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                                <li><a ui-sref="home.images.namespace.view">更多信息</a></li>
-                                                                <li role="separator" class="divider"></li>
-                                                                <li><a ui-sref="home.images.namespace.edit({id: {{user.ID}}})">修改</a></li>
-                                                                <li><a href="#">删除</a></li>
-                                                        </ul>
-                                                </div>
-                                        </td>
-                                </tr>
-                                </tbody>
-                        </table>
-                </div>
-                </div>
+    <div class="row well">
+        <div class="row" style="margin-bottom: 15px;">
+            <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add">添加命名空间</a>
         </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <table ng-table="table.tableParams" class="table table-hover">
+                    <tbody>
+                        <tr ng-repeat="data in $data">
+                            <td data-title="'命名空间'" sortable="'_id'"><a ui-sref="home.images.namespace.view({_id: '{{data._id}}'})">{{data._id}}</a></td>
+                            <td data-title="'属性'" sortable="'permission'">{{data.permission=="public" ?"公有":"私有"}}</td>
+                            <td data-title="'镜像数'" sortable="'imgNum'"><a ui-sref="home.images.imagelist">{{data.imgNum}}</a></td>
+                            <td data-title="'提交时间'" sortable="'create_time'">{{data.create_time| date:'yyyy-MM-dd'}}</td>
+                            <td class="text-center" data-title="'操作'">
+                                <div class="dropdown">
+                                    <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <a href dropdown-toggle><i class="fa fa-cog"></i></a>
+                                    </span>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a ui-sref="home.images.namespace.view({_id: '{{data._id}}'})">更多信息</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a ui-sref="home.images.namespace.edit({id: '{{data._id}}'})">修改</a></li>
+                                        <li><a href="#">删除</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div  ui-view></div>
+<div ui-view></div>
+<link rel="stylesheet" href="images/namespace/namespace.css" />
