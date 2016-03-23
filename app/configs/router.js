@@ -62,9 +62,9 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
          controller: 'namespaceCtrl'
      })
      .state('home.images.namespace.view', {
-         url: '/view',
+         url: '/view?_id',
          templateUrl: '/images/namespace/namespaceview.html',
-         controller: 'namespaceViewCtrl'
+         controller: 'namespaceViewCtrl as vm'
      })
      .state('home.images.namespace.add', {
          url: '/add',
