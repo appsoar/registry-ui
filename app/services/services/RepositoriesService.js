@@ -42,5 +42,23 @@ angular.module('registryUiApp')
       }
     },
   });
+}).factory('ImageDetail', function($resource){
+    return $resource('/api/v0/repository/:namespace/:reponame', {}, {
+    'query': {
+      method:'GET',
+      isArray: true,
+      transformResponse: function(data, headers){
+          return angular.fromJson(data).content;
+      }
+    },
+    'tag': {
+        url: '/api/v0/tag/:namespace/:reponame/:tag',
+        method: 'GET',
+        isArray: false,
+        transformResponse: function(data, headers){
+            return angular.fromJson(data).content;
+        }
+    }
+  });
 });
 

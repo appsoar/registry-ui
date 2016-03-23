@@ -1,7 +1,9 @@
 <ul class="dropdown-menu" >
-   <li ><a ui-sref="home.images.detail" >More info</a></li>
-   <li ngclipboard data-clipboard-text="docker pull {{image._id}}:{{version.tag_name}}"><a href="#" >Pull image</a></li>
-   <li class="copy-namespace-list"><a href="#" >Copy image to</a>
+   <li ng-click="vm.moreInfo(image,version)" ng-if="type == 'image'"><a  a href="#">More info</a></li>
+   <li ngclipboard data-clipboard-text="docker pull {{image._id}}:{{version.tag_name}}" ng-if="type == 'image'"><a href="#" >Pull image</a>
+
+   </li>
+   <li class="copy-namespace-list" ng-if="type == 'image'"><a href="#" >Copy image to</a>
               <ul class="dropdown-menu"> 
                     <li ng-repeat="namespace in namespaces" ng-click="vm.copyImage(namespace,image,version)"><a href="#" >{{namespace}}</a></li>
               </ul>

@@ -1,5 +1,5 @@
 'use strict';
-angular.module('registryUiApp').controller('CsImageMenuController' ,function($scope){
+angular.module('registryUiApp').controller('CsImageMenuController' ,function($state){
     var vm = this;
     var options = {
           title: "Are you sure?",
@@ -12,7 +12,10 @@ angular.module('registryUiApp').controller('CsImageMenuController' ,function($sc
           closeOnConfirm: true,
           closeOnCancel: true
     }
-    // vm.cmd ='docker pull ' + $scope.image._id + ':' + $scope.version.tag_name;
+    vm.moreInfo = function(image,version) {
+          var path = image._id.split('/');
+          $state.go('home.images.detail', {namespace: path[0], reponame: path[1], tag: version.tag_name});
+    }
     vm.removeImage = function(){
         swal(options,
         function(isConfirm){
@@ -50,7 +53,8 @@ angular.module('registryUiApp').directive('csImageMenu', function(){
       scope:  {
         image: '=',
         version: '=',
-        namespaces: '='
+        namespaces: '=',
+        type: '@'
       },
       templateUrl: 'components/unit/csImageMenu/csImageMenu.html',
       controller: 'CsImageMenuController as vm',

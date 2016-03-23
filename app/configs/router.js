@@ -29,15 +29,15 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
    $stateProvider.state('home.images', {
      url: '/images',
      template: '<div ui-view></div>',
-     abstract: false
+     abstract: true
    });
 
   //temp code ,for test proxy
- $stateProvider.state('home.images.image', {
-    url: '/images',
-    template: '<div ui-view></div>',
-    abstract: true
-  });
+ // $stateProvider.state('home.images.image', {
+ //    url: '/images',
+ //    template: '<div ui-view></div>',
+ //    abstract: true
+ //  });
 
   $stateProvider.state('home.images.imagelist', {
     url: '/list',
@@ -46,7 +46,7 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
   });
 
   $stateProvider.state('home.images.detail', {
-    url: '/detail',
+    url: '/:namespace/:reponame/:tag',
     templateUrl: '/images/imagelist/detail/detail.html',
     controller: "ImageDetailController as vm"
   });

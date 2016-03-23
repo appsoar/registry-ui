@@ -6,7 +6,7 @@ angular.module('registryUiApp').directive('csNavtagSw', function() {
         link: function($scope, $element, $route){
             $element.on('click', function(){
                 // $scope.currentTag = $element.index();
-                $('.nav-tags-bar').css({ 'left':$scope.currentTag*120 + 'px'});
+                $('.nav-tags-bar').css({ 'left':$scope.currentTab*120 + 'px'});
                 $element.siblings('.active').removeClass('active');
                 $element.addClass('active');
             });

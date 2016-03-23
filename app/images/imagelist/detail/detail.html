@@ -2,17 +2,17 @@
         <div class="col-md-8" ng-controller="DashboardStatisticController">
                 <div class="row well">
                     <ul class="nav nav-tabs">
-                        <li ng-click="changeTag('0')" cs-navtag-sw class="active"><a> 描述</a></li>
-                        <li ng-click="changeTag('1')" cs-navtag-sw><a>Dockerfile</a></li>
-                        <li ng-click="changeTag('2')" cs-navtag-sw><a>构建历史</a></li>
+                        <li ng-click="changeTab('0')" cs-navtag-sw class="active"><a> 描述</a></li>
+                        <li ng-click="changeTab('1')" cs-navtag-sw><a>Dockerfile</a></li>
+                        <li ng-click="changeTab('2')" cs-navtag-sw><a>构建历史</a></li>
                         <div class="nav-tags-bar"> </div>
                     </ul>
-                     <div class="" ng-show="currentTag == 0">
-                            <text-angular ng-model="htmlContent" ></text-angular>                            
+                     <div class="" ng-if="currentTab == 0">
+                            <text-angular ng-model="tag.desc" ></text-angular>                            
                     </div>
-                    <div class="" ng-show="currentTag == 1">
-                          <pre>
-FROM java:8-jre
+                    <div class="" ng-if="currentTab == 1">
+                          <pre ng-bind="tag.docker_file">
+<!-- FROM java:8-jre
 
 MAINTAINER Code Hz
 
@@ -34,10 +34,10 @@ ENV LEVEL_NAME world
 ENV ENABLE_QUERY true
 ENV ALLOW_FLIGHT true
 ENV ANNOUNCE_PLAYER_ACHIEVEMENTS true
-ENV SERVER_PORT 25565
+ENV SERVER_PORT 25565 -->
                           </pre>
                     </div>
-                    <div class="" ng-show="currentTag == 2">
+                    <div class="" ng-if="currentTab == 2">
                         <table class="table-hover cs-table-small " >
                           <thead>
                                 <th  width="20%">构建ID</th>
@@ -47,12 +47,12 @@ ENV SERVER_PORT 25565
                                 <th  width="10%"></th>
                           </thead>
                           <tbody>
-                                <tr ng-repeat="n in [0,1,2,3,4]">
-                                    <td>73d92623</td>
-                                    <td>v3.0</td>
-                                    <td>user1</td>
-                                    <td>2016-01-27 18:30:04</td>
-                                    <td><div class="operation"><span class="glyphicon glyphicon-cog" ng-click="vm.showMenu($event)"></span></div></td>
+                                <tr ng-repeat="item in image">
+                                    <td ng-bind="item._id"></td>
+                                    <td ng-bind="item.tag_name"></td>
+                                    <td ng-bind="item.user_id"></td>
+                                    <td ng-bind="item.create_time | date:'yyyy-MM-dd hh:mm:ss'"></td>
+                                    <td><div class="operation"><span class="glyphicon glyphicon-cog" ng-click="showMenu($event)"></span></div></td>
                                 </tr>
                           </tbody>
                         </table>
@@ -82,27 +82,33 @@ ENV SERVER_PORT 25565
                         <div class="title"><h4>docker-centos</h4></div>
                             <div class="version-detail">
                                 <span>版本:</span>
-                                <span><select><option>1.0</option></select></span>
+                                <span>
+                                    <select ng-model="currentTag" ng-change="changeTag()">
+                                        <option ng-repeat="item in image" ng-bind="item.tag_name" value="{{item.tag_name}}"></option>
+                                    </select>
+                                    <!-- <select ng-model="vm.showTag[$index]" ng-options="tag as tag.tag_name for tag in repository.tags"></select> -->
+                                </span>
                             </div>
                             <div class="version-detail">
                                 <span>属性:</span>
-                                <span>public</span>
+                                <span ng-bind="image[0].permission"></span>
                             </div>
                             <div class="version-detail">
                                 <span>大小:</span>
-                                <span>400M</span>
+                                <span ng-bind="tag.size | imageSize"></span>
                             </div>
                             <div class="version-detail">
                                 <span>下载:</span>
-                                <span>100</span>
+                                <span ng-bind="tag.pull_num"></span>
                             </div>
                              <div class="version-detail">
                                     <span>拉取镜像:</span>
                             </div>
                             <div class="pull-image-input">
-                                  <input class="form-control" value="docker pull cloudsoar/appsoar"></input>
+                                    <span class="glyphicon glyphicon-copy" ngclipboard data-clipboard-text="docker pull {{tag.repository}}:{{tag.tag_name}}"></span>
+                                    <input class="form-control" value="docker pull {{tag.repository}}:{{tag.tag_name}}" readonly="readonly"></input>
                             </div>
                 </div>
         </div>
 </div>
-<cs-image-menu image="vm.repositories[0]" version="vm.repositories[0]" namespaces="vm.items"></cs-image-menu>
+<cs-image-menu image="vm.repositories[0]" version="vm.repositories[0]" namespaces="vm.items" type="tag"></cs-image-menu>

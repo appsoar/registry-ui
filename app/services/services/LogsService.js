@@ -2,7 +2,7 @@
 
 angular.module('registryUiApp').factory('LogsService', function($resource){
     // return $resource('/data/logs.json', {}, {
-    return $resource('/api/v0/logs', {}, {
+    return $resource('/api/v0/logs/:num', {}, {
         'query': {
             method: 'GET',
             isArray: true,
@@ -16,14 +16,14 @@ angular.module('registryUiApp').factory('LogsService', function($resource){
                     //     });
                     //     logs.push(log);
                     // });
-                    // angular.forEach(angular.fromJson(data).lines, function(item){
-                    //     var log = '';
-                    //     angular.forEach(item, function(value, key) {
-                    //         log =log + ' ' + (key + '= ' + value);
-                    //     });
-                    //     logs.push(log);
-                    // });
-                    return angular.fromJson(data).lines;
+                    var logs = [];
+                    angular.forEach(angular.fromJson(data).content, function(item){
+                        var temp = item.split(/\[[0-9]{1,6}\-[0-9]{1,6}\]/);
+                        var log = temp[0].split(/\,[0-9]{3}\ /);
+                        logs.push({time: log[0], level: log[1], detail: temp[1]});
+                    });
+                    console.log(logs);
+                    return logs;
                 }catch(e){
                   console.error(e);
                   return [];
