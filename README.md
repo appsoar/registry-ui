@@ -16,6 +16,7 @@ Prerequisites:
 * [Node.js](http://nodejs.org/) 5.7.0 (with NPM)
 * [Yo](http://www.yeoman.com/)
 * [Grunt](www.gruntjs.net)
+*[Ruby](www.ruby.com)
 
 If you're on a Ubuntu host, you can follow these steps:
 ```bash
@@ -26,6 +27,13 @@ If you're on a Ubuntu host, you can follow these steps:
   sudo make
   sudo make install
   npm install -g bower yo grunt
+  sudo apt-get install python-software-properties
+  sudo apt-add-repository ppa:brightbox/ruby-ng
+  sudo apt-get update
+  sudo apt-get install ruby2.3 ruby2.3-dev
+  gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+  sudo gem update --system
+  sudo gem install compass
 ```
 
 Setup:

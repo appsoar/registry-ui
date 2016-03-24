@@ -16,7 +16,6 @@ angular.module('registryUiApp').controller('LayoutHeaderController', function La
   detectLogin();
   console.log(vm.currentUser);
   vm.keyword = '';
-  // vm.repositories = Repository.query({});
   vm.stay = false;
   var search = function(){
     if(vm.keyword){
@@ -26,6 +25,9 @@ angular.module('registryUiApp').controller('LayoutHeaderController', function La
     }
   };
   vm.search = _.debounce(search, 300);
+  Repository.query({}).$promise.then(function(value, responseHeaders){
+        vm.repositories = value.repositories;
+    },function(){});
   vm.blur = function(){
     vm.stay = false;
   };

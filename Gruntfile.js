@@ -85,7 +85,7 @@ module.exports = function (grunt) {
           //host: '0.0.0.0',
           //context: '/v2',
           host: '192.168.12.22',
-          port: 9090,
+          port: 9000,
           // host: '0.0.0.0',
           // port: 9006,
           changeOrigin: true,

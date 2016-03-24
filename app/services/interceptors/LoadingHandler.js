@@ -31,6 +31,7 @@ angular.module('registryUiApp').factory('LoadingHandler', function LoadingHandle
 
   LoadingHandler.request = function (config) {
     if(config.url.indexOf('/api/v0')> -1){
+      config.headers['timeout'] = 3000;
       incRef();
     }
     return $q.when(config);

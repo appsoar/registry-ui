@@ -11,15 +11,15 @@ angular.module('registryUiApp').controller('LoginController', function($state, L
       };
       // LoginService.save({}, md5Form,function() {
       LoginService.login({}, form,function() {
-        // toastr.success('yes.', 'login success', {timeOut: 3000});
         vm.logining = false;
-        // currentUser.username = form.username;
         sessionStorage.currentUser = form.username;
-        // console.log(currentUser);
         $state.go('home.dashboard');
-      },function(){
+      },function(responseHeaders){
         vm.logining = false;
-        toastr.error('no.', 'username or password error', {timeOut: 3000});
+        console.log(responseHeaders);
+        if(responseHeaders.status === 401){
+            toastr.error('no.', 'username or password error', {timeOut: 3000});  
+        }
       });   
    };
 });

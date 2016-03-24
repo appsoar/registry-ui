@@ -32,12 +32,7 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
     Repository.query({}).$promise.then(function(value, responseHeaders){
         vm.repositories = value.repositories;
         vm.showTag = value.tag;
-        //
-            vm.selectImage = vm.repositories[0];
-            vm.selectTag = vm.showTag[0];
-    },function(){
-
-    });
+    },function(){ });
 
     Namespace.query({}).$promise.then(function(value, responseHeaders){
         vm.permission = value.permission;
@@ -50,6 +45,10 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
     vm.resort = function() {
         //set resort keywords(vm.search and vm.current) and ask data from backend ,order by current . March version should not think about this.
         //to do
+        Repository.query({}).$promise.then(function(value, responseHeaders){
+            vm.repositories = value.repositories;
+            vm.showTag = value.tag;
+        },function(){ });
         toastr.warning('Sort by:' + vm.current.label + '  ,desc:' + vm.current.desc ,'Sort API not yet completed');
     };
 

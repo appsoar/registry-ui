@@ -44,19 +44,19 @@
     </thead>
     <tbody>
           <tr ng-repeat="repository in vm.repositories">
-              <td>{{repository._id}}</td>
-              <td>{{repository.permission}}</td>
+              <td ng-bind="repository._id"></td>
+              <td ng-bind="repository.permission"></td>
               <td>
                   <!-- sorry,because of nest circle . I dont have a good way to deal with tags well yet  except use $index-->
                   <select ng-model="vm.showTag[$index]" ng-options="tag as tag.tag_name for tag in repository.tags"></select>
               </td>
-              <td>{{vm.showTag[$index].create_time | date:'yyyy-MM-dd hh:mm:ss'}}</td>
-              <td>{{vm.showTag[$index].pull_num}}</td>
-              <td>{{repository.namespace}}</td>
+              <td ng-bind="vm.showTag[$index].create_time | date:'yyyy-MM-dd hh:mm:ss'"></td>
+              <td ng-bind="vm.showTag[$index].pull_num"></td>
+              <td ng-bind="repository.namespace"></td>
               <td><div class="operation"><span class="glyphicon glyphicon-cog" ng-click="vm.showMenu($event, $index)"></span></div></td>
               </tr>
     </tbody>
   </table>
   <!-- transmit current operation image and version to cs-image-menu -->
-  <cs-image-menu image="vm.selectImage" version="vm.selectTag" namespaces="vm.namespaces"></cs-image-menu>
+  <cs-image-menu image="vm.selectImage" version="vm.selectTag" namespaces="vm.namespaces" type="image"></cs-image-menu>
 </section>

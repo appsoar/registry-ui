@@ -9,11 +9,22 @@
     }
 }
 
-.pull-image-input  input{
-    border: 1px solid $bgDefault;
-    border-radius: 0;
-    color: $bgDefault;
-}
+.pull-image-input{
+    position: relative;
+    input{
+        border: 1px solid $bgDefault;
+        border-radius: 0;
+        color: $bgDefault;
+    }
+    > span {
+        color: $bgDefault;
+        position: absolute;
+        right: 5px;
+        top:5px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+} 
 
 .ta-editor {
     min-height: 300px;
