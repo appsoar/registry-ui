@@ -1,0 +1,40 @@
+@charset "utf-8";
+@import "variables";
+/*all setting css style is here*/
+.setting-brief {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $grayColor;
+    color: $grayColor;
+    margin-bottom: 20px;
+}
+
+.setting-well {
+    min-height: 750px;
+}
+.setting-line {
+    > input {
+          height: 45px;
+          line-height: 25px;
+          width: 50%;
+          margin-left: 30px;
+    }
+}
+.lic-left {
+    padding-bottom: 40px;
+     > label {
+          color: $bgDefault;
+          display: block;
+          font-size: 18px;
+          padding: 10px 0;
+     }
+}
+
+.logs-filter {
+    margin-top: 20px;
+    color: $bgDefault;
+    td > span {
+      padding-top:10px;
+      color:black;
+    }
+}

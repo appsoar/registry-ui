@@ -22,7 +22,6 @@ angular.module('registryUiApp').factory('LogsService', function($resource){
                         var log = temp[0].split(/\,[0-9]{3}\ /);
                         logs.push({time: log[0], level: log[1], detail: temp[1]});
                     });
-                    console.log(logs);
                     return logs;
                 }catch(e){
                   console.error(e);

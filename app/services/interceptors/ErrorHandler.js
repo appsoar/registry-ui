@@ -14,6 +14,10 @@ angular.module('registryUiApp').factory('ErrorHandler', function ErrorHandlerFac
     }
     return $q.when(config);
   };
+  // ErrorHandler.requestError = function(rejection) {
+  //     toastr.error('error code: ', rejection.status + ' - ' + rejection.data);
+  //     return $q.reject(rejection);
+  // };
   ErrorHandler.responseError = function (rejection) {
     console.error(rejection);
     if (rejection.status === 401) {

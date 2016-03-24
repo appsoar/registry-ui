@@ -61,7 +61,6 @@
             </tr>
         </tbody>
     </table>
-</div>
 <ul>
       <li ng-repeat="log in vm.logs  | filter: {user: vm.user , level: vm.level} | logsSort:vm.calendarStart:vm.calendarEnd">
         <div class="head">
@@ -72,3 +71,4 @@
         <div class="detail"> {{log.detail}}</div>
     </li>
 </ul>       
+</div>

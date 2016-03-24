@@ -4,26 +4,26 @@
         <input class="form-control input-sm"  placeholder="Image" ng-model="vm.search.searchByImage"/>
         <div class="input-group ">
           <span >
-            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" >{{vm.permissionType}} <i class="icon icon-chevron-down"></i></button>
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" ng-cloak>{{vm.permissionType}} <i class="icon icon-chevron-down"></i></button>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation" class="dropdown-header">
                 Permission Type: 
               </li>
               <li ng-repeat="item in vm.permission" ng-click="vm.searchByPermission(item)">
-                <a href="#" >{{item}}</a>
+                <a href="#" ng-bind="item"></a>
               </li>
             </ul>
           </span>
         </div>
         <div class="input-group ">
             <span >
-              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">{{vm.namespace}} <i class="icon icon-chevron-down"></i></button>
+              <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" ng-cloak>{{vm.namespace}} <i class="icon icon-chevron-down"></i></button>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation" class="dropdown-header">
                   Select an Namespace:
                 </li>
                   <li ng-repeat="item in vm.namespaces" ng-click="vm.searchByNamespace(item)">
-                    <a href="#" >{{item}}</a>
+                    <a href="#" ng-bind="item"></a>
                   </li>
               </ul>
             </span>
