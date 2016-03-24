@@ -4,11 +4,11 @@
 'use strict'
 
 var namespaceApp = angular.module('registryUiApp');
-var url = "http://192.168.12.112:8080";
-namespaceApp.factory('namespaceListService', ['$resource', function($resource)
+
+namespaceApp.factory('namespaceListService', ['$resource', 'apiUrl', function($resource, apiUrl)
     {
         //{"content": [{"_id": "appsoar", "create_time": 1458301228013.0, "owner_id": "admin", "desc": ""}], "message": "done", "result": 0}
-        return $resource(url+'/api/namespaces', {}, {
+        return $resource(apiUrl+'/api/namespaces', {}, {
             'query': {
                 method:'GET',
                 isArray: false,
@@ -36,70 +36,75 @@ namespaceApp.factory('namespaceListService', ['$resource', function($resource)
                         return ret;
                     }
                     else{
-                        console.log(repos.message);
+                        toastr.success('获取命名空间出错.', repos.message, {timeOut: 3000});
                     }
                 }
             }
         })
     }]);
 
-namespaceApp.factory('namespaceService', ['$resource', function($resource){
-    return $resource(url + '/api/namespace/:namespace_name', {},{
+namespaceApp.factory('namespaceService', ['$resource', 'apiUrl', function($resource, apiUrl){
+    return $resource(apiUrl + '/api/namespace/:namespace_name', {},{
         'query':{
             method:'GET',
             isArray: false,
             transformResponse: function(data, headers){
                 var repos = angular.fromJson(data);
-                //console.log(repos);
                 if(repos.result=="0"){
-                    //{"content": {"permission": "public", "_id": "appsoar", "create_time": 1458301228013.0, "owner_id": "admin", "desc": ""}, "message": "done", "result": 0}
-                    //console.log(repos.content)
                   return repos.content;
                 }
                 else
                 {
-                    console.log(repos.mssage)
+                    toastr.success('获取命名空间出错.', repos.message, {timeOut: 3000});
                 }
             }
         },
         'save': {
             method:'POST',
-            url:url +'/api/namespace',
+            url:apiUrl +'/api/namespace/add',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             transformResponse: function(data, headers) {
                 var repos = angular.fromJson(data);
                 if(repos.result == "0"){
-
+                    toastr.success('添加命名空间成功.', repos.message, {timeOut: 3000});
                 }
                 else{
-                    toastr.error('Error.', repos.message, {timeOut: 3000});
+                    toastr.error('添加命名空间错误.', repos.message, {timeOut: 3000});
                 }
             }
         },
         'update':{
-            method:'PUT',
-            url:url +'/api/namespace/:namespace_id',
+            method:'POST',
+            url:apiUrl +'/api/namespace/update/:namespace_id',
             headers: {
-                "Access-Control-Allow-Methods":"PUT",
-                'Access-Control-Allow-Headers': 'X-Requested-With'
-            },
-        },
-        'delete': {
-            method:'DELETE',
-            url:url +'/api/namespace/:namespace_id',
-            headers: {
-                "Access-Control-Allow-Methods":"DELETE",
-                'Access-Control-Allow-Headers': 'X-Requested-With'
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             transformResponse: function(data, headers) {
                 var repos = angular.fromJson(data);
                 if(repos.result == "0"){
-
+                    toastr.success('修改命名空间成功.', repos.message, {timeOut: 3000});
                 }
                 else{
-                    toastr.error('Error.', repos.message, {timeOut: 3000});
+                    toastr.error('修改命名空间错误.', repos.message, {timeOut: 3000});
+                }
+            }
+        },
+        'delete': {
+            method:'POST',
+            url:apiUrl +'/api/namespace/delete/:namespace_id',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            transformResponse: function(data, headers) {
+                console.log(data)
+                var repos = angular.fromJson(data);
+                if(repos.result == "0"){
+                    toastr.success('删除命名空间成功.', repos.message, {timeOut: 3000});
+                }
+                else{
+                    toastr.error('删除命名空间错误.', repos.message, {timeOut: 3000});
                 }
             }
         }

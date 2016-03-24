@@ -1,7 +1,7 @@
 <div class="container-fluid" ng-controller="namespaceCtrl as table">
     <div class="row well">
         <div class="row" style="margin-bottom: 15px;">
-            <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add({cache:true})">添加命名空间</a>
+            <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add">添加命名空间</a>
         </div>
         <div class="row">
             <div class="panel panel-default">
@@ -10,7 +10,7 @@
                         <tr ng-repeat="data in $data">
                             <td data-title="'命名空间'" sortable="'_id'"><a ui-sref="home.images.namespace.view({_id: '{{data._id}}'})">{{data._id}}</a></td>
                             <td data-title="'属性'" sortable="'permission'">{{data.permission=="public" ?"公有":"私有"}}</td>
-                            <td data-title="'镜像数'" sortable="'imgNum'"><a ui-sref="home.images.imagelist">{{data.imgNum}}</a></td>
+                            <td data-title="'镜像数'" sortable="'imgNum'"><a href="/images/list?namespace_id={{data._id}}">{{data.imgNum}}</a></td>
                             <td data-title="'提交时间'" sortable="'create_time'">{{data.create_time| date:'yyyy-MM-dd'}}</td>
                             <td class="text-center" data-title="'操作'">
                                 <div class="dropdown">

@@ -5,17 +5,16 @@
 
 var registryApp = angular.module('registryUiApp');
 
-registryApp.controller('DashboardStatisticController', function ($scope, $interval, _) {
+registryApp.controller('DashboardStatisticController', function ($scope, $interval, _, dashboardStatisticService) {
 
     var vm = this;
+    vm.dashboardStatistic = dashboardStatisticService.collection;
     this.imageNum = 100;
-    this.namespaceNum = 12;
     this.userNum = 20;
 
     $interval(function () {
 
         vm.imageNum = Math.ceil(Math.random() * 50)
-        vm.namespaceNum = Math.ceil(Math.random() * 100)
         vm.userNum = Math.ceil(Math.random() * 1000);
 
     }, 2000);

@@ -18,7 +18,7 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
         // var response;
         try {
             collection[0] = angular.fromJson(event.data);
-            // console.log(collection);
+            //console.log(collection);
         } catch (e) {
             console.log('error: ', e);
             // response = {'error': e};

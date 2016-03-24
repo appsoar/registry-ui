@@ -5,8 +5,8 @@
 
 var namespaceApp = angular.module('registryUiApp');
 
-namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', 'ngTableDataService', 'namespaceListService','namespaceService','$state',
-    function ($scope, $filter, ngTableParams, $resource, $timeout, ngTableDataService, namespaceListService,namespaceService,$state) {
+namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', 'ngTableDataService', 'namespaceListService', 'namespaceService', '$state',
+    function ($scope, $filter, ngTableParams, $resource, $timeout, ngTableDataService, namespaceListService, namespaceService, $state) {
         var vm = this;
         vm.resp = namespaceListService.query();
 
@@ -25,9 +25,9 @@ namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', 
             }
         });
 
-        vm.Delete = function(_id){
-            namespaceService.delete({namespace_id: _id});
-            $state.go('home.images.namespace.list',{}, {reload: true});
+        vm.Delete = function (_id) {
+            namespaceService.delete({ namespace_id: _id });
+            $state.go('home.images.namespace.list', {}, { reload: true });
         }
     }]);
 
@@ -61,7 +61,7 @@ namespaceApp.service('ngTableDataService', ['namespaceListService', '$filter', f
 
                 params.total(TableData.cache.total);
                 $defer.resolve(filteredData);
-                TableData.cache=null;
+                TableData.cache = null;
             }
 
         }
@@ -70,8 +70,9 @@ namespaceApp.service('ngTableDataService', ['namespaceListService', '$filter', f
     return TableData;
 }]);
 
-namespaceApp.controller('namespaceEditCtrl', ['$scope', '$location', '$stateParams','namespaceService','$state', function ($scope, $location, $stateParams,namespaceService,$state) {
+namespaceApp.controller('namespaceEditCtrl', ['$scope', '$location', '$stateParams', 'namespaceService', '$state', function ($scope, $location, $stateParams, namespaceService, $state) {
     var vm = this;
+
     vm.selectModle = [
         { name: '公有', value: 'public' },
         { name: '私有', value: 'private' }
@@ -84,44 +85,40 @@ namespaceApp.controller('namespaceEditCtrl', ['$scope', '$location', '$statePara
     // console.log($stateParams.id);
     vm.namespace = {
         _id: $stateParams._id,
-        create_time:"",
+        create_time: "",
         desc: "",
         owner_id: "",
         permission: "public",
         repo_num: 0
     };
     // vm.namespace=namespace;
-
+    vm.namespacedisabled = false;
     //判断参数是否存在ID
     if ($stateParams._id) {
         //alert($stateParams.id)
-        vm.namespace = namespaceService.query({namespace_name: $stateParams._id});
+        vm.namespace = namespaceService.query({ namespace_name: $stateParams._id });
+        vm.namespacedisabled = true;
         console.log(vm.namespace)
-       // vm.namespace.Namespace = "测试";
-    }
-    else {
-        console.log('add')
+        // vm.namespace.Namespace = "测试";
     }
 
-    vm.Save = function(){
-        if ($stateParams._id){
-        var saveData = {_id: vm.namespace._id,permission: vm.namespace.permission, desc: vm.namespace.desc};
-        namespaceService.save({},saveData);
-        }else{
-            var saveData = {permission: vm.namespace.permission, desc: vm.namespace.desc};
-            namespaceService.update({namespace_id: vm.namespace._id},saveData);
+
+    vm.Save = function () {
+        if ($stateParams._id) {
+            var saveData = { permission: vm.namespace.permission, desc: vm.namespace.desc };
+            namespaceService.update({ namespace_id: vm.namespace._id }, saveData);
+        } else {
+            var saveData = { _id: vm.namespace._id, permission: vm.namespace.permission, desc: vm.namespace.desc };
+            namespaceService.save({}, saveData);
         }
-       $state.go('home.images.namespace.list',{}, {reload: true});
+        $state.go('home.images.namespace.list', {}, { reload: true });
     }
 }]);
 
-namespaceApp.controller('namespaceViewCtrl', ['$scope', '$stateParams','namespaceService', function ($scope, $stateParams,namespaceService) {
+namespaceApp.controller('namespaceViewCtrl', ['$scope', '$stateParams', 'namespaceService','$state', function ($scope, $stateParams, namespaceService,$state) {
     //alert($stateParams._id)
     var vm = this;
     //console.log(namespaceService.query({namespace_name: $stateParams._id}))
-    vm.namespace=namespaceService.query({namespace_name: $stateParams._id});
-
-    //namespaceService.save({},{_id:'123',permission:'public',desc:'11111'});
-
+    vm.namespace = namespaceService.query({ namespace_name: $stateParams._id });
 
 }]);
