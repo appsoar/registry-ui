@@ -1,96 +1,102 @@
 <style type="text/css">
-        .textStyle{
-                font-family: "微软雅黑 Bold", "微软雅黑";
-                font-style: normal;
-                font-size: 18px;
-                color: #666666;
-                width: 49%;
-                float: right;
-                padding: 15px 0px 10px 10px;
-        }
-        .imgStyle{
-                width: 49%; text-align:right;
-                padding: 10px 0px 10px 0px;
-                float: left;
-        }
+    .textStyle {
+        font-family: "微软雅黑 Bold", "微软雅黑";
+        font-style: normal;
+        font-size: 18px;
+        color: #666666;
+        width: 49%;
+        float: right;
+        padding: 15px 0px 10px 10px;
+    }
+
+    .imgStyle {
+        width: 49%;
+        text-align: right;
+        padding: 10px 0px 10px 0px;
+        float: left;
+    }
 </style>
 <div class="container">
-        <div class="gap"></div>
-        <div class="row">
-                <div class="col-md-8" >
-                        <div class="row " ng-controller="DashboardStatisticController as vm">
-                                 <!-- basic overview -->
-                                 <!-- <highchart id="statisticChart" class="high-chart" config="chartConfig"></highchart> -->
-                                <div class="col-md-4" style="">
-                                        <div class=" well avg-1" >
-                                                <div class="imgStyle">
-                                                        <img src="/styles/img/u75.png">
-                                                </div>
-                                                <div class="textStyle">
-                                                        <p><span style="color: #3498db">镜像</span></p>
-                                                        <p><span>{{vm.imageNum}}</span></p>
-                                                </div>
-                                                <div style="clear: both;"></div>
-                                        </div>
-                                </div>
-                                <div class="col-md-4">
-                                        <div class=" well avg-2">
-                                        <!-- <div class="col-md-12" style="border: 1px solid #ddd;"> -->
-                                        <div class="imgStyle">
-                                                <img src="/styles/img/u75.png">
-                                        </div>
-                                        <div class="textStyle">
-                                                <p><span style="color: #3498db">命名空间</span></p>
-                                                <p><span>{{vm.namespaceNum}}</span></p>
-                                        </div>
-                                                <div style="clear: both;"></div>
-                                                </div>
-                                </div>
-                                <div class="col-md-4">
-                                        <div class=" well avg-3">
-                                        <!-- <div class="col-md-12" style="border: 1px solid #ddd;"> -->
-                                        <div class="imgStyle">
-                                                <img src="/styles/img/u75.png">
-                                        </div>
-                                        <div class="textStyle">
-                                                <p><span style="color: #3498db">用户</span></p>
-                                                <p><span>{{vm.userNum}}</span></p>
-                                        </div>
-                                                <div style="clear: both;"></div>
-                                                </div>
-                                </div>
+    <div class="gap"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row " ng-controller="DashboardStatisticController as vm">
+                <!-- basic overview -->
+                <!-- <highchart id="statisticChart" class="high-chart" config="chartConfig"></highchart> -->
+                <div class="col-md-4" style="">
+                    <div class=" well avg-1">
+                        <div class="imgStyle">
+                            <img src="/styles/img/u75.png">
                         </div>
-                        <div class="row well">
-                                <!-- logs overview -->
-                                <div class="title"><h4>日志监控 </h4><a ui-sref="home.settings.logs" type="button">更多</a></div>
-                                <cs-latest-logs logs="vm.logs"></cs-latest-logs>
+                        <div class="textStyle">
+                            <p><span style="color: #3498db">镜像</span></p>
+                            <p><span>{{vm.imageNum}}</span></p>
                         </div>
+                        <div style="clear: both;"></div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                        <div class="row well">
-                                <!-- sysinfo overview -->
-                                <div class="title"><h4>资源使用  {{sysinfo.cpuUsage}}</h4></div>
-
-                                <cs-sysinfo-chart  label="vm.label[0]" data="sysinfo[0].cpuUsage" total="vm.totalCpu"></cs-sysinfo-chart>
-                                <cs-sysinfo-chart  label="vm.label[1]" data="sysinfo[0].availableRam" total="sysinfo[0].totalRam"></cs-sysinfo-chart>
-                                <cs-sysinfo-chart  label="vm.label[2]" data="sysinfo[0].availableDisk" total="sysinfo[0].totalDisk"></cs-sysinfo-chart>
+                    <div class=" well avg-2">
+                        <!-- <div class="col-md-12" style="border: 1px solid #ddd;"> -->
+                        <div class="imgStyle">
+                            <img src="/styles/img/u75.png">
                         </div>
-                        <div class="row well">
-                                <!-- network overview -->
-                                <div class="title"><h4>网络状态</h4></div>
-                                 <div  ng-controller="throughputiopscontroller as vm" ng-init="vm.tabIndex='iops'">
-                                        <div class="row">
-                                            <ul id="myTab" class="nav nav-tabs">
-                                                <li class="active"><a href="#IOps" data-toggle="tab" ng-click="vm.tabClick('iops')">IOps</a></li>
-                                                <li><a href="#throughput" data-toggle="tab" ng-click="vm.tabClick('throughput')">吞吐量</a></li>
-                                            </ul>
-                                            <select id="selecteth" ng-model="vm.selected" ng-options="s.name as s.value for s in vm.modle" ng-change="vm.selectedChange()" class="selected"> </select>
-                                        </div>
-                                        <div id="throughputiopscontainer" ></div>
-                                </div>
+                        <div class="textStyle">
+                            <p><span style="color: #3498db">命名空间</span></p>
+                            <p><span>{{vm.namespaceNum}}</span></p>
                         </div>
+                        <div style="clear: both;"></div>
+                    </div>
                 </div>
+                <div class="col-md-4">
+                    <div class=" well avg-3">
+                        <!-- <div class="col-md-12" style="border: 1px solid #ddd;"> -->
+                        <div class="imgStyle">
+                            <img src="/styles/img/u75.png">
+                        </div>
+                        <div class="textStyle">
+                            <p><span style="color: #3498db">用户</span></p>
+                            <p><span>{{vm.userNum}}</span></p>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row well">
+                <!-- logs overview -->
+                <div class="title">
+                    <h4>日志监控 </h4>
+                    <a ui-sref="home.settings.logs" type="button">更多</a></div>
+                <cs-latest-logs logs="vm.logs"></cs-latest-logs>
+            </div>
         </div>
+        <div class="col-md-4">
+            <div class="row well">
+                <!-- sysinfo overview -->
+                <div class="title">
+                    <h4>资源使用  {{sysinfo.cpuUsage}}</h4>
+                </div>
+
+                <cs-sysinfo-chart label="vm.label[0]" data="sysinfo[0].cpuUsage" total="vm.totalCpu"></cs-sysinfo-chart>
+                <cs-sysinfo-chart label="vm.label[1]" data="sysinfo[0].availableRam" total="sysinfo[0].totalRam"></cs-sysinfo-chart>
+                <cs-sysinfo-chart label="vm.label[2]" data="sysinfo[0].availableDisk" total="sysinfo[0].totalDisk"></cs-sysinfo-chart>
+            </div>
+            <div class="row well" ng-controller="iopsController as vm">
+                <!-- network overview -->
+                <div class="title">
+                    <div style="float: left; width: 25%">
+                        <h4>网络状态</h4>
+                    </div>
+                    <div style="float: right; width: 75%">
+                            <strong>网卡：</strong><select id="selecteth" ng-model="vm.selected" ng-options="s.name as s.value for s in vm.modle" ng-change="vm.selectedChange()" class="selected"></select>
+                            &nbsp;&nbsp;
+                            <select id="selectTxRx" ng-model="vm.TxRx" ng-options="s.value as s.name for s in vm.TxRxModle" ng-change="vm.selectedChangeTxRx()"></select>
+                    </div>
+                </div>
+                    <div id="throughputiops"></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

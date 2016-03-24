@@ -1,7 +1,7 @@
 <div class="container-fluid" ng-controller="namespaceCtrl as table">
     <div class="row well">
         <div class="row" style="margin-bottom: 15px;">
-            <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add">添加命名空间</a>
+            <a class="btn btn-primary" role="button" ui-sref="home.images.namespace.add({cache:true})">添加命名空间</a>
         </div>
         <div class="row">
             <div class="panel panel-default">
@@ -20,8 +20,8 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li><a ui-sref="home.images.namespace.view({_id: '{{data._id}}'})">更多信息</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a ui-sref="home.images.namespace.edit({id: '{{data._id}}'})">修改</a></li>
-                                        <li><a href="#">删除</a></li>
+                                        <li><a ui-sref="home.images.namespace.edit({_id: '{{data._id}}'})">修改</a></li>
+                                        <li><a href="javascript:;" ng-click="table.Delete(data._id)">删除</a></li>
                                     </ul>
                                 </div>
                             </td>

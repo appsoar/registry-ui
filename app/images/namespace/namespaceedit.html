@@ -6,10 +6,10 @@
                 <label>命名空间：</label>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" ng-model="vm.namespace.Namespace" placeholder="命名空间">
+                <input type="text" class="form-control" ng-model="vm.namespace._id" placeholder="命名空间">
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-primary">修改</button>
+                <!--<button type="button" class="btn btn-primary">修改</button>-->
             </div>
         </div>
         <div class="row rowProperty">
@@ -17,7 +17,7 @@
                 <label>属性：</label>
             </div>
             <div class="col-md-6">
-                <select class="form-control" ng-model="vm.selected" ng-options="s.value as s.name for s in vm.selectModle"></select>
+                <select class="form-control" ng-model="vm.namespace.permission" ng-options="s.value as s.name for s in vm.selectModle"></select>
             </div>
             <div class="col-md-4">
             </div>
@@ -27,7 +27,7 @@
                 <label>描述：</label>
             </div>
             <div class="col-md-6">
-                <textarea class="form-control" rows="3" placeholder="描述"></textarea>
+                <textarea class="form-control" ng-model="vm.namespace.desc" rows="3" placeholder="描述"></textarea>
             </div>
             <div class="col-md-4">
             </div>
@@ -36,9 +36,9 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-primary">确定</button>
+                <button type="button" class="btn btn-primary" ng-click="vm.Save()">确 定</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-default" role="button" ui-sref="home.images.namespace.list">取消</a>
+                <a class="btn btn-default" role="button" ui-sref="home.images.namespace.list">取 消</a>
             </div>
             <div class="col-md-4">
             </div>
