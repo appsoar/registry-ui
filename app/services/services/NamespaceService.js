@@ -44,7 +44,66 @@ namespaceApp.factory('namespaceListService', ['$resource', function($resource)
     }]);
 
 namespaceApp.factory('namespaceService', ['$resource', function($resource){
+    return $resource(url + '/api/namespace/:namespace_name', {},{
+        'query':{
+            method:'GET',
+            isArray: false,
+            transformResponse: function(data, headers){
+                var repos = angular.fromJson(data);
+                //console.log(repos);
+                if(repos.result=="0"){
+                    //{"content": {"permission": "public", "_id": "appsoar", "create_time": 1458301228013.0, "owner_id": "admin", "desc": ""}, "message": "done", "result": 0}
+                    //console.log(repos.content)
+                  return repos.content;
+                }
+                else
+                {
+                    console.log(repos.mssage)
+                }
+            }
+        },
+        'save': {
+            method:'POST',
+            url:url +'/api/namespace',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            transformResponse: function(data, headers) {
+                var repos = angular.fromJson(data);
+                if(repos.result == "0"){
 
+                }
+                else{
+                    toastr.error('Error.', repos.message, {timeOut: 3000});
+                }
+            }
+        },
+        'update':{
+            method:'PUT',
+            url:url +'/api/namespace/:namespace_id',
+            headers: {
+                "Access-Control-Allow-Methods":"PUT",
+                'Access-Control-Allow-Headers': 'X-Requested-With'
+            },
+        },
+        'delete': {
+            method:'DELETE',
+            url:url +'/api/namespace/:namespace_id',
+            headers: {
+                "Access-Control-Allow-Methods":"DELETE",
+                'Access-Control-Allow-Headers': 'X-Requested-With'
+            },
+            transformResponse: function(data, headers) {
+                var repos = angular.fromJson(data);
+                if(repos.result == "0"){
+
+                }
+                else{
+                    toastr.error('Error.', repos.message, {timeOut: 3000});
+                }
+            }
+        }
+    })
 }]);
 
 

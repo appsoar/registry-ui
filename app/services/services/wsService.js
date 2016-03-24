@@ -9,10 +9,10 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
           console.error('connection Error', event);
       });
       ws.onClose(function (event) {
-          console.log('connection closed', event);
+          //console.log('connection closed', event);
       });
       ws.onOpen(function () {
-          console.log('connection open');
+          //console.log('connection open');
       });
       ws.onMessage(function(event) {
         // var response;
@@ -38,4 +38,4 @@ angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl)
             }
         }
     };
-  }); 
+  });
