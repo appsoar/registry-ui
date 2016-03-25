@@ -7,6 +7,7 @@ angular.module('registryUiApp').controller('LicenseController', function(Upload,
         // upload on file select or drop
     vm.upload = function (file) {
         Upload.upload({
+            //here should replace to correct url
             url: 'v2/settings/license',
             data: {file: file}
         }).then(function (resp) {

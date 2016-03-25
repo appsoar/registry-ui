@@ -1,40 +1,114 @@
 @charset "utf-8";
 @import "variables";
 /*all setting css style is here*/
-.setting-brief {
-    padding-top: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $grayColor;
-    color: $grayColor;
-    margin-bottom: 20px;
-}
 
 .setting-well {
     min-height: 750px;
-}
-.setting-line {
-    > input {
-          height: 45px;
-          line-height: 25px;
-          width: 50%;
-          margin-left: 30px;
+    padding-top: 40px;
+    .setting-save {
+        margin-left: 133px;
+        border-radius: 0;
+        background-color: $bgDefault;
+        color: white;
+        width: 90px;
+        height: 40px;
+    }
+    .setting-btn {
+      width: 120px;
+      /*margin-left: 20%;*/
+      margin-right: 55%;
+      margin-top: -10px;
+      float: right;
     }
 }
-.lic-left {
-    padding-bottom: 40px;
-     > label {
-          color: $bgDefault;
-          display: block;
-          font-size: 18px;
-          padding: 10px 0;
+.setting-input {
+    margin-bottom: 40px;
+    .input-l , select{
+          height: 40px;
+          line-height: 25px;
+          width: 45%;
+          /*margin-left: 20px;*/
+    }
+    .input-l {padding-left: 5px;}
+    .input-st {width: 28%;}
+    .input-check {width: 2%;}
+    .input-port {width: 7%;}
+    .ssl-label {
+        display: inline-block;
+        width:3%;
      }
+    .port-label {
+        display: inline-block;
+        text-align: right;
+        padding-right: 10px;
+        width: 4%;
+    }
 }
 
-.logs-filter {
-    margin-top: 20px;
-    color: $bgDefault;
-    td > span {
-      padding-top:10px;
-      color:black;
+.setting-textarea {
+    margin-bottom: 40px;
+    > textarea {
+        width: 45%;
+    }
+    .textarea-label{
+        vertical-align: top;
+        padding-top: 8px;
+    }
+    ul {
+        display: inline-block;
+        padding-left: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+}
+
+.require-span {
+    font-size: 10px;
+    color: red;
+}
+
+.setting-label {
+    display: inline-block;
+    padding-left: 30px;
+    width: 130px;
+}
+
+.setting-label-sm{
+    
+}
+
+.email-test {
+    border-radius: 0;
+    width: 60px;
+    height: 38px;
+    margin-left: 15px;
+}
+
+table.table-email {
+    margin-left: 130px;
+    margin-bottom: 30px;
+    width: 70%;
+    line-height: 42px;
+    > thead {
+        line-height: 35px;
+        color: gray;
+        th {background-color: $bodyCol;}
+        .none-bgcol {background-color: #fff; }
+    }
+    > tbody {
+         td {
+            /*border-bottom: 1px solid $bodyCol;*/
+            padding-top:18px;
+             >input[type="text"] , select {   
+                width: 100%;
+                height: 40px;
+                line-height: 25px;
+                padding-left: 5px;
+            }
+        }
+        .td-opt {
+            padding-left: 10px;
+        }
     }
 }

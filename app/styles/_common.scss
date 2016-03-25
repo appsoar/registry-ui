@@ -254,16 +254,16 @@ table.cs-table-small {
     > thead {
         line-height: 35px;
         background-color: $bodyCol;
-        border: 1px solid $bodyCol;
+        /*border: 1px solid $bodyCol;*/
         color: gray;
         th {
             padding-left: 10px;
         }
     }
     > tbody {
-        border: 1px solid $bodyCol;
+        /*border: 1px solid $bodyCol;*/
          td {
-            border-top: 1px solid $bodyCol;
+            border-bottom: 1px solid $bodyCol;
             padding-left: 10px;
             > .operation > span {
                   color: gray;

@@ -122,6 +122,12 @@ $stateProvider.state('home.settings.license', {
     controller: 'LogsController as vm'
   });
 
+  $stateProvider.state('home.settings.email', {
+    url: '/email',
+    templateUrl: '/settings/email/email.html',
+    controller: 'EmailController as vm'
+  });
+
   $stateProvider.state('login', {
     url: '/login',
     templateUrl: 'login/login.html',

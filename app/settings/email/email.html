@@ -1,0 +1,53 @@
+<section class="well setting-well">
+      <div class="setting-input">
+            <span class="setting-label">测试邮箱:  </span>
+            <input class="input-l" placeholder="测试邮箱地址"></input>
+      </div>
+
+      <div class="setting-input">
+            <span class="setting-label">  </span>
+            <input class="input-l" placeholder="测试邮箱密码"></input>
+            <button class="btn btn-default email-test" type="button">测试</button>
+      </div>
+
+      <div class="setting-input">
+            <span class="setting-label">发送邮箱:   </span>
+            <input class="input-l input-st" placeholder="发送邮箱地址"></input>
+            <input class="input-check" type="checkbox" name="send-ssl" value="ssl-send"  checked /> 
+            <span class="ssl-label">SSL</span>
+            <span class="port-label">端口:</span>
+            <input class="input-l input-port" placeholder="995"></input>
+            <!-- <span class="glyphicon glyphicon-asterisk require-span"></span> -->
+      </div>
+
+      <div class="setting-input">
+            <span class="setting-label">接收邮箱:   </span>
+            <span ng-click="vm.addEmail()"><span class="glyphicon glyphicon-plus"></span> 添加</span>
+      </div>
+
+      <table class="table-email" >
+          <thead>
+                <th  width="42%">邮箱地址</th>
+                <th  width="12%"></th>
+                <th  width="18%">端口</th>
+                <th  width="20%">级别</th>
+                <th class="none-bgcol"   width="8%"></th>
+          </thead>
+          <tbody>
+                <tr ng-repeat="email in vm.emailList track by $index">
+                    <td><input type="text" ng-model="email.addr" placeholder="example@cloudsoar.com"></input></td>
+                    <td class="td-opt"><input type="checkbox" ng-model="email.ssl" checked="email.ssl"></input>  SSL</td>
+                    <td><input style="width: 70%;" type="text" ng-model="email.port"></input></td>
+                    <td>
+                        <select ng-model="email.level">
+                              <option value="info">INFO</option>          
+                              <option value="warning">WARNING</option>          
+                              <option value="error">ERROR</option>          
+                        </select>
+                    </td>
+                    <td class="td-opt"><span ng-click="vm.removeEmail(email)"><span class="glyphicon glyphicon-remove-circle"></span> 删除</span></td>
+                </tr>
+          </tbody>
+        </table>
+      <button class="btn btn-default setting-save" type="button">保存</button>
+</section> 

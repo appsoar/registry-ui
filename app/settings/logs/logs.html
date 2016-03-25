@@ -1,35 +1,24 @@
-<div class="container">
+<section class="well setting-well">
+<!-- <div class="container"> -->
     <table class="logs-filter table table-hover ">
         <thead>
-            <th width="24%">
-                Filter by user
-            </th>
             <th width="24%">
                 Filter by level
             </th>
             <th width="25%">
                 Filter by time
             </th>           
-             <th width="2%">
-
-            </th>
-            <th width="25%">
-
-            </th>
+             <th width="2%"></th>
+            <th width="25%"> </th>
+            <th width="24%"></th>
         </thead>
         <tbody>
             <tr>
-                <td><select class="form-control" ng-model="vm.user">
-                    <option></option>
-                    <option>admin</option>
-                    <option>dx</option>
-                    <option>cloudsoar</option>
-                </select></td>
                 <td><select class="form-control" ng-model="vm.level">
                     <option></option>
-                    <option>info</option>
-                    <option>warning</option>
-                    <option>error</option>
+                    <option value="info">INFO</option>
+                    <option value="warning">WARNING</option>
+                    <option value="error">ERROR</option>
                 </select></td>
                 <td>
                     <p class="input-group">
@@ -58,17 +47,32 @@
                         </span>
                     </p>
                 </td>
+                <td></td>
             </tr>
         </tbody>
     </table>
-<ul>
-      <li ng-repeat="log in vm.logs  | filter: {user: vm.user , level: vm.level} | logsSort:vm.calendarStart:vm.calendarEnd">
+<!-- <ul>
+      <li ng-repeat="log in vm.logs  | filter: {level: vm.level} | logsSort:vm.calendarStart:vm.calendarEnd">
         <div class="head">
             <span class="glyphicon glyphicon-time"></span>{{log.time}}
-            <span class="glyphicon glyphicon-user"></span> {{log.user}} 
             <span ng-class="log.level" class="pull-right">{{log.level}}</span>
         </div>
         <div class="detail"> {{log.detail}}</div>
     </li>
-</ul>       
-</div>
+</ul>      -->
+<table class="table-hover cs-table-small cs-table " >
+    <thead>
+          <th  width="30%">时间</th>
+          <th  width="15%">级别</th>
+          <th  width="55%">信息</th>
+    </thead>
+    <tbody>
+          <tr ng-repeat="log in vm.logs  | filter: {level: vm.level} | logsSort:vm.calendarStart:vm.calendarEnd">
+              <td>{{log.time}}</td>
+              <td>{{log.level}}</td>
+              <td>{{log.detail}}</td>
+          </tr>
+    </tbody>
+  </table>  
+<!-- </div> -->
+</section> 

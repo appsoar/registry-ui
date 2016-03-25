@@ -6,3 +6,4 @@
 /server/node_modules
 /.idea
 /server/upload
+/server/npm-debug.log

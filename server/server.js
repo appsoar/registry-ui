@@ -23,7 +23,8 @@ app.post('/api/v0/login', function(req, res){
   var response = '';
   console.log('username:'+ username);
   console.log('password:'+ password);
-  if(username === 'dx' && password === '698b8f49d428a121a4bd6df908ca94d7'){
+  // if(username === 'dx' && password === '698b8f49d428a121a4bd6df908ca94d7'){
+  if(username === 'dx' && password === '123'){
     res.status(200);
     response = 'auth success';
   }else{

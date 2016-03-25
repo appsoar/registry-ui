@@ -1,7 +1,33 @@
 <section class="well setting-well">
-      <div class="setting-line">
-            域名:  
-            <input placeholder="exp:www.cloudsoar.com"></input>
-            <label>*</label>
+      <div class="setting-input">
+            <span class="setting-label">域名:  </span>
+            <input class="input-l" placeholder="exp:www.cloudsoar.com" autofocus></input>
+            <span class="glyphicon glyphicon-asterisk require-span"></span>
       </div>
+
+      <div class="setting-input">
+            <span class="setting-label">HTTP端口:   </span>
+            <input class="input-l" value="80"></input>
+            <span class="glyphicon glyphicon-asterisk require-span"></span>
+      </div>
+
+      <div class="setting-input">
+            <span class="setting-label">HTTPS端口:   </span>
+            <input class="input-l" value="443"></input>
+            <span class="glyphicon glyphicon-asterisk require-span"></span>
+      </div>
+
+      <div class="setting-textarea">
+            <span class="setting-label textarea-label">SSL证书:   </span>
+            <textarea rows="6"></textarea> 
+            <span class="glyphicon glyphicon-asterisk require-span textarea-label"></span>
+      </div>
+
+      <div class="setting-textarea">
+            <span class="setting-label textarea-label">SSL私钥:   </span>
+            <textarea rows="6"></textarea> 
+            <span class="glyphicon glyphicon-asterisk require-span textarea-label"></span>
+      </div>
+
+      <button class="btn btn-default setting-save" type="button">保存</button>
 </section> 

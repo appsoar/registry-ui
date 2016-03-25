@@ -23,7 +23,7 @@ angular
     'ui.bootstrap',
     'angular-md5',
     'ngclipboard',
-    'ui.bootstrap',
+    'ngFileUpload',
     'ngTable',
     'textAngular'
   ]);

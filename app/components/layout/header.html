@@ -51,11 +51,12 @@
   <div class="container">
       <div class="collapse navbar-collapse" >
       <ul class="nav navbar-nav"  ng-if="path[1]=='settings'">
-        <li ui-sref-active="active"><a ui-sref="home.settings.general">General</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.settings.storage">Storage</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.settings.logs">Logs</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.settings.license">License</a></li>
-        <li ui-sref-active="active"><a ui-sref="home.settings.upgrade">Upgrade</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.general">GENERAL</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.storage">STORAGE</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.logs">LOGS</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.email">EMAIL</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.license">LICENSE</a></li>
+        <li ui-sref-active="active"><a ui-sref="home.settings.upgrade">UPDATE</a></li>
       </ul>
       <ul class="nav navbar-nav" ng-if="path[1]=='images'">
         <li ng-class="{active:path[2]=='list'}"><a ui-sref="home.images.imagelist">IMAGE LIST</a></li>
