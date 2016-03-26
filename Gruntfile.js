@@ -73,7 +73,7 @@ module.exports = function (grunt) {
  // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 80,
         // protocol: 'https',
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
@@ -84,10 +84,10 @@ module.exports = function (grunt) {
           context: '/api/v0',
           //host: '0.0.0.0',
           //context: '/v2',
-          host: '192.168.12.22',
-          port: 9000,
+          host: '0.0.0.0',//proxyHost
+          port: 9090,//proxyPort 
           // host: '0.0.0.0',
-          // port: 9006,
+          // port: 9005,
           changeOrigin: true,
           https: false,
           xforward: false,

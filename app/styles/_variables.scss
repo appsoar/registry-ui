@@ -2,8 +2,10 @@
 // 这里可以自定义变量，或定义bootstrap中的同名变量来覆盖它
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 /*Level 1 menu*/
-$bgDefault      : #0075a8;
-$bgHighlight    : #00648f;
+/*$bgDefault      : #0075a8;*/
+$bgDefault      : #1c85d6;
+/*$bgHighlight    : #00648f;*/
+$bgHighlight    : #1892d4;
 $colDefault     : #ecf0f1;
 $colHighlight   : #ecf0f1;
 
@@ -11,10 +13,10 @@ $colHighlight   : #ecf0f1;
 $bgDefault2 : #ffffff;
 $bgHighlight2 : #ffffff;
 $colDefault2    : #7a8493;
-$colHighlight2   : #0075a8;
+$colHighlight2   : #1c85d6;
 
 $dropDown       : true;
-$loginBgCol : #0075a8;
+$loginBgCol : #1c85d6;
 $loginFormCol : #03e3a6;
 
 $grayColor: #999999;

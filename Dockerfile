@@ -4,7 +4,7 @@ MAINTAINER "dx"
 USER root
 
 # Exposed ports
-EXPOSE 9000
+EXPOSE 80
 
 # Add dirs
 COPY  registry-ui /
