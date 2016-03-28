@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row well">
+        <div class="form-group form-inline" style="margin-bottom: 15px;">
+                <div class="col-md-6">
+                        <p class="form-control-static">命名空间：</p>
+                        <select class="form-control">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                        </select>
+                </div>
+                <div class="col-md-6 addUserGroup">
+                        <button type="button" class="btn btn-primary">添加用户组</button>
+                </div>
+        </div>
+
+        <div class="row ">
+                <div class=" panel-default userGroupTable">
+                        <table ng-table="vm.tableParams" class="table table-hover">
+                                <tbody>
+                                <tr ng-repeat="data in $data">
+                                        <td data-title="'用户组'" sortable="'usergroup'">{{data.usergroup}}</td>
+                                        <td data-title="'命名空间'" sortable="'namespace'">{{data.namespace}}</td>
+                                        <td data-title="'用户数'" sortable="'uasenum'">{{data.uasenum}}</td>
+                                        <td data-title="'描述'" sortable="'desc'">{{data.desc}}</td>
+                                        <td class="text-center" data-title="'操作'">
+                                                <div class="dropdown">
+                                    <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <a href dropdown-toggle><i class="fa fa-cog"></i></a>
+                                    </span>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                                <li><a ui-sref="#">更多信息</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a ui-sref="#">修改</a></li>
+                                                                <li><a href="javascript:;">删除</a></li>
+                                                        </ul>
+                                                </div>
+                                        </td>
+                                </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="users/users.css" />

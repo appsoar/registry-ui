@@ -12,21 +12,22 @@ namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', 
 
         //console.log(vm.resp)
         vm.tableParams = new ngTableParams({
-            page: 1,
-            count: 10,
-            sorting: {
-                _id: 'asc'
-            }
-        }, {
-            total: 0,
-            counts: [],
-            getData: function ($defer, params) {
-                ngTableDataService.getData($defer, params);
-            }
-        });
+                page: 1,
+                count: 10,
+                sorting: {
+                    _id: 'asc'
+                }
+            }, {
+                total: 0,
+                counts: [],
+                getData: function ($defer, params) {
 
-        vm.Delete = function (_id) {
-            namespaceService.delete({ namespace_id: _id });
+                    ngTableDataService.getData($defer, params);
+                }
+            });
+
+            vm.Delete = function (_id) {
+                namespaceService.delete({ namespace_id: _id });
             $state.go('home.images.namespace.list', {}, { reload: true });
         }
     }]);
