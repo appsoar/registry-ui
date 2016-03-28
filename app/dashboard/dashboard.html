@@ -81,7 +81,7 @@
                 <cs-sysinfo-chart label="vm.label[1]" data="sysinfo[0].availableRam" total="sysinfo[0].totalRam"></cs-sysinfo-chart>
                 <cs-sysinfo-chart label="vm.label[2]" data="sysinfo[0].availableDisk" total="sysinfo[0].totalDisk"></cs-sysinfo-chart>
             </div>
-            <div class="row well" ng-controller="iopsController as vm">
+            <div class="row well" ng-controller="iopsController as vm" style="height: 430px;">
                 <!-- network overview -->
                 <div class="title">
                     <div style="float: left; width: 25%">
@@ -93,7 +93,7 @@
                             <select id="selectTxRx" ng-model="vm.TxRx" ng-options="s.value as s.name for s in vm.TxRxModle" ng-change="vm.selectedChangeTxRx()"></select>
                     </div>
                 </div>
-                    <div id="throughputiops"></div>
+                    <div id="throughputiops" ></div>
             </div>
         </div>
     </div>

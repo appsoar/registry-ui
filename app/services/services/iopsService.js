@@ -21,21 +21,21 @@ iopsApp.factory('iopsListService', ['$resource', function($resource) {
             }
         }
     })
-}]);
+            }]);
 //{"iface":"ens33","TxBytes":3020,"RxBytes":1544}
-iopsApp.factory('iopsService', ['$resource', function($resource) {
-    return $resource('/api/v0/sysinfo/netifs/:netifs', {}, {
-        'query': {
-            method:'GET',
-            isArray: false,
-            transformResponse: function(data){
-                try{
-                    var repos = angular.fromJson(data);
-                    return repos;
-                }catch(e){
-                    console.error(e);
-                    return [];
-                }
+    iopsApp.factory('iopsService', ['$resource', function($resource) {
+        return $resource('/api/v0/sysinfo/netifs/:netifs', {}, {
+            'query': {
+                method:'GET',
+                isArray: false,
+                transformResponse: function(data){
+                    try{
+                        var repos = angular.fromJson(data);
+                        return repos;
+                    }catch(e){
+                        console.error(e);
+                        return [];
+                    }
             }
         }
     })

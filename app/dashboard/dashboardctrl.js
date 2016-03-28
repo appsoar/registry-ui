@@ -49,7 +49,7 @@ registryApp.controller('iopsController', function ($scope, $interval,iopsListSer
         vm.TxBytes=0;
         vm.RxBytes = 0;
         $("div").remove("#throughputiops div");
-        $("#throughputiops").prepend("<div id='throughputiopscontainer'></div>");
+        $("#throughputiops").prepend("<div id='throughputiopscontainer' style='height: 340px;'></div>");
         this.creatView();
     }
 

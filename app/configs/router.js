@@ -117,11 +117,6 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
     controller: 'EmailController as vm'
   });
 
-  $stateProvider.state('login', {
-    url: '/login',
-    templateUrl: 'login/login.html',
-    controller: 'LoginController as vm'
-  });
     $stateProvider.state('login', {
         url: '/login',
         templateUrl: 'login/login.html',
