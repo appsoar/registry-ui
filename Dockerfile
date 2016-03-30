@@ -1,4 +1,4 @@
-FROM registry-ui:v0.0.1
+FROM 192.168.15.86:5000/dx/registry-ui:v0.0.1
 MAINTAINER "dx"
 
 USER root
@@ -7,8 +7,8 @@ USER root
 EXPOSE 80
 
 # Add dirs
-COPY  registry-ui /
-WORKDIR /registry-ui
-CMD  conf.sh
+ADD  registry-ui /registry-ui
+RUN chmod 777 /registry-ui/conf.sh
+CMD  /registry-ui/conf.sh
 
 
