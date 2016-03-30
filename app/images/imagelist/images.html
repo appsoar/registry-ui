@@ -1,16 +1,16 @@
 <section class="well">
     <div class="form-inline r-p30">
       <div class="form-group">
-        <input class="form-control input-sm"  placeholder="Image" ng-model="vm.search.searchByImage"/>
+        <input class="form-control input-sm"  placeholder="镜像" ng-model="vm.search.searchByImage"/>
         <div class="input-group ">
           <span >
             <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" ng-cloak>{{vm.permissionType}} <i class="icon icon-chevron-down"></i></button>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation" class="dropdown-header">
-                Permission Type: 
+                属性类型:
               </li>
               <li ng-repeat="item in vm.permission" ng-click="vm.searchByPermission(item)">
-                <a href="#" ng-bind="item"></a>
+                <a href="#" ng-bind="item=='public'?'公有':'私有'"></a>
               </li>
             </ul>
           </span>
@@ -20,7 +20,7 @@
               <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" ng-cloak>{{vm.namespace}} <i class="icon icon-chevron-down"></i></button>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation" class="dropdown-header">
-                  Select an Namespace:
+                  选择一个命名空间:
                 </li>
                   <li ng-repeat="item in vm.namespaces" ng-click="vm.searchByNamespace(item)">
                     <a href="#" ng-bind="item"></a>
@@ -28,24 +28,24 @@
               </ul>
             </span>
         </div>
-        <button type="button" class="btn btn-sm btn-danger " ng-click="vm.doClear()"> Clear All</button>
-        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.resort()"> Search</button>
+        <button type="button" class="btn btn-sm btn-danger " ng-click="vm.doClear()">清空</button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.resort()">查询</button>
       </div>
     </div>
   <table class="table table-hover cs-table " >
     <thead>
-          <th  width="15%"><cs-sortable-th label='vm.title.image' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
-          <th  width="15%"><cs-sortable-th label='vm.title.permission' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
-          <th  width="15%"><cs-sortable-th label='vm.title.version' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
-          <th  width="15%"><cs-sortable-th label='vm.title.pushDate' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
-          <th  width="15%"><cs-sortable-th label='vm.title.pullNum' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
-          <th  width="15%"><cs-sortable-th label='vm.title.namespace' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.image' title='vm.titleName.image' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.permission' title='vm.titleName.permission' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.version' title='vm.titleName.version' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.pushDate' title='vm.titleName.pushDate' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.pullNum' title='vm.titleName.pullNum' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+          <th  width="15%"><cs-sortable-th label='vm.title.namespace' title='vm.titleName.namespace' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
           <th  width="10%">&nbsp;</th>
     </thead>
     <tbody>
           <tr ng-repeat="repository in vm.repositories">
               <td ng-bind="repository._id"></td>
-              <td ng-bind="repository.permission"></td>
+              <td ng-bind="repository.permission=='public'?'公有':'私有'"></td>
               <td>
                   <!-- sorry,because of nest circle . I dont have a good way to deal with tags well yet  except use $index-->
                   <select ng-model="vm.showTag[$index]" ng-options="tag as tag.tag_name for tag in repository.tags"></select>

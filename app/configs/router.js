@@ -64,14 +64,24 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
         url: '/users',
         template: '<div ui-view></div>',
         abstract: true
-    }).state('home.users.userGruopList', {
-        url: '/grouplist',
-        templateUrl: '/users/usergroup/usergroups.html',
-        controller: 'usergroupsCtrl as vm'
-    }).state('home.users.userList', {
-        url: '/userlist',
+    }).state('home.users.list', {
+        url: '/list',
         templateUrl: '/users/user/users.html',
         controller: 'usersCtrl as vm'
+    })
+        .state('home.users.group',{
+            url: '/group',
+            template: '<div ui-view></div>',
+            abstract: true
+        })
+        .state('home.users.group.list', {
+            url: '/list',
+            templateUrl: '/users/usergroup/usergroups.html',
+            controller: 'usergroupsCtrl as vm'
+    }).state('home.users.group.add',{
+            url: '/add',
+            templateUrl: '/users/usergroup/usergroupedit.html',
+            controller: 'usergroupEditCtrl as vm'
     })
 
     $stateProvider.state('home.settings', {

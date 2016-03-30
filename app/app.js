@@ -25,6 +25,7 @@ angular
     'ngclipboard',
     'ngFileUpload',
     'ngTable',
-    'textAngular'
+    'textAngular',
+      'ngDialog'
   ]);
 

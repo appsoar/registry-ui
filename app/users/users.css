@@ -15,3 +15,21 @@ table th {
     color: #999999;
     background-color: #F7F7F7;
 }
+
+.userContent{
+    width: 100%;
+    min-height: 300px;
+    border: solid 1px #cccccc;
+    overflow:auto;
+}
+.userEntity{
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    background: #F2F2F2;
+}
+
+.ngdialog-content{
+    width: 800px !important;
+    height: 600px;
+}

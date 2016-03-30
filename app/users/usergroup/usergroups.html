@@ -3,14 +3,10 @@
         <div class="form-group form-inline" style="margin-bottom: 15px;">
                 <div class="col-md-6">
                         <p class="form-control-static">命名空间：</p>
-                        <select class="form-control">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
-                        </select>
+                        <select class="form-control" ng-model="vm.selected" ng-options="s.value as s.name for s in vm.selectNamespace"></select>
                 </div>
                 <div class="col-md-6 addUserGroup">
-                        <button type="button" class="btn btn-primary">添加用户组</button>
+                        <button type="button" class="btn btn-primary" ui-sref="home.users.group.add">添加用户组</button>
                 </div>
         </div>
 
@@ -43,4 +39,5 @@
         </div>
     </div>
 </div>
+
 <link rel="stylesheet" href="users/users.css" />

@@ -1,0 +1,13 @@
+<div class="row well" >
+        <div class="row">
+                <h3>ngDialog modal example</h3>
+                <div class="userEntity" ng-repeat="user in users">
+                        <span ng-model="user.Name">{{user.Name}}</span><span ng-click="vm.removeUser($index)">&nbsp;×</span>
+                </div>
+        </div>
+        <div class="row">
+                <button type="button" ng-click="selectOK()" class="btn btn-primary">Confirm</button>
+                <button type="button" ng-click="closeThisDialog('button')" class="btn btn-default">Cancel</button>
+        </div>
+</div>
+

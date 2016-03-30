@@ -5,8 +5,8 @@
 
 var ugApp = angular.module('registryUiApp');
 
-ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', '$state',
-    function ($scope, $filter, ngTableParams, $resource, $timeout, $state) {
+ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', '$state','userGroupListService',
+    function ($scope, $filter, ngTableParams, $resource, $timeout, $state,userGroupListService) {
         var vm = this;
 
         vm.selectNamespace = [
@@ -20,9 +20,19 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
         vm.selected = "Namespace1";
 
         vm.namespaceSelectChange = function(){
-
         };
+        vm.usergrouplist = [];
+        userGroupListService.query({}).$promise.then(function(value, responseHeaders){
 
+            angular.forEach(value, function(item){
+                vm.usergrouplist.push({
+                    usergroup:item.usergroup,
+                    uasenum:item.uasenum,
+                    namespace:item.namespace,
+                    desc:item.desc
+                });
+            });
+        },function(){ });
 
 
         var data = [{usergroup: "usergroup1", uasenum: 50,namespace:"namespace1",desc:"用户组1描述信息"},
@@ -47,6 +57,15 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
             {usergroup: "usergroup20", uasenum: 50,namespace:"namespace5",desc:"用户组20描述信息"},
         ];
 
+        /*
+        var s = data.filter(function(d){
+            return d.usergroup == "usergroup3";
+        })
+
+        console.log(s)
+
+        */
+
         vm.tableParams = new ngTableParams({
             page: 1,            // show first page
             count: 10,          // count per page
@@ -56,6 +75,7 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
         }, {
             total: data.length, // length of data
             getData: function($defer, params) {
+
                 // use build-in angular filter
                 var orderedData = params.sorting() ?
                     $filter('orderBy')(data, params.orderBy()) :
@@ -67,4 +87,68 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
 
     }]);
 
+ugApp.controller('usergroupEditCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', '$state','ngDialog',
+    function ($scope, $filter, ngTableParams, $resource, $timeout, $state,ngDialog) {
+        var vm =this;
+        vm.users=[];
+
+        vm.addUser = function(){
+            var num = Math.floor(Math.random()*10+60);
+            var obj ={ID:num,Name:'User Name '+num};
+            vm.users.push(obj);
+        }
+
+        vm.removeUser = function(idx){
+            vm.users.splice(idx,1);
+            //console.log(vm.users.length)
+        }
+
+        vm.openConfirm = function () {
+
+
+            ngDialog.open({
+                template: 'users/usergroup/selectuser.html',
+                controller: ['$scope', '$timeout', function ($scope, $timeout) {
+                    var list =[];
+                    $scope.users=list;
+
+                    for(var i =0 ;i<10;i++){
+                        var num = parseInt(Math.random()*100 +1);
+                        var count=0;
+
+                        if(vm.users.length>0){
+
+                            for(var j=0;j<vm.users.length;j++)
+                            {
+
+                                if(vm.users[j].ID.toString()==num.toString()){
+                                    count+=1;
+                                    break;
+                                }
+                            }
+                        }
+
+
+                        if(count > 0)continue;
+
+                        var obj ={ID:num,Name:'User Name '+num};
+                        $scope.users.push(obj);
+                    }
+
+
+
+                    $scope.selectOK = function(){
+                        if($scope.users.length>0){
+                            for(var i =0; i<$scope.users.length;i++){
+                                vm.users.push($scope.users[i]);
+                            }
+                        }
+                        $scope.closeThisDialog('button');
+                    };
+                }],
+                className: 'ngdialog-theme-default'
+            });
+        };
+
+    }]);
 

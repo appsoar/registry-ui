@@ -1,7 +1,7 @@
 'use strict';
 angular.module('registryUiApp').controller('ImagelistController',  function( Repository, Namespace){
     var vm = this;
-    //the image table title, no operation option 
+    //the image table title, no operation option
     vm.title = {
         image: 'image',
         permission: 'permission',
@@ -9,6 +9,15 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
         pushDate: 'pushDate',
         pullNum: 'pullNum',
         namespace: 'namespace'
+    }
+
+    vm.titleName = {
+        image: '镜像',
+        permission: '属性',
+        version: '版本',
+        pushDate: '提交时间',
+        pullNum: '拉取次数',
+        namespace: '命名空间'
     }
     //first order by image desc
     vm.current = {
@@ -22,8 +31,8 @@ angular.module('registryUiApp').controller('ImagelistController',  function( Rep
             searchByPermission: null,
             searchByNamespace: null
         };
-      vm.permissionType = 'Permission Type: ';
-      vm.namespace = 'Namespace: ';
+      vm.permissionType = '属性类型: ';
+      vm.namespace = '命名空间: ';
     };
 
     //search init set

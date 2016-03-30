@@ -17,6 +17,7 @@ angular.module('registryUiApp').directive('csSortableTh', function(){
       scope:  {
         label: '=',
         current: '=',
+        title: '=',
         changeResort: '&'
       },
       templateUrl: 'components/unit/csSortableTh/csSortableTh.html',

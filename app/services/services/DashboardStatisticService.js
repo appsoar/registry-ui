@@ -3,9 +3,9 @@
  */
 'use strict'
 
-angular.module('registryUiApp').factory('dashboardStatisticService', function($websocket, wsdashboardStatisticUrl) {
+angular.module('registryUiApp').factory('dashboardStatisticService', function($websocket, wsUrl) {
     // Open a WebSocket connection
-    var ws = $websocket(wsdashboardStatisticUrl);
+    var ws = $websocket(wsUrl+'/api/v0/stats');
     var collection = [] ;
     ws.onError(function (event) {
         console.error('connection Error', event);
