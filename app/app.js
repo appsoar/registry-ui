@@ -26,6 +26,6 @@ angular
     'ngFileUpload',
     'ngTable',
     'textAngular',
-      'ngDialog'
+     'ngDialog'
   ]);
 
