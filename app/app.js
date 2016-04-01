@@ -26,6 +26,7 @@ angular
     'ngFileUpload',
     'ngTable',
     'textAngular',
-     'ngDialog'
+     'ngDialog',
+      'tm.pagination'
   ]);
 

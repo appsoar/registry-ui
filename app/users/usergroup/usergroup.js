@@ -5,8 +5,8 @@
 
 var ugApp = angular.module('registryUiApp');
 
-ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$resource', '$timeout', '$state','userGroupListService',
-    function ($scope, $filter, ngTableParams, $resource, $timeout, $state,userGroupListService) {
+ugApp.controller('usergroupsCtrl', ['$scope', '$filter', '$resource', '$timeout', '$state','userGroupListService',
+    function ($scope, $filter, $resource, $timeout, $state, userGroupListService) {
         var vm = this;
 
         vm.selectNamespace = [
@@ -17,14 +17,66 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
             { name: 'Namespace5', value: 'Namespace5' },
             { name: 'Namespace6', value: 'Namespace6' }
         ];
-        vm.selected = "Namespace1";
+        vm.selected = '';
 
         vm.namespaceSelectChange = function(){
+            vm.paginationConf.currentPage = 1;
+            vm.resort();
         };
+
+
+
+
+        vm.title = {
+            usergroup: 'usergroup',
+            uasenum: 'uasenum',
+            namespace: 'namespace',
+            desc: 'desc'
+        }
+
+        vm.titleName = {
+            usergroup: '用户组',
+            uasenum: '用户数',
+            namespace: '命名空间',
+            desc: '描述'
+        }
+        //first order by image desc
+        vm.current = {
+            label: vm.title.usergroup,
+            desc: true
+        }
+
+        vm.paginationConf = {
+            currentPage: 1,
+            totalItems: 0,
+            itemsPerPage: 10,
+            pagesLength: 15,
+            onChange: function(){
+            }
+        };
+
+        //加载数据
         vm.usergrouplist = [];
+        /*
         userGroupListService.query({}).$promise.then(function(value, responseHeaders){
 
-            angular.forEach(value, function(item){
+            var orderparm = '+' + vm.current.label;
+            if(!vm.current.desc)
+                var orderparm = '-' + vm.current.label;
+
+            var orderedData = [];
+            if(vm.selected)
+                orderedData = $filter('filter')(value, vm.selected);
+            else
+                orderedData = value;
+            vm.paginationConf.totalItems = orderedData.length;
+             orderedData = $filter('orderBy')(orderedData, orderparm);
+
+
+            orderedData=orderedData.slice((vm.paginationConf.currentPage - 1) * vm.paginationConf.itemsPerPage, vm.paginationConf.currentPage * vm.paginationConf.itemsPerPage);
+
+
+            angular.forEach(orderedData, function(item){
                 vm.usergrouplist.push({
                     usergroup:item.usergroup,
                     uasenum:item.uasenum,
@@ -33,7 +85,54 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
                 });
             });
         },function(){ });
+        */
+        //排序
+        vm.resort = function() {
+            userGroupListService.query({}).$promise.then(function(value, responseHeaders){
 
+                var orderparm = '+' + vm.current.label;
+                if(!vm.current.desc)
+                    var orderparm = '-' + vm.current.label;
+
+                var orderedData = [];
+                if(vm.selected != null)
+                    orderedData = $filter('filter')(value, vm.selected);
+                else {
+                    orderedData = value;
+                }
+                vm.paginationConf.totalItems = orderedData.length;
+
+                 orderedData = $filter('orderBy')(orderedData, orderparm);
+
+                orderedData=orderedData.slice((vm.paginationConf.currentPage - 1) * vm.paginationConf.itemsPerPage, vm.paginationConf.currentPage * vm.paginationConf.itemsPerPage);
+                vm.usergrouplist=[];
+                angular.forEach(orderedData, function(item){
+                    vm.usergrouplist.push({
+                        usergroup:item.usergroup,
+                        uasenum:item.uasenum,
+                        namespace:item.namespace,
+                        desc:item.desc
+                    });
+                });
+            },function(){ });
+        };
+
+        //页码发生变化时，监控数据的变化
+        $scope.$watch('vm.paginationConf.currentPage', vm.resort);
+
+
+        vm.Delete = function(usergroupid){
+
+        };
+
+
+
+
+
+
+
+
+        /*
 
         var data = [{usergroup: "usergroup1", uasenum: 50,namespace:"namespace1",desc:"用户组1描述信息"},
             {usergroup: "usergroup2", uasenum: 50,namespace:"namespace1",desc:"用户组2描述信息"},
@@ -57,14 +156,6 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
             {usergroup: "usergroup20", uasenum: 50,namespace:"namespace5",desc:"用户组20描述信息"},
         ];
 
-        /*
-        var s = data.filter(function(d){
-            return d.usergroup == "usergroup3";
-        })
-
-        console.log(s)
-
-        */
 
         vm.tableParams = new ngTableParams({
             page: 1,            // show first page
@@ -80,10 +171,16 @@ ugApp.controller('usergroupsCtrl', ['$scope', '$filter', 'ngTableParams', '$reso
                 var orderedData = params.sorting() ?
                     $filter('orderBy')(data, params.orderBy()) :
                     data;
-
+console.log(params.orderBy())
                 $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             }
         });
+
+        */
+
+
+
+
 
     }]);
 
@@ -150,5 +247,23 @@ ugApp.controller('usergroupEditCtrl', ['$scope', '$filter', 'ngTableParams', '$r
             });
         };
 
+    }]);
+
+ugApp.controller('usergroupViewCtrl', ['$scope', '$resource',
+    function ($scope, $resource) {
+        var vm =this;
+
+        //{usergroup: "usergroup2", uasenum: 50,namespace:"namespace1",desc:"用户组2描述信息"}
+        vm.usergroup = '测试用户组名';
+        vm.namespace = '测试命令空间';
+        vm.desc = '用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息用户组描述信息';
+
+        vm.users = [];
+        for(var i =0 ;i<10;i++){
+            var num = parseInt(Math.random()*100 +1);
+
+            var obj ={ID:num,Name:'User Name '+num};
+            vm.users.push(obj);
+        }
     }]);
 

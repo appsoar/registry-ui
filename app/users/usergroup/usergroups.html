@@ -3,7 +3,9 @@
         <div class="form-group form-inline" style="margin-bottom: 15px;">
                 <div class="col-md-6">
                         <p class="form-control-static">命名空间：</p>
-                        <select class="form-control" ng-model="vm.selected" ng-options="s.value as s.name for s in vm.selectNamespace"></select>
+                        <select class="form-control" ng-model="vm.selected" ng-options="s.value as s.name for s in vm.selectNamespace" ng-change="vm.namespaceSelectChange()">
+                                <option value="">--请选择命名空间--</option>
+                        </select>
                 </div>
                 <div class="col-md-6 addUserGroup">
                         <button type="button" class="btn btn-primary" ui-sref="home.users.group.add">添加用户组</button>
@@ -12,6 +14,7 @@
 
         <div class="row ">
                 <div class=" panel-default userGroupTable">
+<!--
                         <table ng-table="vm.tableParams" class="table table-hover">
                                 <tbody>
                                 <tr ng-repeat="data in $data">
@@ -35,6 +38,40 @@
                                 </tr>
                                 </tbody>
                         </table>
+-->
+                        <table class="table table-hover cs-table" >
+                                <thead>
+                                <th  width="20%"><cs-sortable-th label='vm.title.usergroup' title='vm.titleName.usergroup' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                <th  width="20%"><cs-sortable-th label='vm.title.namespace' title='vm.titleName.namespace' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                <th  width="10%"><cs-sortable-th label='vm.title.uasenum' title='vm.titleName.uasenum' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                <th  width="40%"><cs-sortable-th label='vm.title.desc' title='vm.titleName.desc' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                <th  width="10%">操作</th>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="usergroup in vm.usergrouplist">
+                                        <td><a ui-sref="home.users.group.view({usergroupid: 'usergroupid'})"  ng-bind="usergroup.usergroup"></a></td>
+                                        <td ng-bind="usergroup.namespace"></td>
+                                        <td ><a href="#" ng-bind="usergroup.uasenum"></a> </td>
+                                        <td ng-bind="usergroup.desc"></td>
+                                        <td style="overflow: visible !important;">
+                                                <div class="dropdown">
+                                    <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <a href dropdown-toggle>
+                                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                                                </a>
+                                    </span>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                                <li><a ui-sref="home.users.group.view({usergroupid: 'usergroupid'})">更多信息</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a  ui-sref="home.users.group.edit({usergroupid: 'usergroupid'})">修改</a></li>
+                                                                <li><a a href="javascript:;" ng-click="vm.Delete(usergroup.usergroup)">删除</a></li>
+                                                        </ul>
+                                                </div>
+                                        </td>
+                                </tr>
+                                </tbody>
+                        </table>
+                        <tm-pagination conf="vm.paginationConf"></tm-pagination>
                 </div>
         </div>
     </div>

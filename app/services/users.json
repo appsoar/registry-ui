@@ -1,0 +1,126 @@
+{
+    "content": [
+        {
+            "userid": "User ID 1",
+            "usergroupnum": "1",
+            "desc": "用户详细描述1"
+        },
+        {
+            "userid": "User ID 2",
+            "usergroupnum": "1",
+            "desc": "用户详细描述2"
+        },
+        {
+            "userid": "User ID 3",
+            "usergroupnum": "1",
+            "desc": "用户详细描述3"
+        },
+        {
+            "userid": "User ID 4",
+            "usergroupnum": "1",
+            "desc": "用户详细描述4"
+        },
+        {
+            "userid": "User ID 5",
+            "usergroupnum": "1",
+            "desc": "用户详细描述5"
+        },
+        {
+            "userid": "User ID 6",
+            "usergroupnum": "1",
+            "desc": "用户详细描述6"
+        },
+        {
+            "userid": "User ID 7",
+            "usergroupnum": "1",
+            "desc": "用户详细描述7"
+        },
+        {
+            "userid": "User ID 8",
+            "usergroupnum": "1",
+            "desc": "用户详细描述8"
+        },
+        {
+            "userid": "User ID 9",
+            "usergroupnum": "1",
+            "desc": "用户详细描述9"
+        },
+        {
+            "userid": "User ID 10",
+            "usergroupnum": "1",
+            "desc": "用户详细描述10"
+        },
+        {
+            "userid": "User ID 11",
+            "usergroupnum": "1",
+            "desc": "用户详细描述11"
+        },
+        {
+            "userid": "User ID 12",
+            "usergroupnum": "1",
+            "desc": "用户详细描述12"
+        },
+        {
+            "userid": "User ID 13",
+            "usergroupnum": "1",
+            "desc": "用户详细描述13"
+        },
+        {
+            "userid": "User ID 14",
+            "usergroupnum": "1",
+            "desc": "用户详细描述14"
+        },
+        {
+            "userid": "User ID 15",
+            "usergroupnum": "1",
+            "desc": "用户详细描述15"
+        },
+        {
+            "userid": "User ID 16",
+            "usergroupnum": "1",
+            "desc": "用户详细描述16"
+        },
+        {
+            "userid": "User ID 17",
+            "usergroupnum": "1",
+            "desc": "用户详细描述17"
+        },
+        {
+            "userid": "User ID 18",
+            "usergroupnum": "1",
+            "desc": "用户详细描述18"
+        },
+        {
+            "userid": "User ID 19",
+            "usergroupnum": "1",
+            "desc": "用户详细描述19"
+        },
+        {
+            "userid": "User ID 20",
+            "usergroupnum": "1",
+            "desc": "用户详细描述20"
+        },
+        {
+            "userid": "User ID 21",
+            "usergroupnum": "1",
+            "desc": "用户详细描述21"
+        },
+        {
+            "userid": "User ID 22",
+            "usergroupnum": "1",
+            "desc": "用户详细描述22"
+        },
+        {
+            "userid": "User ID 23",
+            "usergroupnum": "1",
+            "desc": "用户详细描述23"
+        },
+        {
+            "userid": "User ID 24",
+            "usergroupnum": "1",
+            "desc": "用户详细描述24"
+        }
+    ],
+    "message": "done",
+    "result": 0
+}

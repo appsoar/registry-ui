@@ -30,6 +30,7 @@ namespaceApp.controller('namespaceCtrl', ['$scope', '$filter', 'ngTableParams', 
                 namespaceService.delete({ namespace_id: _id });
             $state.go('home.images.namespace.list', {}, { reload: true });
         }
+
     }]);
 
 

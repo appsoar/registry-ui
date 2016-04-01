@@ -64,12 +64,30 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
         url: '/users',
         template: '<div ui-view></div>',
         abstract: true
-    }).state('home.users.list', {
+    }).state('home.users.user', {
+        url: '/user',
+        template: '<div ui-view></div>',
+        abstract: true
+    }).state('home.users.user.list', {
         url: '/list',
         templateUrl: '/users/user/users.html',
         controller: 'usersCtrl as vm'
+    }).state('home.users.user.add', {
+            url: '/add',
+            templateUrl: '/users/user/useredit.html',
+            controller: 'userEditCtrl as vm'
+        }).state('home.users.user.edit', {
+        url: '/edit?userid',
+        templateUrl: '/users/user/useredit.html',
+        controller: 'userEditCtrl as vm'
+    }).state('home.users.user.view', {
+        url: '/view?userid',
+        templateUrl: '/users/user/userview.html',
+        controller: 'userViewCtrl as vm'
     })
-        .state('home.users.group',{
+
+    //userGroup
+    $stateProvider.state('home.users.group',{
             url: '/group',
             template: '<div ui-view></div>',
             abstract: true
@@ -82,6 +100,14 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
             url: '/add',
             templateUrl: '/users/usergroup/usergroupedit.html',
             controller: 'usergroupEditCtrl as vm'
+    }).state('home.users.group.edit',{
+        url: '/edit?usergroupid',
+        templateUrl: '/users/usergroup/usergroupedit.html',
+        controller: 'usergroupEditCtrl as vm'
+    }).state('home.users.group.view', {
+        url: '/view?usergroupid',
+        templateUrl: '/users/usergroup/usergroupview.html',
+        controller: 'usergroupViewCtrl as vm'
     })
 
     $stateProvider.state('home.settings', {

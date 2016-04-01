@@ -1,5 +1,53 @@
 <div class="container-fluid">
         <div class="row well">
+                <div class="form-group form-inline" style="margin-bottom: 15px;">
+                        <div class="col-md-6">
+                                <p class="form-control-static">用户组：</p>
+                                <select class="form-control" ng-model="vm.selected" ng-options="s.value as s.name for s in vm.selectUserGroup" ng-change="vm.userGoupSelectChange()">
+                                        <option value="">--请选择用户组--</option>
+                                </select>
+                        </div>
+                        <div class="col-md-6 addUserGroup">
+                                <button type="button" class="btn btn-primary" ui-sref="home.users.user.add">添加用户</button>
+                        </div>
+                </div>
 
+                <div class="row ">
+                        <div class=" panel-default userGroupTable">
+                                <table class="table table-hover cs-table" >
+                                        <thead>
+                                        <th  width="25%"><cs-sortable-th label='vm.title.userid' title='vm.titleName.userid' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                        <th  width="15%"><cs-sortable-th label='vm.title.usergroupnum' title='vm.titleName.usergroupnum' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                        <th  width="50%"><cs-sortable-th label='vm.title.desc' title='vm.titleName.desc' current='vm.current' change-resort='vm.resort()'></cs-sortable-th></th>
+                                        <th  width="10%">操作</th>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="user in vm.userlist">
+                                                <td><a ui-sref="home.users.user.view({userid: 'userid'})"  ng-bind="user.userid"></a></td>
+                                                <td ng-bind="user.usergroupnum"></td>
+                                                <td ng-bind="user.desc"></td>
+                                                <td style="overflow: visible !important;">
+                                                        <div class="dropdown">
+                                    <span class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <a href dropdown-toggle>
+                                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                                        </a>
+                                    </span>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                                        <li><a ui-sref="home.users.user.view({userid: 'userid'})">更多信息</a></li>
+                                                                        <li role="separator" class="divider"></li>
+                                                                        <li><a  ui-sref="home.users.user.edit({userid: 'userid'})">修改</a></li>
+                                                                        <li><a a href="javascript:;" ng-click="vm.Delete(usergroup.usergroup)">删除</a></li>
+                                                                </ul>
+                                                        </div>
+                                                </td>
+                                        </tr>
+                                        </tbody>
+                                </table>
+                                <tm-pagination conf="vm.paginationConf"></tm-pagination>
+                        </div>
+                </div>
         </div>
 </div>
+
+<link rel="stylesheet" href="users/users.css" />
