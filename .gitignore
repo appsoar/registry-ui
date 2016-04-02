@@ -7,3 +7,4 @@
 /.idea
 /server/upload
 /server/npm-debug.log
+/Dockerfile/dist.tar

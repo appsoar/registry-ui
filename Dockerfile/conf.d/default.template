@@ -1,0 +1,24 @@
+upstream registry {
+    server ${REGISTRY_BACKEND_HOST}:${REGISTRY_BACKEND_PORT};
+}
+ 
+server {
+      listen   80;
+      root   /dist;
+      #charset koi8-r;
+      #access_log  logs/host.access.log  main;
+      index  index.html;
+      server_name localhost;
+      location ^~/api/v0/ {
+            #proxy_set_header Host $http_host;
+            #proxy_set_header X-Real-IP $remote_addr;
+            #proxy_set_header X-Scheme $scheme;
+            proxy_pass http://registry;
+        }
+      location ~*\.(html|js|svg|css|png|woff2|woff|ttf|jpg) {
+            allow all;
+      }
+      location / {
+            rewrite / /index.html break;
+      }
+}
