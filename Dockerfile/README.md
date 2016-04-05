@@ -13,13 +13,14 @@ cd Dockerfile
 
 Change the value of REGISTRY_BACKEND_HOST and REGISTRY_BACKEND_PORT in the docker-compose.yml, they should be the correct backend host and port. Then run the command as follow. Are you sure that  dist.tar is in the Dockerfile?
 ```bash
+docker pull nginx:1.8.1
 docker-compose -f docker-compose.yml up
 ```
  The image will be built automatically , after this a container will be created and attached auto. Next you can visit http://hostip(our default port is 80, you can also change it in the docker-compose.yml) and manage your images. Enjoy!
 
 #### about nginx
 
-nginx.conf and conf.d's files  are used to configure nginx. You can add other conf in them to achieve your function.  Please do not delete default.conf file, though all lines are commented. 
+nginx.conf and conf.d's files  are used to configure nginx. You can add other conf in them to achieve your function.  Please do not delete default.conf and ssl.conf, though all lines are commented. 
 
 
 

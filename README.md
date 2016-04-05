@@ -16,7 +16,7 @@ Prerequisites:
 * [Node.js](http://nodejs.org/) 5.7.0 (with NPM)
 * [Yo](http://www.yeoman.com/)
 * [Grunt](www.gruntjs.net)
-*[Ruby](www.ruby.com)
+*[Ruby](http://www.ruby-lang.org/zh_cn/)
 
 If you're on a Ubuntu host, you can follow these steps:
 ```bash
@@ -53,7 +53,7 @@ Connect to UI at http://localhost:9000/ .  The server automatically picks up fil
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `grunt build` for building and `grunt serve` for preview.
 
 ## Testing
 

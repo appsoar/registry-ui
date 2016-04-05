@@ -30,7 +30,7 @@ angular.module('registryUiApp').factory('LoadingHandler', function LoadingHandle
   };
 
   LoadingHandler.request = function (config) {
-    if(config.url.indexOf('/api/v0')> -1){
+    if(config.url.indexOf('/api')> -1){
       // config.timeout = 10000;
       incRef();
     }
@@ -38,14 +38,14 @@ angular.module('registryUiApp').factory('LoadingHandler', function LoadingHandle
   };
 
   LoadingHandler.response = function (resp) {
-    if(resp.config.url.indexOf('/api/v0')> -1){
+    if(resp.config.url.indexOf('/api')> -1){
       decRef();
     }
     return $q.when(resp);
   };
 
   LoadingHandler.responseError = function (rejection) {
-    if(rejection.config.url.indexOf('/api/v0')> -1){
+    if(rejection.config.url.indexOf('/api')> -1){
       decRef();
     }
     return $q.reject(rejection);

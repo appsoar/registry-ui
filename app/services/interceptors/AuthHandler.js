@@ -3,7 +3,7 @@ angular.module('registryUiApp').factory('AuthHandler', function AuthHandlerFacto
   return {
     responseError: function (rejection) {
       var $state = $injector.get('$state');
-      if (rejection.status === 401&& rejection.config.url != '/api/v0/login') {
+      if (rejection.status === 401&& rejection.config.url != '/api/login') {
       // if (rejection.status === 401) {
           toastr.error('error code:401', 'Unauth');
           $state.go('login');

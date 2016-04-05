@@ -2,7 +2,7 @@
 
 angular.module('registryUiApp').factory('wsService', function($websocket, wsUrl) {
       // Open a WebSocket connection
-      var ws = $websocket(wsUrl+'/api/v0/sysinfo');
+      var ws = $websocket(wsUrl+'/api/sysinfo');
 
       var collection = [] ;
       ws.onError(function (event) {

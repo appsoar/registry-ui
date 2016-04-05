@@ -1,7 +1,7 @@
 'use strict';
 angular.module('registryUiApp')
 .factory('Repository', function($resource){
-  return $resource('/api/v0/repositories', {}, {
+  return $resource('/api/repositories', {}, {
     'query': {
       method:'GET',
       isArray: false,
@@ -22,7 +22,7 @@ angular.module('registryUiApp')
     },
   });
 }).factory('Namespace', function($resource, _){
-  return $resource('/api/v0/namespaces', {}, {
+  return $resource('/api/namespaces', {}, {
     'query': {
       method:'GET',
       isArray: false,
@@ -43,7 +43,7 @@ angular.module('registryUiApp')
     },
   });
 }).factory('ImageDetail', function($resource){
-    return $resource('/api/v0/repository/:namespace/:reponame', {}, {
+    return $resource('/api/repository/:namespace/:reponame', {}, {
     'query': {
       method:'GET',
       isArray: true,
@@ -52,7 +52,7 @@ angular.module('registryUiApp')
       }
     },
     'tag': {
-        url: '/api/v0/tag/:namespace/:reponame/:tag',
+        url: '/api/tag/:namespace/:reponame/:tag',
         method: 'GET',
         isArray: false,
         transformResponse: function(data, headers){

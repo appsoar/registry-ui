@@ -4,5 +4,5 @@ registry-ui:
     - "80:80"
   environment:
     - REGISTRY_BACKEND_HOST=192.168.18.250
-    - REGISTRY_BACKEND_PORT=9090
+    - REGISTRY_BACKEND_PORT=9182
   command: /bin/bash -c "envsubst < /etc/nginx/conf.d/default.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"

@@ -2,7 +2,7 @@
 
 angular.module('registryUiApp').factory('UpgradeService', function($resource){
   // return $resource('/data/upgrade.json', {}, {
-  return $resource('/api/v0/settings/upgrade', {}, {
+  return $resource('/api/settings/upgrade', {}, {
       'query': {
         method: 'GET',
         isArray: false,

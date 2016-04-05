@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('registryUiApp').controller('CsLatestLogsController' ,function($scope){
-        console.log($scope.logs);
+        // console.log($scope.logs);
 });
 angular.module('registryUiApp').directive('csLatestLogs', function(){
   return {

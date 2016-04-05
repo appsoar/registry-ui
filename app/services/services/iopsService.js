@@ -4,7 +4,7 @@
 var iopsApp = angular.module('registryUiApp');
 
 iopsApp.factory('iopsListService', ['$resource', function($resource) {
-    return $resource('/api/v0/sysinfo/netifs', {}, {
+    return $resource('/api/sysinfo/netifs', {}, {
         'query': {
             method:'GET',
             isArray: true,
@@ -24,7 +24,7 @@ iopsApp.factory('iopsListService', ['$resource', function($resource) {
             }]);
 //{"iface":"ens33","TxBytes":3020,"RxBytes":1544}
     iopsApp.factory('iopsService', ['$resource', function($resource) {
-        return $resource('/api/v0/sysinfo/netifs/:netifs', {}, {
+        return $resource('/api/sysinfo/netifs/:netifs', {}, {
             'query': {
                 method:'GET',
                 isArray: false,

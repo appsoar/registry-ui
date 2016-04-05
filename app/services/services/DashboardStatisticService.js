@@ -5,7 +5,7 @@
 
 angular.module('registryUiApp').factory('dashboardStatisticService', function($websocket, wsUrl) {
     // Open a WebSocket connection
-    var ws = $websocket(wsUrl+'/api/v0/stats');
+    var ws = $websocket(wsUrl+'/api/stats');
     var collection = [] ;
     ws.onError(function (event) {
         console.error('connection Error', event);
