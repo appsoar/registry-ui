@@ -69,7 +69,7 @@ angular.module('registryUiApp').config(function ($stateProvider, $urlRouterProvi
         template: '<div ui-view></div>',
         abstract: true
     }).state('home.users.user.list', {
-        url: '/list',
+        url: '/list?usergroupid',
         templateUrl: '/users/user/users.html',
         controller: 'usersCtrl as vm'
     }).state('home.users.user.add', {

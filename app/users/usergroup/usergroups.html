@@ -51,7 +51,10 @@
                                 <tr ng-repeat="usergroup in vm.usergrouplist">
                                         <td><a ui-sref="home.users.group.view({usergroupid: 'usergroupid'})"  ng-bind="usergroup.usergroup"></a></td>
                                         <td ng-bind="usergroup.namespace"></td>
-                                        <td ><a href="#" ng-bind="usergroup.uasenum"></a> </td>
+                                        <td >
+                                                <a ui-sref="home.users.user.list({usergroupid:'{{usergroup.usergroup}}'})" ng-bind="usergroup.uasenum"></a>
+
+                                        </td>
                                         <td ng-bind="usergroup.desc"></td>
                                         <td style="overflow: visible !important;">
                                                 <div class="dropdown">
